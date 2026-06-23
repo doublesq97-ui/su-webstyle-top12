@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海外主流网页风格十二宫格</title>
+<style>
+  :root {
+    --page: #f2f0ea;
+    --ink: #151515;
+    --muted: #68655e;
+    --line: #d7d0c4;
+    --panel: #fbfaf6;
+    --shadow: 0 24px 70px rgba(38, 34, 28, .13);
+    --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "PingFang SC", sans-serif;
+    --serif: Georgia, "Times New Roman", "Noto Serif SC", serif;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; }
+  html { background: var(--page); color: var(--ink); }
+  body {
+    margin: 0;
+    font-family: var(--sans);
+    background:
+      linear-gradient(90deg, rgba(21,21,21,.035) 1px, transparent 1px),
+      linear-gradient(rgba(21,21,21,.028) 1px, transparent 1px),
+      var(--page);
+    background-size: 56px 56px;
+  }
+
+  .sheet {
+    width: min(1800px, calc(100vw - 36px));
+    margin: 28px auto 42px;
+    padding: clamp(22px, 3vw, 44px);
+    background: rgba(251, 250, 246, .92);
+    box-shadow: var(--shadow);
+  }
+
+  header {
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: clamp(26px, 4vw, 72px);
+    align-items: end;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .kicker {
+    margin: 0 0 18px;
+    font: 700 12px/1 var(--mono);
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: #8a4f31;
+  }
+
+  h1 {
+    margin: 0;
+    max-width: 940px;
+    font: 640 clamp(42px, 6.4vw, 108px)/.94 var(--serif);
+    letter-spacing: 0;
+  }
+
+  .intro {
+    margin: 0;
+    max-width: 620px;
+    color: var(--muted);
+    font-size: clamp(14px, 1.35vw, 18px);
+    line-height: 1.75;
+  }
+
+  .intro strong { color: var(--ink); font-weight: 750; }
+
+  .legend {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    margin-top: 22px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+
+  .legend span {
+    background: #f8f6ef;
+    padding: 12px 14px;
+    font-size: 12px;
+    color: #5f5b52;
+  }
+
+  .board {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 28px;
+  }
+
+  .style-card {
+    min-height: 480px;
+    display: grid;
+    grid-template-rows: 58px 1fr 144px;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--fg);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--fg) 16%, transparent);
+  }
+
+  .style-head,
+  .style-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 16px 18px;
+  }
+
+  .style-head {
+    border-bottom: 1px solid color-mix(in srgb, var(--fg) 14%, transparent);
+  }
+
+  .style-no {
+    font: 800 12px/1 var(--mono);
+    letter-spacing: .08em;
+    opacity: .72;
+  }
+
+  .style-tag {
+    font: 700 11px/1 var(--mono);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    opacity: .62;
+    white-space: nowrap;
+  }
+
+  .creator-mark {
+    position: absolute;
+    right: 18px;
+    bottom: 16px;
+    z-index: 4;
+    font: 700 10px/1 var(--mono);
+    letter-spacing: .06em;
+    opacity: .5;
+    pointer-events: none;
+  }
+
+  .mock {
+    position: relative;
+    min-height: 278px;
+    padding: 22px;
+  }
+
+  .style-title {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    max-width: 88%;
+    font-size: clamp(28px, 2.9vw, 52px);
+    line-height: .95;
+    letter-spacing: 0;
+  }
+
+  .style-sub {
+    position: relative;
+    z-index: 2;
+    margin-top: 12px;
+    max-width: 75%;
+    font-size: 13px;
+    line-height: 1.55;
+    opacity: .76;
+  }
+
+  .style-foot {
+    align-items: end;
+    border-top: 1px solid color-mix(in srgb, var(--fg) 14%, transparent);
+  }
+
+  .usage {
+    margin: 0;
+    max-width: 64%;
+    font-size: 12px;
+    line-height: 1.55;
+    opacity: .78;
+  }
+
+  .swatches {
+    display: flex;
+    gap: 5px;
+    align-items: end;
+  }
+
+  .swatches i {
+    width: 22px;
+    height: 46px;
+    display: block;
+    background: var(--c);
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,.1);
+  }
+
+  .clean .mock {
+    background:
+      linear-gradient(90deg, transparent 0 58%, color-mix(in srgb, var(--accent) 16%, transparent) 58% 100%);
+  }
+  .clean .window {
+    position: absolute;
+    right: 24px;
+    bottom: 26px;
+    width: 46%;
+    height: 46%;
+    background: #fff;
+    box-shadow: 0 22px 45px rgba(43, 67, 92, .14);
+    padding: 18px;
+  }
+  .clean .window::before,
+  .clean .window::after {
+    content: "";
+    display: block;
+    height: 10px;
+    background: #dbe8e5;
+    margin-bottom: 12px;
+  }
+  .clean .window::after { width: 68%; background: var(--accent); }
+
+  .editorial .style-title {
+    font-family: var(--serif);
+    font-size: clamp(42px, 4.6vw, 82px);
+  }
+  .editorial .photo {
+    position: absolute;
+    right: 22px;
+    top: 22px;
+    width: 42%;
+    height: 70%;
+    background:
+      linear-gradient(135deg, rgba(0,0,0,.75), rgba(0,0,0,.05)),
+      repeating-linear-gradient(90deg, #111 0 3px, #efefef 3px 7px);
+    filter: grayscale(1);
+  }
+  .editorial .rule {
+    position: absolute;
+    left: 22px;
+    bottom: 34px;
+    width: 74%;
+    height: 1px;
+    background: currentColor;
+    opacity: .45;
+  }
+
+  .darktech .mock {
+    background:
+      radial-gradient(circle at 72% 35%, rgba(107, 142, 230, .22), transparent 34%),
+      linear-gradient(135deg, rgba(255,255,255,.06), transparent 42%);
+  }
+  .darktech .codebox {
+    position: absolute;
+    right: 22px;
+    bottom: 26px;
+    width: 56%;
+    height: 43%;
+    border: 1px solid rgba(226, 232, 240, .18);
+    background: rgba(255,255,255,.045);
+    padding: 15px;
+  }
+  .darktech .codebox span {
+    display: block;
+    height: 8px;
+    margin-bottom: 10px;
+    background: rgba(229, 239, 255, .52);
+  }
+  .darktech .codebox span:nth-child(2) { width: 74%; background: var(--accent); }
+  .darktech .codebox span:nth-child(3) { width: 52%; }
+
+  .stripe .mock {
+    background:
+      linear-gradient(132deg, transparent 0 42%, color-mix(in srgb, var(--accent) 72%, white) 42% 58%, transparent 58%),
+      linear-gradient(160deg, transparent 0 64%, color-mix(in srgb, #6ee7b7 55%, white) 64% 78%, transparent 78%);
+  }
+  .stripe .pay {
+    position: absolute;
+    right: 28px;
+    bottom: 30px;
+    width: 47%;
+    height: 34%;
+    background: #fff;
+    color: #172033;
+    box-shadow: 0 18px 35px rgba(55, 70, 110, .18);
+    padding: 16px;
+  }
+  .stripe .pay b {
+    display: block;
+    font-size: 24px;
+    margin-bottom: 14px;
+  }
+  .stripe .pay span {
+    display: inline-block;
+    width: 34%;
+    height: 8px;
+    background: #6957ff;
+    margin-right: 8px;
+  }
+
+  .friendly .mock {
+    background:
+      linear-gradient(90deg, transparent 0 48%, rgba(255,255,255,.6) 48% 100%);
+  }
+  .friendly .blocks {
+    position: absolute;
+    right: 26px;
+    bottom: 30px;
+    width: 44%;
+    display: grid;
+    gap: 8px;
+  }
+  .friendly .blocks span {
+    height: 32px;
+    background: #fff;
+    box-shadow: 0 8px 22px rgba(40,40,40,.08);
+  }
+  .friendly .blocks span:nth-child(2) { transform: translateX(-18px); background: var(--accent); }
+
+  .apple .mock {
+    display: flex;
+    align-items: end;
+  }
+  .apple .device {
+    position: absolute;
+    right: 30px;
+    bottom: 28px;
+    width: 38%;
+    aspect-ratio: 3 / 4.2;
+    border-radius: 28px;
+    background:
+      linear-gradient(145deg, rgba(255,255,255,.96), rgba(196,203,211,.56)),
+      linear-gradient(#111, #111);
+    box-shadow: 0 28px 55px rgba(30,30,32,.22);
+  }
+  .apple .device::after {
+    content: "";
+    position: absolute;
+    inset: 18px;
+    border-radius: 18px;
+    background: linear-gradient(145deg, #111827, #e5e7eb);
+    opacity: .92;
+  }
+
+  .swiss .mock {
+    background:
+      linear-gradient(90deg, transparent 0 24%, var(--accent) 24% 31%, transparent 31%),
+      linear-gradient(0deg, transparent 0 64%, rgba(0,0,0,.07) 64% 65%, transparent 65%);
+  }
+  .swiss .style-title {
+    font-weight: 900;
+    max-width: 70%;
+  }
+  .swiss .gridmark {
+    position: absolute;
+    right: 26px;
+    bottom: 32px;
+    width: 38%;
+    height: 36%;
+    background-image: radial-gradient(currentColor 1.2px, transparent 1.2px);
+    background-size: 13px 13px;
+    opacity: .35;
+  }
+
+  .bento .tiles {
+    position: absolute;
+    inset: 112px 22px 24px;
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 9px;
+  }
+  .bento .tiles span {
+    background: rgba(255,255,255,.76);
+    box-shadow: inset 0 0 0 1px rgba(22, 39, 54, .08);
+  }
+  .bento .tiles span:first-child { grid-row: span 2; background: var(--accent); }
+
+  .brutal {
+    box-shadow: inset 0 0 0 3px var(--fg);
+  }
+  .brutal .mock {
+    background:
+      linear-gradient(90deg, transparent 0 54%, var(--accent) 54% 100%);
+  }
+  .brutal .style-title {
+    font-weight: 950;
+    text-transform: uppercase;
+    text-shadow: 4px 4px 0 color-mix(in srgb, var(--accent) 78%, white);
+  }
+  .brutal .stamp {
+    position: absolute;
+    right: 28px;
+    bottom: 32px;
+    padding: 12px 18px;
+    border: 3px solid currentColor;
+    transform: rotate(-5deg);
+    font-weight: 900;
+  }
+
+  .luxury .style-title {
+    font-family: var(--serif);
+    font-weight: 520;
+  }
+  .luxury .image {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    height: 76%;
+    background:
+      linear-gradient(140deg, rgba(25,21,18,.22), rgba(25,21,18,.65)),
+      linear-gradient(90deg, #d8c4a0, #211915);
+  }
+  .luxury .thin {
+    position: absolute;
+    left: 22px;
+    bottom: 42px;
+    width: 34%;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .utility .dash {
+    position: absolute;
+    inset: 112px 22px 26px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 58px 1fr;
+    gap: 8px;
+  }
+  .utility .dash span {
+    background: rgba(255,255,255,.78);
+    box-shadow: inset 0 0 0 1px rgba(28,45,67,.1);
+  }
+  .utility .dash span:nth-child(4) {
+    grid-column: span 3;
+    background:
+      linear-gradient(90deg, transparent 0 12%, var(--accent) 12% 14%, transparent 14% 32%, var(--accent) 32% 34%, transparent 34%),
+      rgba(255,255,255,.78);
+  }
+
+  .playful .mock {
+    background:
+      radial-gradient(circle at 72% 32%, var(--accent) 0 15%, transparent 15%),
+      radial-gradient(circle at 86% 68%, #ffbd59 0 10%, transparent 10%),
+      radial-gradient(circle at 54% 78%, #71d8c9 0 11%, transparent 11%);
+  }
+  .playful .style-title {
+    font-weight: 900;
+    transform: rotate(-2deg);
+  }
+  .playful .wiggle {
+    position: absolute;
+    right: 30px;
+    bottom: 40px;
+    width: 44%;
+    height: 42px;
+    background:
+      radial-gradient(circle at 10px 21px, currentColor 3px, transparent 4px) 0 0 / 28px 42px;
+    opacity: .42;
+  }
+
+  .notes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 28px;
+  }
+
+  .note {
+    padding: 22px 24px;
+    background: #eee8dc;
+    color: #403a32;
+  }
+
+  .note h2 {
+    margin: 0 0 12px;
+    font: 720 18px/1.2 var(--sans);
+  }
+
+  .note p {
+    margin: 0;
+    color: #635b50;
+    line-height: 1.75;
+    font-size: 14px;
+  }
+
+  @media (max-width: 1180px) {
+    header,
+    .notes { grid-template-columns: 1fr; }
+    .board { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 720px) {
+    .sheet { width: calc(100vw - 20px); padding: 18px; margin-top: 10px; }
+    .board,
+    .legend { grid-template-columns: 1fr; }
+    .style-card { min-height: 440px; }
+    .legend span { padding: 10px 12px; }
+  }
+
+  @media print {
+    body { background: #f2f0ea; }
+    .sheet {
+      width: 1800px;
+      margin: 0;
+      box-shadow: none;
+    }
+  }
+</style>
+</head>
+<body>
+  <main class="sheet">
+    <header>
+      <div>
+        <p class="kicker">Website Style Atlas · 12 mainstream overseas directions</p>
+        <h1>海外主流网页风格十二宫格</h1>
+      </div>
+      <div>
+        <p class="intro">给以后复用的视觉索引：每格不是完整页面，而是把<strong>颜色、排版骨架、视觉气质和适用场景</strong>压缩成一个可扫读样张。你最开始描述的白底、色块、整洁、偏商务但不硬的方向，对应第 01 格。</p>
+        <div class="legend">
+          <span>好看：视觉记忆点强</span>
+          <span>实用：适合产品转化</span>
+          <span>商务：可信、稳定、可汇报</span>
+          <span>设计感：排版/品牌表达突出</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="board" aria-label="十二种海外网页设计风格">
+      <article class="style-card clean" style="--bg:#f8fbf9;--fg:#18251f;--accent:#b8d7cc;">
+        <div class="style-head"><span class="style-no">01</span><span class="style-tag">Clean SaaS</span></div>
+        <div class="mock">
+          <h2 class="style-title">Modern SaaS Clean</h2>
+          <p class="style-sub">白底、柔和色块、圆角模块、清晰层级。商务但不端着。</p>
+          <div class="window"></div>
+          <span class="creator-mark">@Sukiea1008</span>
+        </div>
+        <div class="style-foot">
+          <p class="usage">AI 工具 / B2B SaaS / 效率产品 / 咨询服务</p>
+          <div class="swatches"><i style="--c:#f8fbf9"></i><i style="--c:#dceee8"></i><i style="--c:#b8d7cc"></i><i style="--c:#365d52"></i></div>
+        </div>
+      </article>
+
+      <article class="style-card editorial" style="--bg:#f3efe7;--fg:#171717;--accent:#a76446;">
+        <div class="style-head"><span class="style-no">02</span><span class="style-tag">Editorial Tech</span></div>
+        <div class="mock">
+          <div class="photo"></div>
+          <h2 class="style-title">Editorial Tech</h2>
+          <p class="style-sub">杂志网格、超大标题、少量点缀色，内容感很强。</p>
+          <div class="rule"></div>
+          <span class="creator-mark">@Sukiea1008</span>
+        </div>
+        <div class="style-foot">
+          <p class="usage">AI 公司 / 研究机构 / 高端专业服务 / 品牌故事页</p>
+          <div class="swatches"><i style="--c:#f3efe7"></i><i style="--c:#ffffff"></i><i style="--c:#171717"></i><i style="--c:#a76446"></i></div>
+        </div>
+      </article>
+
+      <article class="style-card darktech" style="--bg:#0e1117;--fg:#e7eef8;--accent:#7aa2ff;">
+        <div class="style-head"><span class="style-no">03</span><span class="style-tag">Dark Devtool</span></div>
+        <div class="mock">
+          <h2 class="style-title">Linear / Vercel Dark</h2>
+          <p class="style-sub">深色、细线、代码感、冷静技术信任。</p>
+          <div class="codebox"><span></span><span></span><span></span></div>
+          <span class="creator-mark">@Sukiea1008</span>
+        </div>
+        <div class="style-foot">
+          <p class="usage">开发者工具 / API / 基础设施 / 模型平台</p>
+          <div class="swatches"><i style="--c:#0e1117"></i><i style="--c:#1f2937"></i><i style="--c:#7aa2ff"></i><i style="--c:#e7eef8"></i></div>
+        </div>
+      </article>
+
+      <article class="style-card stripe" style="--bg:#f7f9ff;--fg:#172033;--accent:#6957ff;">
+        <div class="style-head"><span class="style-no">04</span><span class="style-tag">Fintech Color</span></div>
+        <div class="mock">
+          <h2 class="style-title">Stripe-ish Business</h2>
+          <p class="style-sub">白底和彩色几何，让商业产品更现代。</p>
+          <div class="pay"><b>$42K</b><span></span><span></span></div>
+          <span class="creator-mark">@Sukiea1008</span>
+        </div>
+        <div class="style-foot">
+          <p class="usage">支付 / 金融科技 / 平台型产品 / 企业服务</p>
+          <div class="swatches"><i style="--c:#f7f9ff"></i><i style="--c:#6957ff"></i><i style="--c:#20c997"></i><i style="--c:#172033"></i></div>
+        </div>
+      </article>
+
+      <article class="style-card friendly" style="--bg:#fbfaf7;--fg:#22201d;--accent:#ffe066;">
+        <div class="style-head"><span class="style-no">05</span><span class="style-tag">Friendly Productivity</span></div>
+        <div class="mock">
+          <h2 class="style-title">Notion / Figma Friendly</h2>
+          <p class="style-sub">轻插画、产品截图、亲和文案，聪明但不冷。</p>
+          <div class="blocks"><span></span><span></span><span></span></div>
+          <span class="creator-mark">@Sukiea1008</span>
+        </div>
+        <div class="style-foot">
+          <p class="usage">协作工具 / 知识管理 / 创作者工具 / 轻办公</p>
+          <div class="swatches"><i style="--c:#fbfaf7"></i><i style="--c:#ffe066"></i><i style="--c:#91d5ff"></i><i style="--c:#22201d"></i></div>
+        </div>
+      </article>
+
+      <article class="style-card apple" style="--bg:#f6f7f8;--fg:#111315;--accent:#c8ccd1;">
+        <div class="style-head"><span class="style-no">06</span><span class="style-tag">Premium Minimal</span></div>
+        <div class="mock">
+          <h2 class="style-title">Apple Premium Minimal</h2>
+          <p class="style-sub">极少颜色、强焦点、大留白，素材质量决定上限。</p>
+          <div class="device"></div>
+          <span class="creator-mark">@Sukiea1008</span>
+        </div>
+        <div class="style-foot">
+          <p class="usage">硬件 / 消费电子 / 高端软件 / 品牌官网</p>
+          <div class="swatches"><i style="--c:#f6f7f8"></i><i style="--c:#e2e5e8"></i><i style="--c:#7b8087"></i><i style="--c:#111315"></i></div>
+        </div>
+      </article>
+
+      <article class="style-card swiss" style="--bg:#f8f8f1;--fg:#101010;--accent:#0047ff;">
+        <div class="style-head"><span class="style-no">07</span><span class="style-tag">Swiss Grid</span></div>
+        <div class="mock">
+          <h2 class="style-title">Swiss International</h2>
+          <p class="style-sub">理性网格、强对齐、黑白灰和高饱和小色块。</p>
+          <div class="gridmark"></div>
+          <span class="creator-mark">@Sukiea1008</span>
+        </div>
+        <div class="style-foot">
+          <p class="usage">设计机构 / 建筑 / 文化项目 / 专业作品集</p>
+          <div class="swatches"><i style="--c:#f8f8f1"></i><i style="--c:#101010"></i><i style="--c:#0047ff"></i><i style="--c:#fff200"></i></div>
+        </div>
+      </article>
+
+      <article class="style-card bento" style="--bg:#eef4f7;--fg:#162736;--accent:#c8e6ff;">
+        <div class="style-head"><span class="style-no">08</span><span class="style-tag">Bento Product</span></div>
+        <div class="mock">
+          <h2 class="style-title">Bento Grid</h2>
+          <p class="style-sub">模块化展示产品能力，信息密度高又好扫。</p>
+          <div class="tiles"><span></span><span></span><span></span></div>
+          <span class="creator-mark">@Sukiea1008</span>
+        </div>
+        <div class="style-foot">
+          <p class="usage">AI 产品 / 多功能工具 / 数据产品 / 功能矩阵</p>
+          <div class="swatches"><i style="--c:#eef4f7"></i><i style="--c:#ffffff"></i><i style="--c:#c8e6ff"></i><i style="--c:#162736"></i></div>
+        </div>
+      </article>
+
+      <article class="style-card brutal" style="--bg:#fff5c2;--fg:#111111;--accent:#ff4f1f;">
+        <div class="style-head"><span class="style-no">09</span><span class="style-tag">Neo Brutal</span></div>
+        <div class="mock">
+          <h2 class="style-title">Neo Brutalism</h2>
+          <p class="style-sub">粗边框、高对比、大字，抓眼但有冒犯性。</p>
+          <div class="stamp">BOLD</div>
+          <span class="creator-mark">@Sukiea1008</span>
+        </div>
+        <div class="style-foot">
+          <p class="usage">创意工作室 / 活动页 / 年轻品牌 / 实验项目</p>
+          <div class="swatches"><i style="--c:#fff5c2"></i><i style="--c:#ff4f1f"></i><i style="--c:#111111"></i><i style="--c:#ffffff"></i></div>
+        </div>
+      </article>
+
+      <article class="style-card luxury" style="--bg:#eee7d9;--fg:#241b17;--accent:#b9975b;">
+        <div class="style-head"><span class="style-no">10</span><span class="style-tag">Luxury Editorial</span></div>
+        <div class="mock">
+          <div class="image"></div>
+          <h2 class="style-title">Luxury Editorial</h2>
+          <p class="style-sub">衬线、大图、克制金色，像高端杂志和精品品牌。</p>
+          <div class="thin"></div>
+          <span class="creator-mark">@Sukiea1008</span>
+        </div>
+        <div class="style-foot">
+          <p class="usage">高端品牌 / 艺术 / 时尚 / 顾问个人品牌</p>
+          <div class="swatches"><i style="--c:#eee7d9"></i><i style="--c:#241b17"></i><i style="--c:#b9975b"></i><i style="--c:#ffffff"></i></div>
+        </div>
+      </article>
+
+      <article class="style-card utility" style="--bg:#f5f7fa;--fg:#1c2d43;--accent:#2f80ed;">
+        <div class="style-head"><span class="style-no">11</span><span class="style-tag">Enterprise Utility</span></div>
+        <div class="mock">
+          <h2 class="style-title">Data Dashboard</h2>
+          <p class="style-sub">表格、筛选、状态、图表，效率优先。</p>
+          <div class="dash"><span></span><span></span><span></span><span></span></div>
+          <span class="creator-mark">@Sukiea1008</span>
+        </div>
+        <div class="style-foot">
+          <p class="usage">管理系统 / 数据平台 / 投研工具 / 运营后台</p>
+          <div class="swatches"><i style="--c:#f5f7fa"></i><i style="--c:#e6edf5"></i><i style="--c:#2f80ed"></i><i style="--c:#1c2d43"></i></div>
+        </div>
+      </article>
+
+      <article class="style-card playful" style="--bg:#fff7ee;--fg:#2b2b2b;--accent:#ff6b6b;">
+        <div class="style-head"><span class="style-no">12</span><span class="style-tag">Playful Startup</span></div>
+        <div class="mock">
+          <h2 class="style-title">Playful Startup</h2>
+          <p class="style-sub">明亮色彩、插画感、不规则形状，更亲近年轻用户。</p>
+          <div class="wiggle"></div>
+          <span class="creator-mark">@Sukiea1008</span>
+        </div>
+        <div class="style-foot">
+          <p class="usage">教育 / 社区 / 创作者平台 / 轻消费产品</p>
+          <div class="swatches"><i style="--c:#fff7ee"></i><i style="--c:#ff6b6b"></i><i style="--c:#71d8c9"></i><i style="--c:#2b2b2b"></i></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="notes">
+      <div class="note">
+        <h2>怎么复用</h2>
+        <p>做网站时先选一个主风格，再只借另一个风格的局部手法。比如「01 Clean SaaS」可以借「08 Bento」的信息组织，或借「02 Editorial」的大标题气质。不要一次混三套以上，否则会变成视觉拼盘。</p>
+      </div>
+      <div class="note">
+        <h2>你原手册可优化点</h2>
+        <p>原文件适合 Agent 读，但给人看时信息偏长。建议拆成两份：一份保留工作流和硬规则，另一份做成这种风格索引板；另外把“强制确认形态”从所有任务硬规则，改成在用户已明确说 HTML/PPT/海报时可直接执行，会更顺手。</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

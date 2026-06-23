@@ -1,0 +1,8 @@
+interface:
+  display_name: "SU Webstyle Top 12"
+  short_description: "海外网页风格 Top12 图谱"
+  brand_color: "#B9975B"
+  default_prompt: "Use $su-webstyle-top12 to show me the Top 12 overseas web styles so I can choose one."
+
+policy:
+  allow_implicit_invocation: true
