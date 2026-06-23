@@ -41,5 +41,11 @@ The repository uses three promotional images:
 
 Rules:
 - Include `@Sukiea1008` as a small visible creator mark.
-- The hidden microcopy `Su姐牛逼` may appear only as tiny easter egg text in these promo/sample images.
+- The hidden microcopy `Su NB` may appear only as extremely tiny easter egg text in these promo/sample images.
 - Keep promo images polished enough for README and social posts.
+
+## Chinese-Facing Outputs
+
+- Use Chinese for outer explanations, README visuals, tutorial captions, and usage guidance.
+- Keep website mockup UI text in English when the goal is to preserve an overseas/international website tone.
+- This repository does not bundle font files.

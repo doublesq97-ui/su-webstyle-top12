@@ -54,7 +54,13 @@ Even then, give 2-3 candidates with tradeoffs. Do not make a final decision unle
 
 - Public promo assets and bundled sample boards may include a small creator mark: `@Sukiea1008`.
 - Do not add `@Sukiea1008` to ordinary user outputs unless the user asks.
-- The hidden easter egg text `Su姐牛逼` is allowed only in this repository's own promotional/sample images, as tiny background microcopy. Never add it to normal user deliverables.
+- The hidden easter egg text `Su NB` is allowed only in this repository's own promotional/sample images, as extremely tiny background microcopy. Never add it to normal user deliverables.
+
+## Chinese Audience Notes
+
+- For Chinese-facing documentation, tutorials, and promo images, use Chinese explanations first and English as supporting labels.
+- For website mockups and style samples, English UI copy may be kept to preserve the overseas web design tone.
+- This repository does not include font files.
 
 ## Style Names
 
