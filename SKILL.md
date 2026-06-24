@@ -48,7 +48,7 @@ Even then, give 2-3 candidates with tradeoffs. Do not make a final decision unle
 2. If the style is not selected and the mode is Browse/Choose, show the Top 12 menu and stop for user choice unless the user asked for a full board.
 3. If the mode is Recommend, give 2-3 style candidates with clear tradeoffs.
 4. If the style is selected, apply the selected style to the requested output.
-5. Validate that the output matches the style's palette, density, typography tone, and layout rules.
+5. Validate that the output matches the style's palette, density, typography tone, layout rules, and viewport section ratio rules.
 
 ## Creator Mark Rules
 
@@ -106,6 +106,12 @@ Choose one, or ask me to decide.
 
 For generated website examples:
 - The result must look like a complete homepage, not a decorative moodboard.
-- Include a nav, hero, primary visual/product area, at least one follow-up section hint, and a credible CTA or brand element.
+- Include a nav, hero, primary visual/product area, at least one complete follow-up section, and a credible CTA or brand element.
+- Design pages as complete viewport sections, not a long pile of partial content. Each major section should be screenshot-ready as its own full-screen composition.
+- Use `min-height: 100svh` for the hero and every major follow-up section by default, including feature, material, platform, product, proof, and details sections.
+- Do not expose the next section's body copy in the initial viewport. If scroll affordance is needed, use a restrained scroll indicator, bottom fade, or CTA cue instead of showing the next section.
+- The second section must not look like a clipped continuation. It needs its own full-screen composition, vertical breathing room, clear heading area, and content area.
+- On desktop, center each section's inner layout within the viewport with stable spacing, for example `display: flex; align-items: center;`. On mobile, allow natural growth but keep `min-height: 100svh`.
+- If a short desktop viewport is cramped, reduce internal scale or hide secondary metrics/details before reducing section height.
 - Avoid generic AI aesthetics: default purple-blue gradients, glassmorphism everywhere, empty card grids, or fake filler copy.
 - Use the selected style intentionally; do not mix more than two styles unless the user asks.

@@ -30,6 +30,7 @@ Use this file as the style reference. Keep explanations practical and choice-ori
 
 - Feel: colorful, commercial, platform-like, international.
 - Layout: white base with vivid geometric planes, payment/data cards, confident CTA.
+- Viewport rule: hero and platform/features sections should each be full-screen compositions (`min-height: 100svh`); do not turn the second section into a shallow row of cards attached to the hero.
 - Palette: `#F7F9FF`, `#6957FF`, `#20C997`, `#172033`, `#8AC5FF`.
 - Best for: fintech, marketplaces, enterprise platforms, payment or commerce tools.
 - Caution: gradients/geometric color need discipline; do not let them overpower content.
@@ -46,6 +47,7 @@ Use this file as the style reference. Keep explanations practical and choice-ori
 
 - Feel: premium, quiet, precise, high confidence.
 - Layout: huge whitespace, one hero object, strong visual focus, very few colors.
+- Viewport rule: every section should feel like a complete product advertising page; hero and material/details sections need full-screen composition (`min-height: 100svh`) with vertical breathing room, not a horizontal banner crop.
 - Palette: `#F6F7F8`, `#E2E5E8`, `#7B8087`, `#111315`, `#FFFFFF`.
 - Best for: hardware, consumer apps, high-end software, flagship product pages.
 - Caution: requires strong visuals; weak mockups look unfinished.
