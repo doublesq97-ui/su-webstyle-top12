@@ -1,12 +1,12 @@
 # su-webstyle-top12
 
+**中文** | [English](#english)
+
 海外网页风格 Top 12 图谱 Skill，适用于 Codex、Claude Code 和其他 Agent 编程工具。
 
 它不是一个替用户拍板的模板包，而是一个开放风格图谱：**Agent 先列出风格，用户自己选择，然后再落地产出。**
 
-Top 12 overseas web style atlas for Codex, Claude Code, and other agentic coding tools. It lists clear style directions first, then lets the user choose.
-
-![Top 12 Overseas Web Style Atlas](assets/promo-01-style-atlas.png)
+![海外网页风格 Top 12 图谱](assets/promo-01-style-atlas.png)
 
 ## 它能做什么
 
@@ -22,7 +22,7 @@ Top 12 overseas web style atlas for Codex, Claude Code, and other agentic coding
 
 > 先列风格，让用户选，再开始产出。
 
-![How it works](assets/promo-02-how-it-works.png)
+![工作流程](assets/promo-02-how-it-works.png)
 
 ## Top 12 风格
 
@@ -45,9 +45,9 @@ Top 12 overseas web style atlas for Codex, Claude Code, and other agentic coding
 
 用户选定风格后，这个 skill 可以把风格落到完整首页方向。下面示例包含 Modern SaaS Clean、Luxury Editorial 和 Bento Dashboard。
 
-The website mockups keep English UI copy to preserve the overseas web feel; Chinese explanations are used in the surrounding README and promo materials for Chinese-speaking users.
+网页样例里的 UI 文案默认保持英文，以维持海外网页调性；中文内容主要用于 README、教程、风格解释和外层宣传图。
 
-![Output examples](assets/promo-03-output-examples.png)
+![直接产出示例](assets/promo-03-output-examples.png)
 
 ## 安装
 
@@ -128,6 +128,176 @@ cp -R su-webstyle-top12 ~/.claude/skills/
 
 本仓库不包含字体文件。实际生成网页或视觉稿时，请根据项目环境自行配置可用字体。
 
+## 项目结构
+
+```text
+su-webstyle-top12/
+├── SKILL.md
+├── AGENTS.md
+├── CLAUDE.md
+├── README.md
+├── references/
+│   ├── style-atlas.md
+│   ├── usage-modes.md
+│   └── output-patterns.md
+├── assets/
+│   ├── style-board-template.html
+│   ├── promo-01-style-atlas.png
+│   ├── promo-02-how-it-works.png
+│   ├── promo-03-output-examples.png
+│   ├── promo-en-01-style-atlas.png
+│   ├── promo-en-02-how-it-works.png
+│   └── promo-en-03-output-examples.png
+├── examples/
+│   └── prompts.md
+└── adapters/
+    └── cursor-rule.md
+```
+
+## Creator Mark
+
+本仓库公开宣传图包含小号署名：
+
+```text
+@Sukiea1008
+```
+
+Skill 不会在普通用户产出里自动添加这个署名，除非用户明确要求。
+
+## License
+
+MIT
+
+---
+
+<a id="english"></a>
+
+# su-webstyle-top12
+
+[中文](#su-webstyle-top12) | **English**
+
+Top 12 overseas web style atlas for Codex, Claude Code, and other agentic coding tools.
+
+This is not a template pack that forces a design decision. It is an open style atlas: **the agent lists clear style directions first, the user chooses, and then the agent produces.**
+
+![Top 12 Overseas Web Style Atlas](assets/promo-en-01-style-atlas.png)
+
+## What It Does
+
+`su-webstyle-top12` helps an agent:
+
+- show 12 mainstream overseas web design styles
+- explain the difference between styles in plain language
+- generate a visual style board for self-selection
+- apply a selected style to a complete homepage or landing page
+- support Codex, Claude Code, and other agents through portable Markdown instructions
+
+Default workflow:
+
+> list styles first, let the user choose, then produce.
+
+![How it works](assets/promo-en-02-how-it-works.png)
+
+## Top 12 Styles
+
+| # | Style | Best for | Feel |
+|---|---|---|---|
+| 01 | Modern SaaS Clean | SaaS, AI tools, B2B | clean, soft, professional |
+| 02 | Editorial Tech | AI labs, research, premium services | intelligent, magazine-like |
+| 03 | Linear / Vercel Dark | APIs, infra, developer tools | technical, sharp, calm |
+| 04 | Stripe-ish Business | fintech, platforms, commerce | colorful, commercial |
+| 05 | Notion / Figma Friendly | productivity, creators, education | approachable, smart |
+| 06 | Apple Premium Minimal | hardware, flagship products | premium, precise |
+| 07 | Swiss International | studios, culture, portfolios | rational, design-literate |
+| 08 | Bento Grid | multi-feature SaaS, AI tools | modular, scannable |
+| 09 | Neo Brutalism | campaigns, youth brands | bold, loud |
+| 10 | Luxury Editorial | premium brands, consulting, art | refined, tactile |
+| 11 | Data Dashboard | analytics, ops, research tools | practical, dense |
+| 12 | Playful Startup | education, community, consumer | bright, expressive |
+
+## Example Outputs
+
+After the user chooses a style, the skill can apply it to complete homepage directions. These examples include Modern SaaS Clean, Luxury Editorial, and Bento Dashboard.
+
+![Output examples](assets/promo-en-03-output-examples.png)
+
+## Install
+
+### Codex
+
+Copy this folder into your Codex skills directory:
+
+```bash
+cp -R su-webstyle-top12 ~/.codex/skills/
+```
+
+Then prompt naturally:
+
+```text
+Show me the Top 12 overseas web styles so I can choose one.
+```
+
+or:
+
+```text
+Use su-webstyle-top12 to create a web style board.
+```
+
+### Claude Code
+
+Copy this folder into your Claude skills directory:
+
+```bash
+cp -R su-webstyle-top12 ~/.claude/skills/
+```
+
+Invoke directly:
+
+```text
+/su-webstyle-top12 show me the web style atlas
+```
+
+Claude Code may also auto-use it when your request clearly asks for overseas web style options or a landing page visual direction.
+
+### Generic Agents
+
+Use:
+
+- `SKILL.md` for Agent Skills-compatible tools
+- `AGENTS.md` for generic coding agents
+- `CLAUDE.md` for Claude Code projects
+- `adapters/cursor-rule.md` for Cursor-style rules
+
+## Usage Patterns
+
+Browse styles:
+
+```text
+Show me the Top 12 overseas web styles.
+```
+
+Self-select from a board:
+
+```text
+Create a Top 12 web style board and let me choose.
+```
+
+Ask for a shortlist only when wanted:
+
+```text
+I am building an AI data analytics product. Shortlist 3 suitable overseas web styles.
+```
+
+Produce after selection:
+
+```text
+Use 10 Luxury Editorial to create a complete homepage for a premium AI consulting studio.
+```
+
+## Notes
+
+The repository does not include font files. Configure available fonts based on your own project environment.
+
 ## Project Structure
 
 ```text
@@ -144,32 +314,15 @@ su-webstyle-top12/
 │   ├── style-board-template.html
 │   ├── promo-01-style-atlas.png
 │   ├── promo-02-how-it-works.png
-│   └── promo-03-output-examples.png
+│   ├── promo-03-output-examples.png
+│   ├── promo-en-01-style-atlas.png
+│   ├── promo-en-02-how-it-works.png
+│   └── promo-en-03-output-examples.png
 ├── examples/
 │   └── prompts.md
 └── adapters/
     └── cursor-rule.md
 ```
-
-## English Summary
-
-`su-webstyle-top12` is a portable Agent Skill for presenting and applying 12 mainstream overseas web design styles.
-
-It helps agents:
-
-- show a Top 12 web style menu
-- generate a reusable visual style board
-- let the user choose instead of over-deciding
-- apply the selected style to a complete homepage or landing page
-- work across Codex, Claude Code, and generic Markdown-driven agents
-
-Default workflow:
-
-1. List/show styles.
-2. Let the user choose.
-3. Produce only after the style is selected.
-
-The repository does not include font files.
 
 ## Creator Mark
 
