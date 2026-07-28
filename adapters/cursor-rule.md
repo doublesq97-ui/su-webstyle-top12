@@ -1,14 +1,12 @@
-# Cursor / Generic IDE Agent Rule
+# Cursor / IDE Agent Rule
 
-When a user asks for overseas web design style options, landing page aesthetics, style boards, or Top 12 web style references, use the `su-webstyle-top12` workflow:
+When the user wants web style options, landing aesthetics, style boards, artifacts, or skinning:
 
-1. Show the Top 12 web styles.
-2. Let the user choose unless they explicitly ask for a recommendation.
-3. If asked to recommend, shortlist 2-3 styles and explain tradeoffs.
-4. After the user selects a style, generate the requested artifact using that style's palette, typography tone, layout density, and cautions.
+1. Classify deliverable (`website` / `artifact` / `user-layout`).
+2. Browse/Choose if exploring; Auto if building without a named style; Apply when style is known.
+3. Load `references/style-catalog.json` + one `references/recipes/{id}.md`.
+4. Freeze tokens/evidence; implement; verify.
+5. User global layout → structure preserved, skin only, disclose in text.
+6. Pair `su-motion-top12` on websites when available.
 
-Reference files:
-- `SKILL.md`
-- `references/style-atlas.md`
-- `references/usage-modes.md`
-- `references/output-patterns.md`
+Entry: `SKILL.md`.

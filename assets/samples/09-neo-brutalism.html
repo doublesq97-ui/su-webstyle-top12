@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>09 Neo Brutalism · Sample</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FFF5C2;
+    --red: #FF4F1F;
+    --ink: #111111;
+    --white: #FFFFFF;
+    --green: #00D084;
+    --line: 3px solid var(--ink);
+    --shadow: 6px 6px 0 var(--ink);
+    --shadow-sm: 4px 4px 0 var(--ink);
+    --sans: "Archivo", "Noto Sans SC", system-ui, sans-serif;
+    --mono: "Space Mono", ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  a { color: inherit; }
+  button, .btn {
+    font-family: inherit;
+    cursor: pointer;
+    border: var(--line);
+    background: var(--red);
+    color: var(--white);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    box-shadow: var(--shadow-sm);
+    transition: transform .08s ease, box-shadow .08s ease;
+  }
+  button:active, .btn:active {
+    transform: translate(3px, 3px);
+    box-shadow: 1px 1px 0 var(--ink);
+  }
+  .btn-white { background: var(--white); color: var(--ink); }
+  .btn-green { background: var(--green); color: var(--ink); }
+
+  /* STYLE EVIDENCE BAR */
+  .evidence-bar {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center;
+    padding: 10px 16px;
+    background: var(--ink);
+    color: var(--bg);
+    font-family: var(--mono);
+    font-size: 11px;
+  }
+  .evidence-bar strong { color: var(--green); }
+  .evidence-bar span { opacity: .9; }
+
+  /* NAV */
+  .nav {
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 16px; flex-wrap: wrap;
+    padding: 18px clamp(16px, 4vw, 40px);
+    border-bottom: var(--line);
+    background: var(--white);
+  }
+  .logo {
+    font-weight: 900;
+    font-size: 22px;
+    letter-spacing: -.03em;
+    text-transform: uppercase;
+  }
+  .logo em {
+    font-style: normal;
+    background: var(--red);
+    color: #fff;
+    padding: 0 6px;
+    border: 2px solid var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .nav-links {
+    display: flex; gap: 8px; flex-wrap: wrap; list-style: none; margin: 0; padding: 0;
+  }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: 2px solid var(--ink);
+    padding: 6px 10px;
+    background: var(--bg);
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+
+  /* SECTIONS */
+  .section {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    padding: clamp(40px, 6vw, 80px) clamp(16px, 4vw, 40px);
+    border-bottom: var(--line);
+  }
+  .inner { width: min(1120px, 100%); margin: 0 auto; }
+
+  /* HERO */
+  .hero {
+    background:
+      repeating-linear-gradient(
+        0deg, transparent, transparent 23px,
+        rgba(17,17,17,.06) 23px, rgba(17,17,17,.06) 24px
+      ),
+      var(--bg);
+  }
+  .kicker {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    background: var(--green);
+    border: var(--line);
+    padding: 6px 10px;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 22px;
+  }
+  .hero h1 {
+    margin: 0;
+    font-size: clamp(48px, 9vw, 104px);
+    line-height: .9;
+    letter-spacing: -.04em;
+    text-transform: uppercase;
+    font-weight: 900;
+    max-width: 12ch;
+  }
+  .hero h1 .block {
+    display: inline-block;
+    background: var(--red);
+    color: var(--white);
+    border: var(--line);
+    padding: 4px 10px 8px;
+    box-shadow: var(--shadow);
+    transform: rotate(-1.2deg);
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 28px;
+    align-items: end;
+    margin-top: 28px;
+  }
+  @media (max-width: 800px) {
+    .hero-grid { grid-template-columns: 1fr; }
+  }
+  .lead {
+    margin: 0;
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: 500;
+    max-width: 36ch;
+  }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+  .cta-row .btn {
+    text-decoration: none;
+    padding: 14px 18px;
+    font-size: 14px;
+  }
+  .stamp {
+    border: var(--line);
+    background: var(--white);
+    box-shadow: var(--shadow);
+    padding: 18px;
+    transform: rotate(2deg);
+  }
+  .stamp .big {
+    font-size: 56px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -.04em;
+  }
+  .stamp .mono {
+    font-family: var(--mono);
+    font-size: 12px;
+    margin-top: 8px;
+  }
+
+  /* FEATURES - brutal cards, not soft bento */
+  .features { background: var(--white); }
+  .sec-head {
+    display: flex; justify-content: space-between; align-items: end;
+    gap: 16px; flex-wrap: wrap; margin-bottom: 28px;
+  }
+  .sec-head h2 {
+    margin: 0;
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: .95;
+    letter-spacing: -.03em;
+    text-transform: uppercase;
+    font-weight: 900;
+  }
+  .sec-head p {
+    margin: 0;
+    max-width: 28ch;
+    font-family: var(--mono);
+    font-size: 13px;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 860px) {
+    .cards { grid-template-columns: 1fr; }
+  }
+  .card {
+    border: var(--line);
+    background: var(--bg);
+    box-shadow: var(--shadow);
+    padding: 20px 18px 22px;
+  }
+  .card:nth-child(2) { background: var(--green); }
+  .card:nth-child(3) { background: var(--red); color: var(--white); }
+  .card .n {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .card h3 {
+    margin: 0 0 10px;
+    font-size: 26px;
+    letter-spacing: -.03em;
+    text-transform: uppercase;
+    font-weight: 900;
+  }
+  .card p { margin: 0; font-size: 15px; font-weight: 500; }
+
+  /* LOUD PROOF */
+  .proof { background: var(--red); color: var(--white); }
+  .proof .inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: center;
+  }
+  @media (max-width: 800px) {
+    .proof .inner { grid-template-columns: 1fr; }
+  }
+  .proof h2 {
+    margin: 0;
+    font-size: clamp(36px, 6vw, 64px);
+    line-height: .95;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: -.03em;
+  }
+  .quote-box {
+    border: 3px solid var(--white);
+    background: var(--ink);
+    color: var(--bg);
+    padding: 24px;
+    box-shadow: 8px 8px 0 var(--white);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+  .quote-box cite {
+    display: block;
+    margin-top: 16px;
+    font-family: var(--mono);
+    font-style: normal;
+    font-size: 12px;
+    font-weight: 400;
+    opacity: .85;
+  }
+
+  /* CTA */
+  .cta {
+    background: var(--green);
+    text-align: center;
+  }
+  .cta h2 {
+    margin: 0 auto 12px;
+    max-width: 14ch;
+    font-size: clamp(40px, 7vw, 72px);
+    line-height: .92;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: -.04em;
+  }
+  .cta p {
+    margin: 0 auto 24px;
+    max-width: 40ch;
+    font-weight: 600;
+  }
+  .cta .btn {
+    display: inline-block;
+    padding: 16px 28px;
+    font-size: 16px;
+    text-decoration: none;
+    background: var(--white);
+  }
+
+  footer {
+    padding: 18px clamp(16px, 4vw, 40px);
+    border-top: var(--line);
+    font-family: var(--mono);
+    font-size: 12px;
+    background: var(--white);
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  /* MOBILE notes */
+  @media (max-width: 760px) {
+    .section { min-height: 100svh; align-items: stretch; padding-block: 72px; }
+    .hero h1 { max-width: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="evidence-bar">
+    <strong>09 EVIDENCE</strong>
+    <span>厚边框 3px</span>
+    <span>硬投影 offset shadow</span>
+    <span>高对比撞色黄/红/绿/黑</span>
+    <span>超大粗无衬线 + 全大写</span>
+    <span>错位/旋转点缀 · 非玻璃 · 非软阴影</span>
+  </div>
+
+  <nav class="nav">
+    <div class="logo">NOISY<em>LAB</em></div>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#proof">Proof</a></li>
+      <li><a href="#go">Join</a></li>
+    </ul>
+  </nav>
+
+  <section class="section hero" id="top">
+    <div class="inner">
+      <div class="kicker">Style 09 · Neo Brutalism · Website path</div>
+      <h1>Make it <span class="block">loud</span> or go home.</h1>
+      <div class="hero-grid">
+        <div>
+          <p class="lead">
+            活动页 / 年轻工具 / 态度品牌。不是「换了配色的圆角卡片」——
+            必须是硬边、硬影、撞色、大字。
+          </p>
+          <div class="cta-row">
+            <a class="btn" href="#go">Start free</a>
+            <a class="btn btn-white" href="#work">See the rules</a>
+          </div>
+        </div>
+        <div class="stamp">
+          <div class="big">09</div>
+          <div class="mono">thick border · hard shadow · high chroma · zero glass</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section features" id="work">
+    <div class="inner">
+      <div class="sec-head">
+        <h2>What this style must do</h2>
+        <p>Section = full viewport. Cards are brutal slabs, not soft SaaS tiles.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="n">01 · BORDER</div>
+          <h3>Thick lines</h3>
+          <p>2–4px solid black edges on UI chrome. Hairline = wrong style.</p>
+        </article>
+        <article class="card">
+          <div class="n">02 · SHADOW</div>
+          <h3>Hard offset</h3>
+          <p>6px 6px 0 #111. Blur soft shadow is anti-pattern here.</p>
+        </article>
+        <article class="card">
+          <div class="n">03 · TYPE</div>
+          <h3>Heavy type</h3>
+          <p>Black/Heavy sans, huge scale jump, uppercase ok. Serif luxury = no.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section proof" id="proof">
+    <div class="inner">
+      <h2>Built for campaigns that refuse to whisper.</h2>
+      <div class="quote-box">
+        “若做成柔和渐变卡片，就不是 09——那是 01 穿了黄衣服。”
+        <cite>— Style Evidence · Anti-pattern check</cite>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta" id="go">
+    <div class="inner">
+      <h2>Ready to ship attitude?</h2>
+      <p>适合：活动落地页、创作者工具、青年品牌实验站。慎用：严肃金融、医疗、政务。</p>
+      <a class="btn" href="#top">Get the kit</a>
+    </div>
+  </section>
+
+  <footer>
+    <span>su-webstyle-top12 · sample only · not production brand</span>
+    <span>tokens: #FFF5C2 #FF4F1F #111 #FFF #00D084</span>
+  </footer>
+</body>
+</html>

@@ -1,52 +1,36 @@
 # Usage Modes
 
-## Browse Mode
+## Browse
 
-Trigger examples:
-- "列出海外网页风格"
-- "给我看看有哪些主流网站风格"
-- "I want a style atlas"
+Triggers: 列出风格 / atlas / 有哪些 / show me styles
+Action: Compact Top 12 table; offer HTML board. Do not auto-implement a full page.
 
+## Choose
+
+Triggers: 我自己选 / options then I’ll pick
+Action: Menu or board; wait for number/id.
+
+## Recommend
+
+Triggers: 推荐 / 不知道选哪个 / shortlist
+Action: 2–3 styles with tradeoffs. Do not finalize unless user says decide.
+
+## Auto
+
+Triggers: 你决定 / 专业一点 / 帮我做好看 / build a landing without naming a style
+Action: Use selection-guide; pick one style silently; one-line fit; proceed to Apply.
+
+## Apply
+
+Triggers: named style, or Auto complete
 Action:
-- List all 12 styles.
-- Keep it descriptive, not prescriptive.
-- Offer the HTML board.
 
-## Choose Mode
+1. Resolve deliverable path.
+2. Load only `recipes/{id}.md` + implementation-contract.
+3. Write Style Contract (deep for website; light for artifact/user-layout).
+4. Implement.
+5. Verify evidence; fix on fail.
 
-Trigger examples:
-- "给我一个看板我自己选"
-- "show me options and I'll pick"
+## User-layout override
 
-Action:
-- Generate or reference the board.
-- Ask the user to choose a number/name.
-- Do not recommend unless asked.
-
-## Recommend Mode
-
-Trigger examples:
-- "你帮我推荐"
-- "I don't know which one fits"
-- "pick 2-3 directions"
-
-Action:
-- Shortlist 2-3 styles.
-- Explain tradeoffs.
-- Ask the user to pick, unless they ask the agent to decide.
-
-## Produce Mode
-
-Trigger examples:
-- "用 10 Luxury Editorial 做首页"
-- "apply Modern SaaS Clean to this landing page"
-- "生成一个 Bento Grid 风格网页"
-
-Action:
-- Read `references/style-atlas.md`.
-- Produce a complete artifact in the selected style.
-- Validate the result against the style rules.
-
-## User-Control Principle
-
-The skill is open style infrastructure. It should empower the user to choose. The agent acts as a style librarian, board maker, and production assistant.
+If global layout preference exists, path = `user-layout` even when the user also asked for a style. Skin only + disclosure sentence.

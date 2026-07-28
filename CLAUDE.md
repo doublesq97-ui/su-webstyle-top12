@@ -1,13 +1,15 @@
 # Claude Code Adapter
 
-This project contains an Agent Skill named `su-webstyle-top12`.
+Skill: `su-webstyle-top12` v0.2.
 
-For Claude Code:
-- Install as `~/.claude/skills/su-webstyle-top12/` for personal use, or `.claude/skills/su-webstyle-top12/` for project use.
-- Invoke directly with `/su-webstyle-top12`.
-- Claude may also invoke it automatically when a prompt asks for web style options, overseas SaaS style, landing page visual direction, or a reusable style board.
+- Install: `~/.claude/skills/su-webstyle-top12/` or project `.claude/skills/`.
+- Invoke: `/su-webstyle-top12` or automatic on style/landing/artifact requests.
 
-Behavior:
-- Default to listing/showing styles so the user can choose.
-- Recommend only when explicitly asked.
-- Use `@Sukiea1008` only on public promo/sample assets, not ordinary user outputs.
+## Behavior
+
+- Explore → Browse/Choose.
+- Build/optimize without style name → Auto → Apply.
+- Named style → Apply with one recipe.
+- User layout preference → skin only + disclose.
+- Website + su-motion-top12 available → pair skills.
+- Creator mark only on this repo’s public promo assets.

@@ -2,171 +2,91 @@
 
 **中文** | [English](#english)
 
-海外网页风格 Top 12 图谱 Skill，适用于 Codex、Claude Code 和其他 Agent 编程工具。
+海外网页风格 Top 12 Skill（v0.2）：可执行 recipe + 选型路由 + 实现验收。
+适用于 Codex、Claude Code 和其他 Agent。
 
-它不是一个替用户拍板的模板包，而是一个开放风格图谱：**Agent 先列出风格，用户自己选择，然后再落地产出。**
+它抬高**最低标准**（色/字/圆角/边框/阴影、构图、Evidence），但不锁死上限——强模型可以叠加发挥。
 
 ![海外网页风格 Top 12 图谱](assets/promo-01-style-atlas.png)
 
 ## 它能做什么
 
-`su-webstyle-top12` 可以帮助 Agent：
+- Browse / Choose / Recommend / **Auto** / Apply 五模式
+- 12 种风格的**可执行 recipe**（tokens + 构图 + 反模式 + 验收证据）
+- 交付物分流：正经网页 / Artifact 模板 / 用户全局排版（只套皮肤）
+- Artifact：列表、仪表盘、粘轨阅读架、笔记条等
+- 有 `su-motion-top12` 时，建站默认可配对动效
 
-- 列出 12 种海外主流网页设计风格
-- 用简单语言解释每种风格的区别
-- 生成可视化风格看板，方便用户自选
-- 在用户选定风格后，生成完整首页或 landing page
-- 通过 Markdown 指令适配 Codex、Claude Code 和其他 Agent
+## 默认怎么用
 
-默认原则：
+| 场景 | 模式 |
+|---|---|
+| 看看有哪些风格 | Browse / Choose |
+| 帮我推荐 2–3 个 | Recommend |
+| 你决定 / 做专业落地页 | **Auto → Apply** |
+| 指定 06 / 侘寂米色… | Apply |
+| 全局已有惯用排版 | 结构跟用户，只套皮肤并说明 |
 
-> 先列风格，让用户选，再开始产出。
+## Top 12
 
-![工作流程](assets/promo-02-how-it-works.png)
+| # | 风格 | 适合场景 |
+|---|---|---|
+| 01 | Modern SaaS Clean | SaaS、AI、B2B（中性纸白 + 单 accent） |
+| 02 | Editorial Tech | 实验室、研究、内容品牌 |
+| 03 | Linear / Vercel Dark | API、基础设施、开发者工具 |
+| 04 | Stripe-ish Business | 金融科技、平台 |
+| 05 | Notion / Figma Friendly | 协作、教育、创作者 |
+| 06 | Apple Premium Minimal | 旗舰产品、硬件 |
+| 07 | Swiss International | 设计机构、作品集 |
+| 08 | Bento Grid | 多功能产品展示（橱窗） |
+| 09 | Neo Brutalism | 活动、年轻品牌 |
+| 10 | **Wabi Beige / 侘寂米色** | 生活方式、安静品牌 |
+| 11 | **Corporate Blue / 蓝色商务** | B2B 可信营销（不是后台壳） |
+| 12 | Playful Startup | 教育、社区、消费 |
 
-## Top 12 风格
-
-| # | 风格 | 适合场景 | 气质 |
-|---|---|---|---|
-| 01 | Modern SaaS Clean / 现代 SaaS 简洁风 | SaaS、AI 工具、B2B | 干净、柔和、专业 |
-| 02 | Editorial Tech / 编辑型科技风 | AI 实验室、研究机构、高端服务 | 聪明、杂志感、内容感 |
-| 03 | Linear / Vercel Dark / 开发者暗黑风 | API、基础设施、开发者工具 | 技术、克制、锋利 |
-| 04 | Stripe-ish Business / Stripe 式商业风 | 金融科技、平台、商业工具 | 国际化、商业、彩色 |
-| 05 | Notion / Figma Friendly / 友好生产力风 | 协作、创作者、教育 | 亲和、聪明、轻办公 |
-| 06 | Apple Premium Minimal / Apple 式极简高级风 | 硬件、旗舰产品、高端软件 | 高级、精准、克制 |
-| 07 | Swiss International / 瑞士国际主义风 | 设计机构、文化项目、作品集 | 理性、网格、设计感 |
-| 08 | Bento Grid / Bento 模块风 | 多功能 SaaS、AI 产品 | 模块化、好扫读 |
-| 09 | Neo Brutalism / 新粗野主义风 | 活动、年轻品牌、实验项目 | 大胆、抓眼、有态度 |
-| 10 | Luxury Editorial / 奢华编辑风 | 高端品牌、咨询、艺术 | 克制、精致、有质感 |
-| 11 | Data Dashboard / 数据仪表盘风 | 数据分析、运营后台、投研工具 | 实用、高密度、可信 |
-| 12 | Playful Startup / 活泼创业风 | 教育、社区、消费产品 | 明亮、年轻、表达性强 |
-
-## 直接产出示例
-
-用户选定风格后，这个 skill 可以把风格落到完整首页方向。下面示例包含 Modern SaaS Clean、Luxury Editorial 和 Bento Dashboard。
-
-网页样例里的 UI 文案默认保持英文，以维持海外网页调性；中文内容主要用于 README、教程、风格解释和外层宣传图。
-
-![直接产出示例](assets/promo-03-output-examples.png)
+后台/密读 UI 用模板：`dashboard-ops`、`sticky-rail`、`list-rows`，再套任意风格皮肤。
 
 ## 安装
 
-### Codex
-
-复制到 Codex skills 目录：
-
-```bash
-cp -R su-webstyle-top12 ~/.codex/skills/
-```
-
-自然语言使用：
-
-```text
-列出海外主流网页风格，我想自己选。
-```
-
-或者：
-
-```text
-用 su-webstyle-top12，给我一个网页风格看板。
-```
-
-### Claude Code
-
-复制到 Claude skills 目录：
-
 ```bash
 cp -R su-webstyle-top12 ~/.claude/skills/
+# 或 ~/.codex/skills/
 ```
-
-显式调用：
 
 ```text
-/su-webstyle-top12 show me the web style atlas
+/su-webstyle-top12 帮我做一个专业产品首页，你决定风格
 ```
-
-当你的请求明显是在要海外网页风格、landing page 视觉方向或风格看板时，Claude Code 也可能自动使用它。
-
-### 通用 Agent
-
-可以使用：
-
-- `SKILL.md`：Agent Skills 兼容工具
-- `AGENTS.md`：通用 coding agent
-- `CLAUDE.md`：Claude Code 项目
-- `adapters/cursor-rule.md`：Cursor / IDE Agent 规则
-
-## 用法示例
-
-浏览风格：
 
 ```text
-列出海外主流网页风格。
+用 dashboard-ops + Corporate Blue 皮肤做运营数据页
 ```
-
-生成看板后自选：
-
-```text
-给我一个 Top 12 网页风格看板，我自己选。
-```
-
-需要 Agent 辅助 shortlist 时：
-
-```text
-我做的是 AI 数据分析产品，你帮我 shortlist 3 个适合的海外网页风格。
-```
-
-选定后直接产出：
-
-```text
-用 10 Luxury Editorial 做一个完整首页，品牌是一个高端 AI 顾问工作室。
-```
-
-## 中文设计说明
-
-这个 skill 面向中文用户友好，但网页样例中的 UI 文案默认可以保持英文，以维持海外网页调性。中文内容适合用于说明、README、教程、风格解释和外层宣传图。
-
-本仓库不包含字体文件。实际生成网页或视觉稿时，请根据项目环境自行配置可用字体。
 
 ## 项目结构
 
 ```text
 su-webstyle-top12/
 ├── SKILL.md
-├── AGENTS.md
-├── CLAUDE.md
-├── README.md
 ├── references/
+│   ├── style-catalog.json
+│   ├── selection-guide.md
+│   ├── deliverable-guide.md
+│   ├── artifact-templates.md
+│   ├── implementation-contract.md
 │   ├── style-atlas.md
 │   ├── usage-modes.md
-│   └── output-patterns.md
+│   ├── output-patterns.md
+│   └── recipes/          # 12 份可执行规格
 ├── assets/
 │   ├── style-board-template.html
-│   ├── promo-01-style-atlas.png
-│   ├── promo-02-how-it-works.png
-│   ├── promo-03-output-examples.png
-│   ├── promo-en-01-style-atlas.png
-│   ├── promo-en-02-how-it-works.png
-│   └── promo-en-03-output-examples.png
-├── examples/
-│   └── prompts.md
-└── adapters/
-    └── cursor-rule.md
+│   ├── samples/
+│   └── promo-*.png
+├── examples/prompts.md
+└── adapters/cursor-rule.md
 ```
-
-## Creator Mark
-
-本仓库公开宣传图包含小号署名：
-
-```text
-@Sukiea1008
-```
-
-Skill 不会在普通用户产出里自动添加这个署名，除非用户明确要求。
 
 ## License
 
-MIT
+MIT · Creator mark `@Sukiea1008` 仅用于本仓库宣传图，不写入普通用户产出。
 
 ---
 
@@ -176,163 +96,29 @@ MIT
 
 [中文](#su-webstyle-top12) | **English**
 
-Top 12 overseas web style atlas for Codex, Claude Code, and other agentic coding tools.
+Top 12 overseas web styles with executable recipes (v0.2): select, auto-route, apply, and verify.
 
-This is not a template pack that forces a design decision. It is an open style atlas: **the agent lists clear style directions first, the user chooses, and then the agent produces.**
+## Modes
 
-![Top 12 Overseas Web Style Atlas](assets/promo-en-01-style-atlas.png)
+Browse · Choose · Recommend · **Auto** · Apply
 
-## What It Does
+## Deliverable paths
 
-`su-webstyle-top12` helps an agent:
+- **website** — full recipe (signatures, sections, evidence)
+- **artifact** — template + density + skin
+- **user-layout** — keep user structure; skin only + disclose
 
-- show 12 mainstream overseas web design styles
-- explain the difference between styles in plain language
-- generate a visual style board for self-selection
-- apply a selected style to a complete homepage or landing page
-- support Codex, Claude Code, and other agents through portable Markdown instructions
+## Catalog highlights
 
-Default workflow:
-
-> list styles first, let the user choose, then produce.
-
-![How it works](assets/promo-en-02-how-it-works.png)
-
-## Top 12 Styles
-
-| # | Style | Best for | Feel |
-|---|---|---|---|
-| 01 | Modern SaaS Clean | SaaS, AI tools, B2B | clean, soft, professional |
-| 02 | Editorial Tech | AI labs, research, premium services | intelligent, magazine-like |
-| 03 | Linear / Vercel Dark | APIs, infra, developer tools | technical, sharp, calm |
-| 04 | Stripe-ish Business | fintech, platforms, commerce | colorful, commercial |
-| 05 | Notion / Figma Friendly | productivity, creators, education | approachable, smart |
-| 06 | Apple Premium Minimal | hardware, flagship products | premium, precise |
-| 07 | Swiss International | studios, culture, portfolios | rational, design-literate |
-| 08 | Bento Grid | multi-feature SaaS, AI tools | modular, scannable |
-| 09 | Neo Brutalism | campaigns, youth brands | bold, loud |
-| 10 | Luxury Editorial | premium brands, consulting, art | refined, tactile |
-| 11 | Data Dashboard | analytics, ops, research tools | practical, dense |
-| 12 | Playful Startup | education, community, consumer | bright, expressive |
-
-## Example Outputs
-
-After the user chooses a style, the skill can apply it to complete homepage directions. These examples include Modern SaaS Clean, Luxury Editorial, and Bento Dashboard.
-
-![Output examples](assets/promo-en-03-output-examples.png)
+- 01 cleaned neutral SaaS tokens
+- 10 **Wabi Beige** (replaces Luxury Editorial)
+- 11 **Corporate Blue** (replaces Data Dashboard-as-style; ops UI is a template)
 
 ## Install
-
-### Codex
-
-Copy this folder into your Codex skills directory:
-
-```bash
-cp -R su-webstyle-top12 ~/.codex/skills/
-```
-
-Then prompt naturally:
-
-```text
-Show me the Top 12 overseas web styles so I can choose one.
-```
-
-or:
-
-```text
-Use su-webstyle-top12 to create a web style board.
-```
-
-### Claude Code
-
-Copy this folder into your Claude skills directory:
 
 ```bash
 cp -R su-webstyle-top12 ~/.claude/skills/
 ```
-
-Invoke directly:
-
-```text
-/su-webstyle-top12 show me the web style atlas
-```
-
-Claude Code may also auto-use it when your request clearly asks for overseas web style options or a landing page visual direction.
-
-### Generic Agents
-
-Use:
-
-- `SKILL.md` for Agent Skills-compatible tools
-- `AGENTS.md` for generic coding agents
-- `CLAUDE.md` for Claude Code projects
-- `adapters/cursor-rule.md` for Cursor-style rules
-
-## Usage Patterns
-
-Browse styles:
-
-```text
-Show me the Top 12 overseas web styles.
-```
-
-Self-select from a board:
-
-```text
-Create a Top 12 web style board and let me choose.
-```
-
-Ask for a shortlist only when wanted:
-
-```text
-I am building an AI data analytics product. Shortlist 3 suitable overseas web styles.
-```
-
-Produce after selection:
-
-```text
-Use 10 Luxury Editorial to create a complete homepage for a premium AI consulting studio.
-```
-
-## Notes
-
-The repository does not include font files. Configure available fonts based on your own project environment.
-
-## Project Structure
-
-```text
-su-webstyle-top12/
-├── SKILL.md
-├── AGENTS.md
-├── CLAUDE.md
-├── README.md
-├── references/
-│   ├── style-atlas.md
-│   ├── usage-modes.md
-│   └── output-patterns.md
-├── assets/
-│   ├── style-board-template.html
-│   ├── promo-01-style-atlas.png
-│   ├── promo-02-how-it-works.png
-│   ├── promo-03-output-examples.png
-│   ├── promo-en-01-style-atlas.png
-│   ├── promo-en-02-how-it-works.png
-│   └── promo-en-03-output-examples.png
-├── examples/
-│   └── prompts.md
-└── adapters/
-    └── cursor-rule.md
-```
-
-## Creator Mark
-
-Public promo assets in this repository include a small creator mark:
-
-```text
-@Sukiea1008
-```
-
-The skill does not add this mark to ordinary user outputs unless the user explicitly asks.
 
 ## License
 

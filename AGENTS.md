@@ -1,12 +1,15 @@
 # AGENTS.md
 
-Use `su-webstyle-top12` when the user asks for overseas/mainstream web design styles, a style board, landing page visual directions, or reusable web-style references.
+Use `su-webstyle-top12` for overseas/mainstream web styles, boards, landings, artifacts, and skinning layouts.
 
-Default to user choice:
-- List/show the Top 12 styles.
-- Let the user choose a number/name.
-- Do not recommend unless explicitly asked.
+## Behavior
 
-If the user asks for a recommendation, shortlist 2-3 styles with tradeoffs.
+1. Resolve deliverable: `website` | `artifact` | `user-layout`.
+2. Resolve mode: Browse / Choose / Recommend / Auto / Apply.
+3. Production without a named style → **Auto**, not a forced style class.
+4. Exploration → list styles; user choice first.
+5. Apply: load **one** recipe + implementation-contract; freeze Style Contract; implement; verify evidence.
+6. User global layout → skin only + disclosure sentence.
+7. If `su-motion-top12` exists and path is website → pair motion.
 
-Read `SKILL.md` first, then load `references/style-atlas.md` or other reference files only when needed.
+Read `SKILL.md` first. Do not load all recipes.
