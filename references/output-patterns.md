@@ -2,12 +2,12 @@
 
 ## Style Board
 
-12 cells: number, name, swatches, mini layout, use case.
+12 cells: number, name, swatches, mini layout, use case.  
 Optional creator mark `@Sukiea1008` on public boards only.
 
 ## Website example
 
-Nav, hero, primary visual, CTA, ≥1 full follow-up viewport section.
+Nav, hero, primary visual, CTA, ≥1 full follow-up viewport section.  
 Viewport rules: see implementation-contract (`min-height: 100svh`).
 
 ## Artifact example

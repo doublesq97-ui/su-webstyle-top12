@@ -2,8 +2,10 @@
 
 **中文** | [English](#english)
 
-海外网页风格 Top 12 Skill（v0.2）：可执行 recipe + 选型路由 + 实现验收。
+海外网页风格 Top 12 Skill（v0.2）：可执行 recipe + 选型路由 + 实现验收。  
 适用于 Codex、Claude Code 和其他 Agent。
+
+**[在线体验 12 种风格 →](https://doublesq97-ui.github.io/su-webstyle-top12/)**
 
 它抬高**最低标准**（色/字/圆角/边框/阴影、构图、Evidence），但不锁死上限——强模型可以叠加发挥。
 
@@ -37,8 +39,8 @@
 | 04 | Stripe-ish Business | 金融科技、平台 |
 | 05 | Notion / Figma Friendly | 协作、教育、创作者 |
 | 06 | Apple Premium Minimal | 旗舰产品、硬件 |
-| 07 | Swiss International | 设计机构、作品集 |
-| 08 | Bento Grid | 多功能产品展示（橱窗） |
+| 07 | Restrained Swiss / 克制瑞士风 | 设计机构、作品集、结构型产品页 |
+| 08 | Fingerprint Signal / 橙信号控制台 | AI/API 分析产品页（暖底 + 单橙信号） |
 | 09 | Neo Brutalism | 活动、年轻品牌 |
 | 10 | **Wabi Beige / 侘寂米色** | 生活方式、安静品牌 |
 | 11 | **Corporate Blue / 蓝色商务** | B2B 可信营销（不是后台壳） |
@@ -84,16 +86,6 @@ su-webstyle-top12/
 └── adapters/cursor-rule.md
 ```
 
----
-
-> ### 继续探索 Su 的开源项目
->
-> 网页风格选定之后，动效、AI 协作和内容生产也有可以直接接上的开源项目。
->
-> **[查看 Su 的其他开源项目 →](https://github.com/doublesq97-ui/su-mit-index)**
-
----
-
 ## License
 
 MIT · Creator mark `@Sukiea1008` 仅用于本仓库宣传图，不写入普通用户产出。
@@ -112,6 +104,8 @@ Top 12 overseas web styles with executable recipes (v0.2): select, auto-route, a
 
 Browse · Choose · Recommend · **Auto** · Apply
 
+**[Live Core 12 demo →](https://doublesq97-ui.github.io/su-webstyle-top12/)**
+
 ## Deliverable paths
 
 - **website** — full recipe (signatures, sections, evidence)
@@ -120,8 +114,8 @@ Browse · Choose · Recommend · **Auto** · Apply
 
 ## Catalog highlights
 
-- 01 cleaned neutral SaaS tokens
-- 10 **Wabi Beige** (replaces Luxury Editorial)
+- 01 cleaned neutral SaaS tokens  
+- 10 **Wabi Beige** (replaces Luxury Editorial)  
 - 11 **Corporate Blue** (replaces Data Dashboard-as-style; ops UI is a template)
 
 ## Install
@@ -129,16 +123,6 @@ Browse · Choose · Recommend · **Auto** · Apply
 ```bash
 cp -R su-webstyle-top12 ~/.claude/skills/
 ```
-
----
-
-> ### Explore more open-source projects by Su
->
-> Once the visual direction is clear, you can continue with open-source tools for motion, AI collaboration, and content production.
->
-> **[Browse Su MIT Index →](https://github.com/doublesq97-ui/su-mit-index)**
-
----
 
 ## License
 

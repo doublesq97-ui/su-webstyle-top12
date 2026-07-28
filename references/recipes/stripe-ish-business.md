@@ -54,8 +54,8 @@
 - Forbidden: Brutal thick black borders as default
 
 ## Signature Composition (website — hit ≥1)
-1. Confident hero with geometric color plane
-2. Full-viewport platform/features composition (not shallow card row glued to hero)
+1. Confident hero with geometric color plane  
+2. Full-viewport platform/features composition (not shallow card row glued to hero)  
 3. Data/payment module as second screen
 
 ## Section Recipes (website)
@@ -71,19 +71,19 @@
 - Stack planes; keep accent discipline
 
 ## Anti-patterns
-- Uncontrolled multi-hue gradients
-- Second section as thin leftover row
+- Uncontrolled multi-hue gradients  
+- Second section as thin leftover row  
 - Brutal sticker energy
 
 ## Style Evidence (website — must be observable)
-1. Cool white/blue-tinted base
-2. Purple/teal accents used with intent
-3. Hero + one full second composition
-4. Commercial confidence in type weight
+1. Cool white/blue-tinted base  
+2. Purple/teal accents used with intent  
+3. Hero + one full second composition  
+4. Commercial confidence in type weight  
 5. No purple mesh sludge
 
 ## Skin subset (artifact / user-layout)
-Use only: color tokens, type stack, radius, border, shadow, optional icon stroke.
+Use only: color tokens, type stack, radius, border, shadow, optional icon stroke.  
 Do not force signatures or 100svh section recipes.
 
 ## CSS Token Sketch

@@ -54,8 +54,8 @@
 - Forbidden: Soft glass SaaS, thin hairlines only
 
 ## Signature Composition (website — hit ≥1)
-1. Giant heavy type + hard shadow CTA
-2. Yellow field with red stamp blocks
+1. Giant heavy type + hard shadow CTA  
+2. Yellow field with red stamp blocks  
 3. Skewed card row with thick borders
 
 ## Section Recipes (website)
@@ -71,20 +71,20 @@
 - Keep hard shadows; reduce rotation
 
 ## Anti-patterns
-- Soft blur shadows
-- Muted corporate navy calm
-- Hairline-only borders
+- Soft blur shadows  
+- Muted corporate navy calm  
+- Hairline-only borders  
 - Luxury serif gold
 
 ## Style Evidence (website — must be observable)
-1. Thick black borders visible
-2. Hard offset shadows
-3. High chroma yellow/red/green
-4. Heavy type scale
+1. Thick black borders visible  
+2. Hard offset shadows  
+3. High chroma yellow/red/green  
+4. Heavy type scale  
 5. Not soft SaaS
 
 ## Skin subset (artifact / user-layout)
-Use only: color tokens, type stack, radius, border, shadow, optional icon stroke.
+Use only: color tokens, type stack, radius, border, shadow, optional icon stroke.  
 Do not force signatures or 100svh section recipes.
 
 ## CSS Token Sketch

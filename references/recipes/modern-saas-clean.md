@@ -55,8 +55,8 @@
 - Forbidden: Purple mesh gradients, candy 3D stickers
 
 ## Signature Composition (website — hit ≥1)
-1. Split hero: claim left, product frame right
-2. Shallow feature row (3) under full-viewport hero
+1. Split hero: claim left, product frame right  
+2. Shallow feature row (3) under full-viewport hero  
 3. Soft proof strip (logos / quote) with air
 
 ## Section Recipes (website)
@@ -73,20 +73,20 @@
 - Full-width primary CTA OK
 
 ## Anti-patterns
-- Large green/teal background wash
-- Purple AI gradient skins
-- Equal 3×N empty card grids
+- Large green/teal background wash  
+- Purple AI gradient skins  
+- Equal 3×N empty card grids  
 - Glassmorphism on every panel
 
 ## Style Evidence (website — must be observable)
-1. Page base is neutral gray-white, not green-tinted
-2. Accent appears mainly on CTA/links/chips
-3. Cards use soft radius + light shadow
-4. At least one full-viewport composed section
+1. Page base is neutral gray-white, not green-tinted  
+2. Accent appears mainly on CTA/links/chips  
+3. Cards use soft radius + light shadow  
+4. At least one full-viewport composed section  
 5. No mesh gradient default skin
 
 ## Skin subset (artifact / user-layout)
-Use only: color tokens, type stack, radius, border, shadow, optional icon stroke.
+Use only: color tokens, type stack, radius, border, shadow, optional icon stroke.  
 Do not force signatures or 100svh section recipes.
 
 ## CSS Token Sketch

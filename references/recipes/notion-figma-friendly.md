@@ -55,8 +55,8 @@
 - Forbidden: Hard brutal black frames
 
 ## Signature Composition (website — hit ≥1)
-1. Friendly hero with soft block modules
-2. Feature chips + light screenshots
+1. Friendly hero with soft block modules  
+2. Feature chips + light screenshots  
 3. Low-pressure CTA
 
 ## Section Recipes (website)
@@ -72,19 +72,19 @@
 - Keep chip wrapping tidy
 
 ## Anti-patterns
-- Too cute for credibility
-- Rainbow sticker overload
+- Too cute for credibility  
+- Rainbow sticker overload  
 - Dark neon developer skins
 
 ## Style Evidence (website — must be observable)
-1. Warm off-white base
-2. Soft yellow/blue accents as highlights
-3. Friendly module language
-4. Readable hierarchy still present
+1. Warm off-white base  
+2. Soft yellow/blue accents as highlights  
+3. Friendly module language  
+4. Readable hierarchy still present  
 5. Not brutal and not corporate navy-only
 
 ## Skin subset (artifact / user-layout)
-Use only: color tokens, type stack, radius, border, shadow, optional icon stroke.
+Use only: color tokens, type stack, radius, border, shadow, optional icon stroke.  
 Do not force signatures or 100svh section recipes.
 
 ## CSS Token Sketch

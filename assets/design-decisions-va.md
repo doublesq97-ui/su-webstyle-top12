@@ -15,7 +15,7 @@ If the user has a preferred webpage or deliverable layout written into global me
 
 1. **Prefer that layout structure** (chrome, columns, scroll model).
 2. Apply this skill as **skin only** (see Skin scope).
-3. **Disclose** in the reply, e.g.
+3. **Disclose** in the reply, e.g.  
    `已按你的全局排版习惯交付，本 skill 只套了 [style] 皮肤（色/字/边框圆角/阴影）。`
 
 Do not refuse the skill because layout came from the user. Do not rewrite their layout into a marketing Hero unless they ask.

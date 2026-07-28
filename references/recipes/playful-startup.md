@@ -54,8 +54,8 @@
 - Forbidden: Cold swiss only posters as whole language
 
 ## Signature Composition (website — hit ≥1)
-1. Big friendly headline + blob/shape accent
-2. Rounded feature cards with icons
+1. Big friendly headline + blob/shape accent  
+2. Rounded feature cards with icons  
 3. Warm CTA pill
 
 ## Section Recipes (website)
@@ -71,19 +71,19 @@
 - Pills full width OK
 
 ## Anti-patterns
-- Unreadable confetti
-- Serious navy-only corporate freeze
+- Unreadable confetti  
+- Serious navy-only corporate freeze  
 - Brutal black frames as default
 
 ## Style Evidence (website — must be observable)
-1. Warm light base
-2. Coral/mint/amber accents
-3. Rounded soft UI
-4. Approachable type
+1. Warm light base  
+2. Coral/mint/amber accents  
+3. Rounded soft UI  
+4. Approachable type  
 5. Product value still clear
 
 ## Skin subset (artifact / user-layout)
-Use only: color tokens, type stack, radius, border, shadow, optional icon stroke.
+Use only: color tokens, type stack, radius, border, shadow, optional icon stroke.  
 Do not force signatures or 100svh section recipes.
 
 ## CSS Token Sketch

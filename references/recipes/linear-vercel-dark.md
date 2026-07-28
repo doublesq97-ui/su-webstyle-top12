@@ -54,8 +54,8 @@
 - Forbidden: Yellow brutal posters, pastel blobs
 
 ## Signature Composition (website — hit ≥1)
-1. Dark hero with code/product panel and thin rules
-2. Feature list with mono labels
+1. Dark hero with code/product panel and thin rules  
+2. Feature list with mono labels  
 3. Minimal footer with status dots
 
 ## Section Recipes (website)
@@ -71,19 +71,19 @@
 - Reduce glow; keep contrast AA
 
 ## Anti-patterns
-- Overused neon and blur haze
-- Low-contrast gray-on-gray text
+- Overused neon and blur haze  
+- Low-contrast gray-on-gray text  
 - Playful illustration language
 
 ## Style Evidence (website — must be observable)
-1. True dark base (not gray light inverted poorly)
-2. Thin border language visible
-3. Accent used sparingly
-4. Code or technical panel present OR strong mono meta
+1. True dark base (not gray light inverted poorly)  
+2. Thin border language visible  
+3. Accent used sparingly  
+4. Code or technical panel present OR strong mono meta  
 5. Contrast readable
 
 ## Skin subset (artifact / user-layout)
-Use only: color tokens, type stack, radius, border, shadow, optional icon stroke.
+Use only: color tokens, type stack, radius, border, shadow, optional icon stroke.  
 Do not force signatures or 100svh section recipes.
 
 ## CSS Token Sketch

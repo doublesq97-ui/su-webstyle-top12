@@ -53,8 +53,8 @@
 - Forbidden: Playful stickers, neon glow nets
 
 ## Signature Composition (website — hit ≥1)
-1. Huge headline + small meta row + single image
-2. Two-column essay block with pull quote
+1. Huge headline + small meta row + single image  
+2. Two-column essay block with pull quote  
 3. Numbered chapter strip
 
 ## Section Recipes (website)
@@ -70,19 +70,19 @@
 - Headline can stay large but shorten lines
 
 ## Anti-patterns
-- Weak one-line copy on empty magazine layout
-- SaaS card grids as primary language
+- Weak one-line copy on empty magazine layout  
+- SaaS card grids as primary language  
 - Rainbow accents
 
 ## Style Evidence (website — must be observable)
-1. Display type clearly dominates
-2. Warm paper base visible
-3. Meta labels / small caps energy present
-4. Grid alignment readable
+1. Display type clearly dominates  
+2. Warm paper base visible  
+3. Meta labels / small caps energy present  
+4. Grid alignment readable  
 5. Accent is sparse
 
 ## Skin subset (artifact / user-layout)
-Use only: color tokens, type stack, radius, border, shadow, optional icon stroke.
+Use only: color tokens, type stack, radius, border, shadow, optional icon stroke.  
 Do not force signatures or 100svh section recipes.
 
 ## CSS Token Sketch

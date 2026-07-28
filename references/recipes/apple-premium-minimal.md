@@ -53,8 +53,8 @@
 - Forbidden: Sticker packs, neon nets, equal bento walls
 
 ## Signature Composition (website — hit ≥1)
-1. Centered monobject hero + short claim + one CTA
-2. Full-bleed quiet material shot + minimal caption
+1. Centered monobject hero + short claim + one CTA  
+2. Full-bleed quiet material shot + minimal caption  
 3. Large type with vast negative space
 
 ## Section Recipes (website)
@@ -71,20 +71,20 @@
 - Keep H1 dominant; full-width CTA OK
 
 ## Anti-patterns
-- Equal bento walls
-- Purple AI gradients
-- Hard neo-brutal borders
+- Equal bento walls  
+- Purple AI gradients  
+- Hard neo-brutal borders  
 - Fake luxury gold foil
 
 ## Style Evidence (website — must be observable)
-1. ≤3 color roles + large negative space on first screen
-2. One focal object/type hero, not card gallery
-3. H1 ≫ body scale jump obvious
-4. Each major section is ad-like full viewport
+1. ≤3 color roles + large negative space on first screen  
+2. One focal object/type hero, not card gallery  
+3. H1 ≫ body scale jump obvious  
+4. Each major section is ad-like full viewport  
 5. No mesh gradient / glass default
 
 ## Skin subset (artifact / user-layout)
-Use only: color tokens, type stack, radius, border, shadow, optional icon stroke.
+Use only: color tokens, type stack, radius, border, shadow, optional icon stroke.  
 Do not force signatures or 100svh section recipes.
 
 ## CSS Token Sketch

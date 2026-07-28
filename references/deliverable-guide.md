@@ -8,6 +8,9 @@
 | artifact / 一张图说完 / 对比卡 / 清单 / 小工具 / 说明板 / 一页摘要 / 周报壳 / 仪表盘壳 | `artifact` |
 | 全局习惯排版 / memory 指定架 / “按我之前的版式” | `user-layout` |
 | Ambiguous “做个好看的页面” | Prefer `artifact` if single-screen info; `website` if they say 网站/落地页 |
+| 落地页 / 官网 / 要 Hero | `website` + **hero** variant |
+| 工具页 / 控制台 / 去掉 Hero / 直接产品 | `website` or `artifact` + **no-hero** variant |
+| 学习地图 / 章节阅读器 | Only if user explicitly asks — not implied by wabi-beige tokens |
 
 ## Density (artifact)
 
@@ -24,5 +27,5 @@
 If content is dense but style is low-density (e.g. Apple / Wabi):
 
 1. Keep information: pick a denser template, or
-2. Recommend alternate style (Corporate Blue / Modern SaaS / Bento),
+2. Recommend alternate style (Corporate Blue / Modern SaaS / Bento),  
 Do **not** crush copy into empty luxury air.

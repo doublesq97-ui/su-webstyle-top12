@@ -55,8 +55,8 @@
 - Forbidden: Admin sidebar as the whole 'style'; use dashboard-ops template instead
 
 ## Signature Composition (website — hit ≥1)
-1. Navy/blue hero band with clear value prop
-2. 3 trust metrics + sober feature grid
+1. Navy/blue hero band with clear value prop  
+2. 3 trust metrics + sober feature grid  
 3. Proposal-like CTA band
 
 ## Section Recipes (website)
@@ -73,20 +73,20 @@
 - Keep navy bands full-bleed OK
 
 ## Anti-patterns
-- Pretending the style IS a full ops dashboard shell
-- Playful startup chaos
-- Gold luxury clichés
+- Pretending the style IS a full ops dashboard shell  
+- Playful startup chaos  
+- Gold luxury clichés  
 - Purple AI mesh
 
 ## Style Evidence (website — must be observable)
-1. Clear corporate blue accent system
-2. High readability black body text
-3. Aligned card/metric structure
-4. Trust-oriented imagery or diagrams
+1. Clear corporate blue accent system  
+2. High readability black body text  
+3. Aligned card/metric structure  
+4. Trust-oriented imagery or diagrams  
 5. Not neo-brutal and not beige lifestyle
 
 ## Skin subset (artifact / user-layout)
-Use only: color tokens, type stack, radius, border, shadow, optional icon stroke.
+Use only: color tokens, type stack, radius, border, shadow, optional icon stroke.  
 Do not force signatures or 100svh section recipes.
 
 ## CSS Token Sketch

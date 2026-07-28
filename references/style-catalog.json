@@ -1,6 +1,6 @@
 {
   "name": "SU Webstyle Top 12",
-  "version": "0.2.0",
+  "version": "0.2.5",
   "coreCount": 12,
   "styles": [
     {
@@ -231,8 +231,8 @@
     {
       "index": 7,
       "id": "swiss-international",
-      "name": "Swiss International",
-      "zh": "瑞士国际主义风",
+      "name": "Restrained Swiss",
+      "zh": "克制瑞士风",
       "role": "marketing",
       "density": "medium",
       "surface": "light",
@@ -250,54 +250,59 @@
         "cute consumer playfulness only"
       ],
       "palette": {
-        "bg": "#F8F8F1",
+        "bg": "#F3F1E9",
         "surface": "#FFFFFF",
-        "border": "#E6E3D8",
-        "text": "#101010",
-        "muted": "#6B6B6B",
-        "accent": "#0047FF",
-        "accent2": "#FFF200"
+        "text": "#0A0A0A",
+        "muted": "#5C5C5C",
+        "signalBlue": "#0B3DFF",
+        "signalRed": "#E30613",
+        "flash": "#FFE600"
       },
       "recipe": "recipes/swiss-international.md",
       "display": {
-        "bestFor": "设计机构、文化、作品集",
-        "feel": "rational, structured",
-        "description": "Hard grid, large sans, tiny high-sat accents."
+        "bestFor": "工作室、建筑、文化、结构型产品页",
+        "feel": "restrained swiss, modular, type mass",
+        "description": "Paper field, type mass, modular placement; signal blue or red auto-route. No graph-paper cage."
       }
     },
     {
       "index": 8,
-      "id": "bento-grid",
-      "name": "Bento Grid",
-      "zh": "Bento 模块风",
+      "id": "fingerprint-signal",
+      "name": "Fingerprint Signal",
+      "zh": "橙信号控制台",
       "role": "marketing",
       "density": "medium",
       "surface": "light",
       "intent": [
-        "modular showcase",
-        "feature mosaic"
+        "analytics",
+        "api product",
+        "orange signal",
+        "console"
       ],
       "useWhen": [
-        "multi-feature SaaS",
-        "product launches"
+        "AI/API products",
+        "analytics marketing",
+        "security tooling pages"
       ],
       "avoidWhen": [
-        "single-object flagship silence"
+        "lifestyle wabi",
+        "neo-brutal campaigns",
+        "nature green-yellow"
       ],
       "palette": {
-        "bg": "#EEF4F7",
+        "bg": "#FAFAF8",
+        "rail": "#F4F5F2",
         "surface": "#FFFFFF",
-        "border": "#D5E4EE",
-        "text": "#162736",
-        "muted": "#5A7386",
-        "accent": "#8BB8D8",
-        "accentSoft": "#C8E6FF"
+        "border": "#DEDFDC",
+        "text": "#202124",
+        "muted": "#767875",
+        "accent": "#F4511E"
       },
-      "recipe": "recipes/bento-grid.md",
+      "recipe": "recipes/fingerprint-signal.md",
       "display": {
-        "bestFor": "多功能 SaaS、产品发布",
-        "feel": "modular, scannable",
-        "description": "Varied bento blocks with clear hierarchy."
+        "bestFor": "AI/API、分析、安全工具产品页",
+        "feel": "warm light console, orange signal",
+        "description": "Warm canvas #FAFAF8, white cards, single orange-red #F4511E signal."
       }
     },
     {
@@ -358,22 +363,24 @@
       ],
       "avoidWhen": [
         "neon tech",
-        "dense trading UI as hero"
+        "dense trading as hero",
+        "brown-on-brown product shells"
       ],
       "palette": {
         "bg": "#EFEAE0",
-        "surface": "#D8CFC0",
-        "border": "#D0C6B4",
+        "surface": "#F7F3EA",
         "text": "#3A352F",
-        "muted": "#6B6253",
-        "accent": "#A8997E",
-        "deep": "#6B6253"
+        "muted": "#766E64",
+        "line": "#CFC5B6",
+        "accent": "#8D7C64",
+        "accentInk": "#FFFDF8",
+        "deep": "#3A352F"
       },
       "recipe": "recipes/wabi-beige.md",
       "display": {
         "bestFor": "生活方式、民宿、安静品牌",
-        "feel": "calm, warm, restrained",
-        "description": "Low-sat earth tones, airy type, natural materials."
+        "feel": "warm paper, reflective, tactile",
+        "description": "Warm paper clay (wabi-reading): cream surface #F7F3EA, not cool gray-beige."
       }
     },
     {

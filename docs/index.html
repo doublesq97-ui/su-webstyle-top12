@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Looma AI 把会议、访谈和散乱笔记整理成清晰的决策与下一步。">
+  <meta name="theme-color" content="#FAFBFC" data-theme-color>
+  <title>Looma AI｜12 风格企业体验台</title>
+  <link rel="stylesheet" href="styles.css?v=20260729-07b">
+  <link rel="stylesheet" href="themes.css?v=20260729-07b">
+</head>
+<body data-style="modern-saas-clean" data-layout="calm-centered-product">
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <header class="site-header" aria-label="主导航">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="Looma AI 首页">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span>Looma <strong>AI</strong></span>
+      </a>
+      <nav class="nav-links" aria-label="页面导航">
+        <a href="#capabilities">能力</a>
+        <a href="#workflow">工作方式</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="style-trigger" type="button" aria-expanded="false" aria-controls="styleIndex" aria-label="选择页面风格" title="选择页面风格" data-style-trigger>
+          <span class="style-trigger-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span data-style-trigger-label>01 / Modern SaaS</span>
+        </button>
+        <a class="button button-small button-secondary nav-demo-button" href="#demo">体验产品</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="style-scrim" data-style-scrim></div>
+  <aside class="style-index" id="styleIndex" aria-label="十二种风格选型" aria-hidden="true" data-style-index>
+    <header class="style-index-header">
+      <div>
+        <span class="style-index-kicker">STYLE INDEX</span>
+        <h2>十二种企业体验</h2>
+      </div>
+      <button class="style-close" type="button" aria-label="关闭风格选型" title="关闭" data-style-close>×</button>
+    </header>
+    <div class="style-index-current">
+      <span data-style-count>01 / 12</span>
+      <p data-style-index-description>Neutral paper base; single teal accent on CTAs only.</p>
+    </div>
+    <div class="style-options" role="listbox" aria-label="选择页面风格" data-style-list></div>
+  </aside>
+
+  <main id="main">
+    <section class="page-section hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <div class="eyebrow reveal-line"><span data-style-eyebrow>STYLE 01 · AI 工作整理台</span></div>
+          <div class="reveal-line"><h1 id="hero-title">Looma AI</h1></div>
+          <div class="reveal-line"><p class="hero-claim" data-hero-claim>把每一次讨论，变成清晰的下一步。</p></div>
+          <div class="reveal-line"><p class="hero-support" data-hero-support>粘贴会议记录、访谈或随手笔记。Looma 会识别决定、待办与风险，保留原文依据，并把结果整理成团队能直接执行的行动页。</p></div>
+          <div class="hero-actions reveal-line">
+            <a class="button button-primary" href="#demo">立即体验 <span aria-hidden="true">↓</span></a>
+            <a class="text-link" href="#workflow">看看它怎么工作 <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+
+        <div class="product-shell" id="demo" data-product-shell aria-label="Looma AI 交互演示">
+          <div class="product-topbar">
+            <div class="window-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+            <span class="product-title" data-product-title>项目周会 · 行动页</span>
+            <span class="status-chip"><span class="status-dot" aria-hidden="true"></span> 已同步</span>
+          </div>
+
+          <div class="product-layout">
+            <aside class="source-panel" aria-label="输入区">
+              <div class="panel-label">原始记录</div>
+              <label class="source-label" for="sourceText">粘贴内容</label>
+              <textarea id="sourceText" data-source-input>本周五前确认新版定价页。小林负责最终文案，设计稿需要周三评审。最大风险是埋点方案还没确认，先由阿哲约数据团队今天对齐。</textarea>
+              <button class="button button-primary generate-button" type="button" data-generate>
+                <span data-generate-label>生成行动页</span>
+                <span aria-hidden="true">→</span>
+              </button>
+              <p class="input-note">内容只用于本地交互演示</p>
+            </aside>
+
+            <section class="action-panel" aria-live="polite" aria-busy="false" data-output>
+              <div class="action-heading">
+                <div>
+                  <div class="panel-label">Looma 整理结果</div>
+                  <h2>新版定价页推进计划</h2>
+                </div>
+                <button class="icon-button" type="button" title="复制行动页" aria-label="复制行动页" data-copy>⧉</button>
+              </div>
+
+              <div class="signal-dashboard" aria-label="行动信号数据概览">
+                <div class="signal-dashboard-head">
+                  <div>
+                    <span>INSIGHTS</span>
+                    <strong>行动信号</strong>
+                  </div>
+                  <div class="signal-period" role="group" aria-label="数据周期">
+                    <button type="button" aria-pressed="true" data-signal-range="7d">7 DAYS</button>
+                    <button type="button" aria-pressed="false" data-signal-range="30d">30 DAYS</button>
+                  </div>
+                </div>
+                <div class="signal-kpis">
+                  <article>
+                    <span>DECISIONS</span>
+                    <strong data-signal-decisions>12</strong>
+                    <small>↑ 18%</small>
+                  </article>
+                  <article>
+                    <span>ACTION RATE</span>
+                    <strong data-signal-rate>86%</strong>
+                    <small>本周已提升</small>
+                  </article>
+                  <article>
+                    <span>RISK ALERTS</span>
+                    <strong data-signal-risks>03</strong>
+                    <small>待确认节点</small>
+                  </article>
+                </div>
+                <figure class="signal-chart">
+                  <figcaption><span>行动完成率</span><strong data-signal-chart-label>7 日趋势</strong></figcaption>
+                  <svg viewBox="0 0 640 168" role="img" aria-label="行动完成率呈上升趋势" preserveAspectRatio="none">
+                    <g class="signal-grid" aria-hidden="true">
+                      <path d="M0 24H640M0 72H640M0 120H640M0 160H640"></path>
+                      <path d="M80 0V168M176 0V168M272 0V168M368 0V168M464 0V168M560 0V168"></path>
+                    </g>
+                    <path class="signal-area" data-signal-area d="M0 145 C70 132 88 135 152 112 S250 92 312 104 S416 58 480 70 S566 28 640 34 L640 168 L0 168 Z"></path>
+                    <path class="signal-series" data-signal-series d="M0 145 C70 132 88 135 152 112 S250 92 312 104 S416 58 480 70 S566 28 640 34"></path>
+                    <circle class="signal-point" data-signal-point cx="640" cy="34" r="5"></circle>
+                  </svg>
+                </figure>
+              </div>
+
+              <div class="summary-strip">
+                <span class="summary-kicker">核心决定</span>
+                <p data-summary>本周完成新版定价页定稿，文案、设计与埋点方案并行推进。</p>
+              </div>
+
+              <div class="task-list" data-task-list>
+                <article class="task-row">
+                  <span class="task-check" aria-hidden="true"></span>
+                  <div><h3>完成最终文案</h3><p>小林 · 周五</p></div>
+                  <span class="source-ref">原文 1</span>
+                </article>
+                <article class="task-row">
+                  <span class="task-check" aria-hidden="true"></span>
+                  <div><h3>组织设计稿评审</h3><p>设计团队 · 周三</p></div>
+                  <span class="source-ref">原文 2</span>
+                </article>
+                <article class="task-row">
+                  <span class="task-check" aria-hidden="true"></span>
+                  <div><h3>对齐埋点方案</h3><p>阿哲 · 今天</p></div>
+                  <span class="source-ref">原文 3</span>
+                </article>
+              </div>
+            </section>
+
+            <aside class="insight-panel" aria-label="AI 速览">
+              <div class="panel-label">AI 速览</div>
+              <div class="insight-block">
+                <span>进度</span>
+                <strong>3 个下一步</strong>
+                <div class="progress-track" aria-label="信息完整度 86%"><span></span></div>
+                <small>信息完整度 86%</small>
+              </div>
+              <div class="insight-block risk-block">
+                <span>待关注</span>
+                <strong data-risk>埋点方案尚未确认</strong>
+                <p>可能影响周五发布节点</p>
+              </div>
+              <button class="quiet-action" type="button" data-toggle-sources>显示原文依据</button>
+            </aside>
+          </div>
+        </div>
+
+        <div class="active-style-caption" aria-label="当前页面风格">
+          <span data-active-style-number>01</span>
+          <strong data-active-style-name>Modern SaaS Clean</strong>
+          <span data-active-style-fit>SaaS · AI tools · B2B</span>
+        </div>
+        <div class="scroll-cue" aria-hidden="true"><span></span></div>
+      </div>
+    </section>
+
+    <section class="page-section capabilities" id="capabilities" aria-labelledby="capabilities-title">
+      <div class="section-inner">
+        <div class="section-heading" data-reveal data-capability-heading>
+          <span class="section-index">01 / 核心能力</span>
+          <h2 id="capabilities-title">少做整理，多做判断。</h2>
+          <p>Looma 不只总结内容。它把事实、决定和行动分开，让团队知道发生了什么，以及接下来由谁推进。</p>
+        </div>
+
+        <div class="feature-row" data-reveal>
+          <article class="feature-card">
+            <span class="feature-number">01</span>
+            <h3>保留依据</h3>
+            <p>每个结论都能回到原始句子，减少“AI 是怎么得出这个结论的”猜测。</p>
+            <div class="mini-evidence"><span></span><span></span><span></span></div>
+          </article>
+          <article class="feature-card feature-card-live">
+            <span class="feature-number">02</span>
+            <h3>识别责任</h3>
+            <p>自动提取负责人、时间和依赖关系，缺失的信息会明确标记出来。</p>
+            <div class="owner-line"><span class="owner-avatar">林</span><span>负责人已识别</span><strong>周五</strong></div>
+          </article>
+          <article class="feature-card">
+            <span class="feature-number">03</span>
+            <h3>主动暴露风险</h3>
+            <p>在任务进入执行前，先看见没有负责人、没有日期或互相冲突的事项。</p>
+            <div class="risk-line"><span aria-hidden="true">!</span><p>埋点方案仍待确认</p></div>
+          </article>
+        </div>
+
+        <div class="proof-line" data-reveal aria-label="适用团队">
+          <span>适用于</span>
+          <strong>产品团队</strong>
+          <strong>用户研究</strong>
+          <strong>客户成功</strong>
+          <strong>咨询项目</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section workflow" id="workflow" aria-labelledby="workflow-title">
+      <div class="section-inner">
+        <div class="section-heading compact-heading" data-reveal data-workflow-heading>
+          <span class="section-index">02 / 工作方式</span>
+          <h2 id="workflow-title">从原始信息到团队行动，只经过三步。</h2>
+        </div>
+
+        <ol class="workflow-list" data-reveal>
+          <li class="workflow-step">
+            <span class="step-dot">1</span>
+            <div><h3>放进来</h3><p>粘贴文字，或导入会议、访谈与客户反馈。</p></div>
+            <span class="step-meta">INPUT</span>
+          </li>
+          <li class="workflow-step">
+            <span class="step-dot">2</span>
+            <div><h3>看清楚</h3><p>AI 分离事实、决定、任务与风险，并附上原文依据。</p></div>
+            <span class="step-meta">REASON</span>
+          </li>
+          <li class="workflow-step">
+            <span class="step-dot">3</span>
+            <div><h3>推下去</h3><p>确认负责人和日期，把行动页带回团队协作工具。</p></div>
+            <span class="step-meta">ACT</span>
+          </li>
+        </ol>
+
+        <div class="workflow-note" data-reveal>
+          <span class="status-dot" aria-hidden="true"></span>
+          <p>你始终拥有最后确认权。Looma 负责整理和提示，不替团队偷偷做决定。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing-cta" aria-labelledby="cta-title">
+      <div class="section-inner cta-inner" data-reveal>
+        <span class="section-index">准备好了吗</span>
+        <h2 id="cta-title">把下一段散乱记录，交给 Looma。</h2>
+        <p>上方演示可直接编辑。换成你的文字，看看它如何变成一页清晰行动。</p>
+        <a class="button button-primary" href="#demo">回到演示 <span aria-hidden="true">↑</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="section-inner footer-inner">
+      <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Looma <strong>AI</strong></span></a>
+      <p>从讨论到行动，少一点信息损耗。</p>
+      <span>© 2026 Looma AI</span>
+    </div>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite" data-toast></div>
+  <div class="visually-hidden" aria-live="polite" data-style-announcer></div>
+  <script src="style-catalog.js?v=20260729-07b"></script>
+  <script src="app.js?v=20260729-07b"></script>
+</body>
+</html>

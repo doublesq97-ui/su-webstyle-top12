@@ -4,7 +4,8 @@ description: "Curated Top 12 overseas web styles with executable recipes: browse
 license: MIT
 metadata:
   author: "@Sukiea1008"
-  version: "0.2.0"
+  version: "0.2.5"
+  compatibility: Agent Skills compatible; works in Codex, Claude Code, and agents that can read SKILL.md/AGENTS.md style instructions.
 ---
 
 # SU Webstyle Top 12
@@ -23,9 +24,11 @@ Classify before picking a style:
 
 | Path | When | Structure source | Style source |
 |---|---|---|---|
-| `website` | Full site, landing, multi-section marketing page | Recipe signatures + section recipes | Full recipe |
-| `artifact` | Single-purpose HTML/card/board/tool/report shell | Template + density | **Skin only** from recipe |
-| `user-layout` | User global / project layout preference exists | **User layout** | **Skin only** |
+| `website` | Full site, landing, multi-section marketing page | Recipe signatures + section recipes · **hero by default** | Full recipe |
+| `artifact` | Single-purpose HTML/card/board/tool/report shell | Template + density · **no-hero by default** | **Skin only** from recipe |
+| `user-layout` | User global / project layout preference exists | **User layout** (usually no marketing hero) | **Skin only** |
+
+Layout variants: read [references/layout-variants.md](references/layout-variants.md). Same style id supports **hero** and **no-hero**; structure follows deliverable, not a locked “reading app” IA.
 
 ### User layout priority
 
@@ -33,14 +36,14 @@ If memory, CLAUDE.md, Know-me, or project conventions define a preferred layout:
 
 1. Keep that structure (chrome, columns, scroll model).
 2. Apply this skill as **skin only**.
-3. Disclose, e.g.
+3. Disclose, e.g.  
    `已按你的全局排版习惯交付，本 skill 只套了 [style] 皮肤（色/字/边框圆角/阴影）。`
 
 Do not force a marketing hero onto a user layout unless asked.
 
 ### Skin scope
 
-Skin = color tokens, type stack/scale (as fits), radius, border, shadow, optional icon stroke.
+Skin = color tokens, type stack/scale (as fits), radius, border, shadow, optional icon stroke.  
 Skin does **not** force Signature Hero, `100svh` marketing sections, or section recipes.
 
 ## Route the Request Mode
@@ -60,6 +63,7 @@ Exploration → Browse/Choose. Production → Auto/Apply. Named style → Apply.
 - Read [references/style-catalog.json](references/style-catalog.json) before listing, selecting, or applying.
 - Read [references/selection-guide.md](references/selection-guide.md) for Auto / Recommend.
 - Read [references/deliverable-guide.md](references/deliverable-guide.md) when path is unclear (website vs artifact vs user-layout).
+- Read [references/layout-variants.md](references/layout-variants.md) for hero vs no-hero.
 - Read [references/artifact-templates.md](references/artifact-templates.md) for artifact path.
 - Read [references/implementation-contract.md](references/implementation-contract.md) before producing UI.
 - After selecting a style in Apply, read **only** `references/recipes/{id}.md`. Do not load all 12.
@@ -112,8 +116,8 @@ User-facing: keep contract folded unless debugging. Implementation must still ho
 | 04 | `stripe-ish-business` | Stripe-ish Business |
 | 05 | `notion-figma-friendly` | Notion / Figma Friendly |
 | 06 | `apple-premium-minimal` | Apple Premium Minimal |
-| 07 | `swiss-international` | Swiss International |
-| 08 | `bento-grid` | Bento Grid |
+| 07 | `swiss-international` | Restrained Swiss / 克制瑞士风 |
+| 08 | `fingerprint-signal` | Fingerprint Signal / 橙信号控制台 |
 | 09 | `neo-brutalism` | Neo Brutalism |
 | 10 | `wabi-beige` | Wabi Beige / 侘寂米色 |
 | 11 | `corporate-blue` | Corporate Blue / 蓝色商务 |
