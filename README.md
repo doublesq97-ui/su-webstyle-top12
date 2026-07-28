@@ -164,6 +164,16 @@ su-webstyle-top12/
 
 Skill 不会在普通用户产出里自动添加这个署名，除非用户明确要求。
 
+---
+
+> ### 继续探索 Su 的开源项目
+>
+> 网页风格选定之后，动效、AI 协作和内容生产也有可以直接接上的开源项目。
+>
+> **[查看 Su 的其他开源项目 →](https://github.com/doublesq97-ui/su-mit-index)**
+
+---
+
 ## License
 
 MIT
@@ -333,6 +343,16 @@ Public promo assets in this repository include a small creator mark:
 ```
 
 The skill does not add this mark to ordinary user outputs unless the user explicitly asks.
+
+---
+
+> ### Explore more open-source projects by Su
+>
+> Once the visual direction is clear, you can continue with open-source tools for motion, AI collaboration, and content production.
+>
+> **[Browse Su MIT Index →](https://github.com/doublesq97-ui/su-mit-index)**
+
+---
 
 ## License
 
