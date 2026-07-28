@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artifact template · docked-shell</title>
+<style>
+  :root {
+    --bg: #FAFBFC;
+    --surface: #FFFFFF;
+    --text: #111827;
+    --muted: #6B7280;
+    --accent: #0F766E;
+    --line: #E8EAED;
+    --rail: #FFFFFF;
+    --sans: ui-sans-serif, -apple-system, "Segoe UI", "PingFang SC", "Noto Sans SC", sans-serif;
+    --mono: ui-monospace, Menlo, Monaco, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    font-family: var(--sans);
+    color: var(--text);
+    background: var(--bg);
+    overflow: hidden;
+  }
+
+  /* docked-shell: fixed top + fixed left, scroll main */
+  .shell {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    grid-template-rows: 56px 1fr;
+    height: 100svh;
+  }
+  .top {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 0 16px 0 18px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    z-index: 2;
+  }
+  .brand {
+    font-weight: 700;
+    letter-spacing: -.02em;
+    font-size: 14px;
+  }
+  .brand span { color: var(--accent); }
+  .top-meta {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 12px; color: var(--muted);
+  }
+  .pill {
+    font: 600 10px/1 var(--mono);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 6px 8px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: #F0FDFA;
+    color: var(--accent);
+  }
+  .rail {
+    border-right: 1px solid var(--line);
+    background: var(--rail);
+    padding: 14px 10px;
+    overflow: auto;
+  }
+  .rail h2 {
+    margin: 0 8px 10px;
+    font: 600 10px/1 var(--mono);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .rail a {
+    display: block;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 13px;
+    padding: 9px 10px;
+    border-radius: 8px;
+    margin-bottom: 2px;
+  }
+  .rail a:hover { background: #F3F4F6; }
+  .rail a.active {
+    background: #F0FDFA;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .main {
+    overflow: auto;
+    padding: 20px 22px 48px;
+  }
+  .banner {
+    border: 1px dashed #c7d2d0;
+    background: #fffef8;
+    color: #5b5346;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 12.5px;
+    line-height: 1.55;
+    margin-bottom: 18px;
+  }
+  .week {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px 18px 8px;
+    box-shadow: 0 10px 30px rgba(17,24,39,.04);
+  }
+  .week h1 {
+    margin: 0 0 4px;
+    font-size: 22px;
+    letter-spacing: -.03em;
+  }
+  .week .sub { margin: 0 0 16px; color: var(--muted); font-size: 13px; }
+  .block {
+    border-top: 1px solid var(--line);
+    padding: 14px 0;
+  }
+  .block h3 {
+    margin: 0 0 8px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--accent);
+  }
+  .block p, .block li {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #374151;
+  }
+  .block ul { margin: 0; padding-left: 18px; }
+  .block li { margin-bottom: 6px; }
+  .spacer { height: 40vh; display: grid; place-items: center; color: var(--muted); font-size: 12px; }
+
+  @media (max-width: 720px) {
+    .shell { grid-template-columns: 1fr; grid-template-rows: 56px auto 1fr; }
+    .rail {
+      border-right: 0;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding: 10px;
+    }
+    .rail h2 { display: none; }
+    .rail a { white-space: nowrap; margin: 0; }
+  }
+</style>
+</head>
+<body>
+  <div class="shell">
+    <header class="top">
+      <div class="brand">X Ops <span>Weekly</span></div>
+      <div class="top-meta">
+        <span class="pill">template · docked-shell</span>
+        <span>2026-W30 · skin 01 clean</span>
+      </div>
+    </header>
+    <aside class="rail">
+      <h2>Sections</h2>
+      <a class="active" href="#s1">本周摘要</a>
+      <a href="#s2">内容表现</a>
+      <a href="#s3">账号风险</a>
+      <a href="#s4">下周动作</a>
+      <a href="#s5">备注</a>
+    </aside>
+    <main class="main">
+      <div class="banner">
+        <strong>docked-shell（固架滚动壳）</strong>：顶栏 + 左侧导航固定，右侧主区独立滚动。
+        来自你 X Ops 周报类交付的常用骨架。风格只套皮肤（色/字/圆角/边框），不改架。
+      </div>
+      <article class="week">
+        <h1 id="s1">本周运营周报</h1>
+        <p class="sub">固定骨架示例 · 主区继续向下滚才是重点</p>
+        <div class="block" id="s2">
+          <h3>内容表现</h3>
+          <ul>
+            <li>主帖互动稳定，转评比上周 +12%。</li>
+            <li>长帖收藏高、完读中等——标题可更锋利。</li>
+            <li>一条争议向内容拉高曝光，但粉质波动需盯。</li>
+          </ul>
+        </div>
+        <div class="block" id="s3">
+          <h3>账号风险</h3>
+          <p>无限制提示。外链点击正常。敏感词扫描通过。</p>
+        </div>
+        <div class="block" id="s4">
+          <h3>下周动作</h3>
+          <ul>
+            <li>保持 3 更节奏：1 观点 + 1 案例 + 1 工具。</li>
+            <li>置顶回复模板统一 CTA。</li>
+            <li>竞品只盯 2 个账号，不做散点扫。</li>
+          </ul>
+        </div>
+        <div class="block" id="s5">
+          <h3>备注</h3>
+          <p>条数再多也继续在主区滚动堆块；不要为了「好看」拆成全屏 Hero。</p>
+        </div>
+        <div class="spacer">↓ 主区可继续滚动 · 顶栏/侧栏保持钉住</div>
+        <div class="block">
+          <h3>Extra scroll fodder</h3>
+          <p>演示用占位。真实周报内容会更长，docked-shell 的价值就是 chrome 稳定、正文随便长。</p>
+        </div>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

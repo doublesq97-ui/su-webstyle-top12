@@ -1,117 +1,170 @@
 ---
 name: su-webstyle-top12
-description: Use this skill when the user wants an overseas/mainstream web design style atlas, a style board, website visual direction, landing page style options, or reusable web-style references. Default to listing and showing Top 12 styles so the user can choose; only recommend candidates when the user explicitly asks the agent to pick or suggest.
+description: "Curated Top 12 overseas web styles with executable recipes: browse, choose, recommend, auto-select, and apply. Use for website visual direction, landing pages, style boards, artifacts (cards, dashboards, note readers, sticky-rail ops shells), and skinning existing layouts. Raises a minimum style floor (tokens, composition, evidence) without capping creativity."
 license: MIT
-compatibility: Agent Skills compatible; works in Codex, Claude Code, and agents that can read SKILL.md/AGENTS.md style instructions.
 metadata:
   author: "@Sukiea1008"
-  version: "0.1.0"
+  version: "0.2.0"
 ---
 
 # SU Webstyle Top 12
 
-This skill helps agents present and apply a reusable Top 12 atlas of overseas web design styles.
+Stable catalog of 12 web styles for selection and implementation. This skill is a **decision + craft layer**: it freezes tokens, composition rules, and acceptance evidence so weak models do not invent “generic cards with a new palette.”
 
-## Default Behavior
+## Floor, Not Ceiling
 
-Do not over-decide for the user.
+- Recipes define the **minimum** bar (tokens, anti-patterns, evidence).
+- Agents **may** exceed recipes, combine styles, or invent layouts when the user or a stronger capability requires it.
+- When defaulting, follow the floor. When user globals / stronger intent conflict, prefer those and **state that in plain text**.
 
-When the user asks for web style options, overseas website aesthetics, a design direction board, or says they want to choose a style:
+## Route the Deliverable First
 
-1. Present the Top 12 style menu.
-2. Explain each option briefly: feel, layout, suitable use cases, and caution.
-3. Offer the style board template if visual comparison helps.
-4. Ask the user to choose a style number/name before producing a full page.
+Classify before picking a style:
 
-Only recommend candidates when the user explicitly asks:
-- "help me choose"
-- "recommend one"
-- "I don't know which style fits"
-- "pick based on this product"
+| Path | When | Structure source | Style source |
+|---|---|---|---|
+| `website` | Full site, landing, multi-section marketing page | Recipe signatures + section recipes | Full recipe |
+| `artifact` | Single-purpose HTML/card/board/tool/report shell | Template + density | **Skin only** from recipe |
+| `user-layout` | User global / project layout preference exists | **User layout** | **Skin only** |
 
-Even then, give 2-3 candidates with tradeoffs. Do not make a final decision unless the user asks you to decide.
+### User layout priority
 
-## When To Load References
+If memory, CLAUDE.md, Know-me, or project conventions define a preferred layout:
 
-- Read [references/style-atlas.md](references/style-atlas.md) when listing styles, explaining styles, or applying a selected style.
-- Read [references/usage-modes.md](references/usage-modes.md) when deciding whether to present choices, recommend candidates, or generate deliverables.
-- Read [references/output-patterns.md](references/output-patterns.md) when creating a style board, landing page mockup, README visuals, or promotional examples.
-- Use [assets/style-board-template.html](assets/style-board-template.html) when the user wants a reusable HTML visual board.
+1. Keep that structure (chrome, columns, scroll model).
+2. Apply this skill as **skin only**.
+3. Disclose, e.g.
+   `已按你的全局排版习惯交付，本 skill 只套了 [style] 皮肤（色/字/边框圆角/阴影）。`
+
+Do not force a marketing hero onto a user layout unless asked.
+
+### Skin scope
+
+Skin = color tokens, type stack/scale (as fits), radius, border, shadow, optional icon stroke.
+Skin does **not** force Signature Hero, `100svh` marketing sections, or section recipes.
+
+## Route the Request Mode
+
+| Mode | When | Action |
+|---|---|---|
+| **Browse** | “有哪些风格 / atlas / 让我看看” | List Core 12 compactly; offer board |
+| **Choose** | User wants options then self-pick | Show menu/board; wait for id/number |
+| **Recommend** | “推荐 / 不知道选哪个” | 2–3 candidates + tradeoffs; do not hard-pick unless asked |
+| **Auto** | “你决定 / 专业一点 / 做落地页” without a named style | Silently pick one; return id + one-line fit |
+| **Apply** | Style known or Auto done | Load **one** recipe → contract → implement → evidence |
+
+Exploration → Browse/Choose. Production → Auto/Apply. Named style → Apply.
+
+## Load the Right References
+
+- Read [references/style-catalog.json](references/style-catalog.json) before listing, selecting, or applying.
+- Read [references/selection-guide.md](references/selection-guide.md) for Auto / Recommend.
+- Read [references/deliverable-guide.md](references/deliverable-guide.md) when path is unclear (website vs artifact vs user-layout).
+- Read [references/artifact-templates.md](references/artifact-templates.md) for artifact path.
+- Read [references/implementation-contract.md](references/implementation-contract.md) before producing UI.
+- After selecting a style in Apply, read **only** `references/recipes/{id}.md`. Do not load all 12.
+- Read [references/style-atlas.md](references/style-atlas.md) only for lightweight Browse copy if needed.
+- Read [references/output-patterns.md](references/output-patterns.md) for boards, viewport rules, promo rules.
+- Use [assets/style-board-template.html](assets/style-board-template.html) for visual comparison boards.
 
 ## Core Workflow
 
-1. Identify the user's mode:
-   - Browse: wants to see styles.
-   - Choose: wants options and then self-select.
-   - Recommend: explicitly asks for candidates.
-   - Produce: has selected a style and wants an artifact.
-2. If the style is not selected and the mode is Browse/Choose, show the Top 12 menu and stop for user choice unless the user asked for a full board.
-3. If the mode is Recommend, give 2-3 style candidates with clear tradeoffs.
-4. If the style is selected, apply the selected style to the requested output.
-5. Validate that the output matches the style's palette, density, typography tone, layout rules, and viewport section ratio rules.
+1. Resolve deliverable path (`website` | `artifact` | `user-layout`).
+2. Resolve mode (Browse / Choose / Recommend / Auto / Apply).
+3. Resolve `styleId` (user name > Auto via selection-guide > wait on Choose).
+4. **Website:** load recipe → write Style Contract (deep) → implement sections → verify website evidence.
+5. **Artifact:** pick template + density → load recipe **skin** → light contract → implement → verify artifact evidence.
+6. **User-layout:** keep layout → skin only → disclose.
+7. If building a **website** and `su-motion-top12` is available, pair it (one primary motion + optional one support). Absence is fine—deliver static floor.
+8. Return artifact, style id, path, and evidence result. Do not dump internal scoring.
 
-## Creator Mark Rules
+## Style Contract (Apply intermediate)
 
-- Public promo assets and bundled sample boards may include a small creator mark: `@Sukiea1008`.
-- Do not add `@Sukiea1008` to ordinary user outputs unless the user asks.
-- The hidden easter egg text `Su NB` is allowed only in this repository's own promotional/sample images, as extremely tiny background microcopy. Never add it to normal user deliverables.
+Freeze before coding. Minimum fields:
 
-## Chinese Audience Notes
+```yaml
+deliverable: website | artifact | user-layout
+meta:
+  styleId: modern-saas-clean
+  mode: auto | choose | recommend | named
+  fitReason: "one line"
+page_or_artifact:
+  # website: pageType, primaryAction, contentHierarchy
+  # artifact: templateId, density, job
+tokens: { color, type, space, radius, border, shadow }  # from recipe
+# website only:
+sections: [...]
+# always:
+mustShowEvidence: [...]
+mustNot: [...]
+acceptance: { status: pending | pass | fail }
+```
 
-- For Chinese-facing documentation, tutorials, and promo images, use Chinese explanations first and English as supporting labels.
-- For website mockups and style samples, English UI copy may be kept to preserve the overseas web design tone.
-- This repository does not include font files.
+User-facing: keep contract folded unless debugging. Implementation must still honor it.
 
-## Style Names
+## Core 12
 
-1. Modern SaaS Clean
-2. Editorial Tech
-3. Linear / Vercel Dark
-4. Stripe-ish Business
-5. Notion / Figma Friendly
-6. Apple Premium Minimal
-7. Swiss International
-8. Bento Grid
-9. Neo Brutalism
-10. Luxury Editorial
-11. Data Dashboard
-12. Playful Startup
+| # | ID | Name |
+|---|---|---|
+| 01 | `modern-saas-clean` | Modern SaaS Clean |
+| 02 | `editorial-tech` | Editorial Tech |
+| 03 | `linear-vercel-dark` | Linear / Vercel Dark |
+| 04 | `stripe-ish-business` | Stripe-ish Business |
+| 05 | `notion-figma-friendly` | Notion / Figma Friendly |
+| 06 | `apple-premium-minimal` | Apple Premium Minimal |
+| 07 | `swiss-international` | Swiss International |
+| 08 | `bento-grid` | Bento Grid |
+| 09 | `neo-brutalism` | Neo Brutalism |
+| 10 | `wabi-beige` | Wabi Beige / 侘寂米色 |
+| 11 | `corporate-blue` | Corporate Blue / 蓝色商务 |
+| 12 | `playful-startup` | Playful Startup |
 
-## Response Pattern
+## Response Patterns
 
-When presenting choices, use a compact format:
+**Browse (compact):**
 
 ```markdown
-Here are the Top 12 options:
-
-| # | Style | Best for | Feel |
+| # | Style | Best for | Density |
 |---|---|---|---|
-| 01 | Modern SaaS Clean | SaaS, AI tools, B2B | clean, soft, professional |
+| 01 | Modern SaaS Clean | SaaS, AI tools | medium |
 
-Pick a number/name, and I will apply it to the page.
+Pick a number/name, or ask me to decide.
 ```
 
-When recommending:
+**Recommend:** 2–3 options + tradeoffs; ask to pick or decide.
 
-```markdown
-I would shortlist:
-- 01 Modern SaaS Clean: safest clean SaaS direction.
-- 08 Bento Grid: best if you need to show many features.
-- 10 Luxury Editorial: strongest for premium brand mood.
-
-Choose one, or ask me to decide.
-```
+**Auto / Apply output:** style id + one-line fit + deliverable path + finished work + evidence pass/fail notes. No chain-of-thought scoring dump.
 
 ## Quality Bar
 
-For generated website examples:
-- The result must look like a complete homepage, not a decorative moodboard.
-- Include a nav, hero, primary visual/product area, at least one complete follow-up section, and a credible CTA or brand element.
-- Design pages as complete viewport sections, not a long pile of partial content. Each major section should be screenshot-ready as its own full-screen composition.
-- Use `min-height: 100svh` for the hero and every major follow-up section by default, including feature, material, platform, product, proof, and details sections.
-- Do not expose the next section's body copy in the initial viewport. If scroll affordance is needed, use a restrained scroll indicator, bottom fade, or CTA cue instead of showing the next section.
-- The second section must not look like a clipped continuation. It needs its own full-screen composition, vertical breathing room, clear heading area, and content area.
-- On desktop, center each section's inner layout within the viewport with stable spacing, for example `display: flex; align-items: center;`. On mobile, allow natural growth but keep `min-height: 100svh`.
-- If a short desktop viewport is cramped, reduce internal scale or hide secondary metrics/details before reducing section height.
-- Avoid generic AI aesthetics: default purple-blue gradients, glassmorphism everywhere, empty card grids, or fake filler copy.
-- Use the selected style intentionally; do not mix more than two styles unless the user asks.
+### Website
+
+- Complete homepage-like structure: nav, hero, ≥1 follow-up section, credible CTA.
+- Major sections default `min-height: 100svh` (see implementation-contract).
+- Match recipe palette, type, density, signature, evidence.
+- Avoid generic AI aesthetics: purple mesh gradients, glass everywhere, empty card grids, filler copy.
+- One primary style; at most one secondary.
+
+### Artifact
+
+- Template structure intact; density readable.
+- Skin tokens recognizable as the selected style.
+- Do not fake a full marketing site (no forced 100svh hero stack).
+- Many line-items → `list-rows`, not equal card walls.
+
+### Dashboard-ops template
+
+- Prefer Fernand / Fingerprint **information architecture**: filters or period controls, primary metric, main chart, secondary table/pipeline/rankings.
+- Correct visual scale: one primary composition per viewport region; KPI type hierarchy clear; not two cramped mini-UIs forced into one narrow row unless the canvas is wide.
+
+## Creator Mark Rules
+
+- Public promo assets may include `@Sukiea1008`.
+- Do not add to ordinary user outputs unless asked.
+- Hidden `Su NB` only in this repo’s own promo samples.
+
+## Chinese Audience Notes
+
+- Chinese-facing docs/explanations first; English UI copy OK for overseas tone mockups.
+- No font files bundled; use system stacks from recipes.
+- Chinese type: slightly higher line-height; avoid overly tight tracking on CJK.

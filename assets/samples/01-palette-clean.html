@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>01 Modern SaaS Clean · Palette fix</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", "PingFang SC", "Noto Sans SC", sans-serif;
+    background: #eef0f3;
+    color: #111827;
+    padding: 28px 16px 48px;
+  }
+  .wrap { width: min(1040px, 100%); margin: 0 auto; }
+  h1 { font-size: 22px; letter-spacing: -.02em; margin: 0 0 8px; }
+  .sub { margin: 0 0 22px; color: #6b7280; font-size: 13.5px; line-height: 1.55; max-width: 62ch; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
+  .card {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 16px 40px rgba(15,23,42,.06);
+  }
+  .label {
+    font: 600 11px/1 ui-monospace, Menlo, monospace;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 12px 14px;
+    border-bottom: 1px solid rgba(0,0,0,.06);
+  }
+  .mock { padding: 28px 22px 32px; min-height: 280px; }
+  .nav {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 36px; font-size: 12px; font-weight: 600;
+  }
+  .mock h2 {
+    margin: 0 0 10px;
+    font-size: 28px;
+    letter-spacing: -.03em;
+    line-height: 1.15;
+    max-width: 12ch;
+  }
+  .mock p { margin: 0 0 18px; font-size: 13.5px; line-height: 1.55; max-width: 34ch; }
+  .btn {
+    display: inline-block;
+    border: 0;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .sw { display: flex; gap: 6px; margin-top: 22px; }
+  .sw i { width: 28px; height: 28px; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); }
+  .note {
+    margin-top: 18px;
+    padding: 14px 16px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 13px;
+    color: #4b5563;
+    line-height: 1.55;
+  }
+  code { font-size: 12px; background: #f3f4f6; padding: 1px 5px; border-radius: 4px; }
+
+  /* OLD muddy */
+  .old .label { background: #DCEEE8; color: #365D52; }
+  .old .mock { background: #F8FBF9; color: #18251F; }
+  .old .nav { color: #365D52; }
+  .old .muted { color: #5a7268; }
+  .old .btn { background: #365D52; color: #fff; }
+  .old .chip {
+    display: inline-block; margin-bottom: 12px;
+    background: #DCEEE8; color: #365D52;
+    border-radius: 8px; padding: 4px 8px; font-size: 11px; font-weight: 600;
+  }
+
+  /* NEW clean */
+  .new .label { background: #fff; color: #0F766E; border-bottom-color: #E8EAED; }
+  .new .mock { background: #FAFBFC; color: #111827; }
+  .new .nav { color: #6B7280; }
+  .new .nav .brand { color: #111827; }
+  .new .muted { color: #6B7280; }
+  .new .btn { background: #0F766E; color: #fff; }
+  .new .chip {
+    display: inline-block; margin-bottom: 12px;
+    background: #F0FDFA; color: #0F766E;
+    border: 1px solid #CCFBF1;
+    border-radius: 8px; padding: 4px 8px; font-size: 11px; font-weight: 600;
+  }
+  .new .surface {
+    margin-top: 18px;
+    background: #fff;
+    border: 1px solid #E8EAED;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 12px;
+    color: #6B7280;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>01 Modern SaaS Clean · 配色清洗</h1>
+    <p class="sub">
+      旧版底也是绿、强调也是绿，层次糊成「一整片绿灰」。
+      新版：<strong>中性纸白底 + 石墨字 + 单一青绿只做 accent</strong>。绿是点睛，不是环境色。
+    </p>
+    <div class="grid">
+      <div class="card old">
+        <div class="label">Before · 易糊</div>
+        <div class="mock">
+          <div class="nav"><span>Northwind</span><span>Product · Pricing</span></div>
+          <span class="chip">AI workspace</span>
+          <h2>Ship calmer software</h2>
+          <p class="muted">底 #F8FBF9、块 #DCEEE8、字 #18251F、强调 #365D52 —— 全是绿系，对比弱。</p>
+          <button class="btn" type="button">Start free</button>
+          <div class="sw">
+            <i style="background:#F8FBF9"></i>
+            <i style="background:#DCEEE8"></i>
+            <i style="background:#B8D7CC"></i>
+            <i style="background:#365D52"></i>
+            <i style="background:#18251F"></i>
+          </div>
+        </div>
+      </div>
+      <div class="card new">
+        <div class="label">After · 干净</div>
+        <div class="mock">
+          <div class="nav"><span class="brand">Northwind</span><span>Product · Pricing</span></div>
+          <span class="chip">AI workspace</span>
+          <h2>Ship calmer software</h2>
+          <p class="muted">底与表面走中性灰白；青绿只出现在 CTA / link / 选中态。</p>
+          <button class="btn" type="button">Start free</button>
+          <div class="surface">Card surface #FFFFFF on page #FAFBFC · border #E8EAED</div>
+          <div class="sw">
+            <i style="background:#FAFBFC"></i>
+            <i style="background:#FFFFFF;border-color:#ddd"></i>
+            <i style="background:#E8EAED"></i>
+            <i style="background:#6B7280"></i>
+            <i style="background:#111827"></i>
+            <i style="background:#0F766E"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="note">
+      <strong>拟定 01 tokens（落地用）</strong><br>
+      bg <code>#FAFBFC</code> · surface <code>#FFFFFF</code> · border <code>#E8EAED</code> ·
+      text <code>#111827</code> · muted <code>#6B7280</code> ·
+      accent <code>#0F766E</code> · accent-soft <code>#F0FDFA</code>（仅 chip/选中，小面积）<br>
+      规则：同一屏里 accent 色块面积默认 &lt; 8%；禁止大面积墨绿铺底。
+    </div>
+  </div>
+</body>
+</html>

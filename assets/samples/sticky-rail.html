@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>sticky-rail · 粘轨阅读架（修订样）</title>
+<style>
+  :root {
+    --bg: #FAFBFC;
+    --surface: #FFFFFF;
+    --surface-soft: #F3F4F6;
+    --text: #111827;
+    --muted: #6B7280;
+    --soft: #4B5563;
+    --accent: #0F766E;
+    --accent-soft: #F0FDFA;
+    --line: #E8EAED;
+    --sidebar: 17.5rem;
+    --radius: 14px;
+    --shadow: 0 12px 32px rgba(17, 24, 39, .06);
+    --sans: ui-sans-serif, -apple-system, "Segoe UI", "PingFang SC", "Noto Sans SC", sans-serif;
+    --mono: ui-monospace, Menlo, Monaco, Consolas, monospace;
+    --ease: cubic-bezier(.2, .7, .2, 1);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  /* 参考：01-美股路线决策台 / 学习地图类阅读器
+     不是整页 overflow:hidden 的死 Admin 框
+     左栏 sticky 贴视口；顶栏在主列 sticky；页面/主列自然滚动 */
+  .app-shell {
+    display: grid;
+    grid-template-columns: var(--sidebar) minmax(0, 1fr);
+    min-height: 100svh;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    height: 100svh;
+    padding: 22px 16px 18px;
+    overflow-y: auto;
+    background: color-mix(in srgb, var(--surface-soft) 88%, transparent);
+    border-right: 1px solid var(--line);
+    backdrop-filter: blur(14px);
+  }
+
+  .brand {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 10px;
+    align-items: center;
+  }
+  .mark {
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 40% 50% 45% 30%;
+    background: var(--text);
+    color: #fff;
+    font-weight: 800;
+    letter-spacing: -.06em;
+    font-size: 13px;
+  }
+  .brand strong { display: block; font-size: 14px; letter-spacing: -.02em; }
+  .brand small { display: block; margin-top: 2px; color: var(--muted); font-size: 11px; }
+
+  .side-card {
+    padding: 12px 12px 14px;
+    border-radius: var(--radius);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+  }
+  .side-card .k {
+    font: 600 10px/1 var(--mono);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .side-card p { margin: 0; font-size: 12.5px; color: var(--soft); line-height: 1.5; }
+
+  .side-nav { display: grid; gap: 4px; }
+  .side-nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 2.55rem;
+    padding: .5rem .7rem;
+    border-radius: 10px;
+    color: var(--soft);
+    font-size: 13.5px;
+    font-weight: 600;
+    transition: background .15s var(--ease), color .15s var(--ease), transform .15s var(--ease);
+  }
+  .side-nav a:hover {
+    background: var(--surface);
+    color: var(--text);
+    transform: translateX(2px);
+  }
+  .side-nav a.active {
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+  .nav-num {
+    width: 1.35rem;
+    font: 600 11px/1 var(--mono);
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .side-foot {
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    font-size: 11.5px;
+    color: var(--muted);
+    line-height: 1.45;
+  }
+  .side-foot strong { color: var(--soft); }
+
+  main { min-width: 0; }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 15;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 3.75rem;
+    padding: .65rem clamp(1rem, 3.5vw, 2.5rem);
+    background: color-mix(in srgb, var(--surface) 82%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--line) 80%, transparent);
+    backdrop-filter: blur(16px);
+  }
+  .topbar .meta {
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .topbar .meta strong { color: var(--soft); }
+  .pill {
+    font: 600 10px/1 var(--mono);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 7px 9px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+  .btn {
+    appearance: none;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 8px 12px;
+    font: 600 12.5px var(--sans);
+    cursor: pointer;
+  }
+  .btn.primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+
+  .content {
+    padding: 22px clamp(1rem, 3.5vw, 2.5rem) 64px;
+    max-width: 920px;
+  }
+
+  .callout {
+    margin-bottom: 18px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 1px solid #e8dfc8;
+    background: #fffdf6;
+    color: #5c5344;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+  .callout code {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    background: rgba(0,0,0,.05);
+    padding: 1px 5px;
+    border-radius: 4px;
+  }
+
+  .hero-block {
+    margin-bottom: 22px;
+  }
+  .hero-block .eyebrow {
+    font: 600 11px/1 var(--mono);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .hero-block h1 {
+    margin: 0 0 8px;
+    font-size: clamp(26px, 4vw, 36px);
+    letter-spacing: -.03em;
+    line-height: 1.12;
+  }
+  .hero-block p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14.5px;
+    max-width: 52ch;
+  }
+
+  .kpis {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+  .kpi {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 14px;
+    box-shadow: var(--shadow);
+  }
+  .kpi .l { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+  .kpi .v { margin-top: 6px; font-size: 24px; font-weight: 750; letter-spacing: -.03em; }
+  .kpi .s { margin-top: 4px; font-size: 12px; color: var(--accent); font-weight: 600; }
+
+  .section {
+    margin-bottom: 28px;
+    scroll-margin-top: 5rem;
+  }
+  .section h2 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    letter-spacing: -.02em;
+  }
+  .section p, .section li {
+    color: var(--soft);
+    font-size: 14px;
+    line-height: 1.65;
+  }
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 16px 16px 8px;
+    box-shadow: var(--shadow);
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 1.6rem 1fr auto;
+    gap: 10px;
+    align-items: start;
+    padding: 12px 4px;
+    border-bottom: 1px solid var(--line);
+  }
+  .row:last-child { border-bottom: 0; }
+  .row .n { font: 600 11px/1.4 var(--mono); color: var(--muted); }
+  .row b { display: block; font-size: 14px; margin-bottom: 3px; color: var(--text); }
+  .row span { font-size: 12.5px; color: var(--muted); }
+  .tag {
+    font: 600 10px/1 var(--mono);
+    padding: 5px 7px;
+    border-radius: 999px;
+    background: var(--surface-soft);
+    color: var(--soft);
+    border: 1px solid var(--line);
+  }
+
+  .diff {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 12px;
+  }
+  .diff div {
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+  .diff .bad { background: #FEF2F2; color: #7F1D1D; border: 1px solid #FECACA; }
+  .diff .good { background: var(--accent-soft); color: #115E59; border: 1px solid #99F6E4; }
+
+  @media (max-width: 860px) {
+    .app-shell { grid-template-columns: 1fr; }
+    .sidebar {
+      position: static;
+      height: auto;
+      border-right: 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .side-nav { display: flex; gap: 6px; overflow-x: auto; }
+    .side-nav a { white-space: nowrap; }
+    .side-card, .side-foot { display: none; }
+    .kpis, .diff { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="mark">XR</div>
+        <div>
+          <strong>X Ops Rail</strong>
+          <small>sticky-rail · sample</small>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <div class="k">Why not rigid</div>
+        <p>旧 docked-shell 整页锁死滚动，像廉价 Admin。这里对齐你真实交付：侧栏贴视口、顶栏半透明、主文自然读下去。</p>
+      </div>
+
+      <nav class="side-nav" aria-label="章节">
+        <a class="active" href="#overview"><span class="nav-num">01</span>本周总览</a>
+        <a href="#content"><span class="nav-num">02</span>内容表现</a>
+        <a href="#risk"><span class="nav-num">03</span>风险与可见度</a>
+        <a href="#next"><span class="nav-num">04</span>下周动作</a>
+        <a href="#spec"><span class="nav-num">05</span>模板规格</a>
+      </nav>
+
+      <div class="side-foot">
+        <strong>参考骨架</strong><br>
+        Desktop/01-美股路线决策台、Kaggle 离线学习页：sticky rail + sticky top，非 iframe 式死框。
+      </div>
+    </aside>
+
+    <main>
+      <header class="topbar">
+        <div class="meta">W30 · <strong>@demo</strong> · 皮肤 01 clean</div>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <span class="pill">template · sticky-rail</span>
+          <button class="btn" type="button">导出</button>
+          <button class="btn primary" type="button">复制摘要</button>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="callout">
+          旧样 <code>docked-shell.html</code> 被判定过死：body 锁滚动、左右硬框、像后台后台。
+          本页改名 <code>sticky-rail</code>（粘轨阅读架）：侧栏/顶栏用 <strong>sticky + blur</strong>，主列自然滚动、卡片有呼吸。
+          磁盘上未找到独立「X 周报」HTML；结构取你常用的决策台/学习器一类交付。
+        </div>
+
+        <section class="hero-block" id="overview">
+          <div class="eyebrow">Weekly ops · not a marketing hero</div>
+          <h1>本周账号状态：稳，但不热闹</h1>
+          <p>粘轨架负责「长文可扫」；风格 skill 只换皮肤（色/字/圆角/边线/阴影），不把这里改成 100svh 落地页。</p>
+        </section>
+
+        <div class="kpis">
+          <div class="kpi"><div class="l">Posts</div><div class="v">11</div><div class="s">节奏正常</div></div>
+          <div class="kpi"><div class="l">Eng. rate</div><div class="v">2.4%</div><div class="s">+0.3pp</div></div>
+          <div class="kpi"><div class="l">Risk</div><div class="v">Low</div><div class="s">无限制信号</div></div>
+        </div>
+
+        <section class="section" id="content">
+          <h2>内容表现</h2>
+          <div class="panel">
+            <div class="row"><span class="n">01</span><div><b>观点帖收藏偏高</b><span>标题可再锋利；完读中等</span></div><span class="tag">KEEP</span></div>
+            <div class="row"><span class="n">02</span><div><b>案例帖转评一般</b><span>前两行缺冲突点</span></div><span class="tag">TUNE</span></div>
+            <div class="row"><span class="n">03</span><div><b>工具帖外链正常</b><span>点击稳定，无降权迹象</span></div><span class="tag">OK</span></div>
+          </div>
+        </section>
+
+        <section class="section" id="risk">
+          <h2>风险与可见度</h2>
+          <p>搜索与时间线抽样未见明显限流。外链与媒体均可点开。继续避免争议诱饵式标题。</p>
+        </section>
+
+        <section class="section" id="next">
+          <h2>下周动作</h2>
+          <div class="panel">
+            <div class="row"><span class="n">A</span><div><b>3 更节奏</b><span>观点 + 案例 + 工具各一</span></div><span class="tag">PLAN</span></div>
+            <div class="row"><span class="n">B</span><div><b>统一置顶回复 CTA</b><span>减少临场发挥</span></div><span class="tag">PLAN</span></div>
+            <div class="row"><span class="n">C</span><div><b>只盯 2 个对标号</b><span>不做散点扫号</span></div><span class="tag">PLAN</span></div>
+          </div>
+        </section>
+
+        <section class="section" id="spec">
+          <h2>模板规格（给 skill 用）</h2>
+          <p style="margin-top:0">结构约定，不是视觉教条：</p>
+          <div class="diff">
+            <div class="bad">
+              <strong>Avoid</strong><br>
+              body overflow:hidden 死框<br>
+              硬 Admin 灰边<br>
+              主区像被夹在窗格里<br>
+              为「好看」拆成全屏 Hero
+            </div>
+            <div class="good">
+              <strong>Prefer</strong><br>
+              sidebar sticky; top sticky<br>
+              半透明 + blur 材质<br>
+              主文 padding 有呼吸<br>
+              长内容列表/卡片自然堆叠
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const links = [...document.querySelectorAll('.side-nav a')];
+    const map = links.map(a => ({ a, el: document.querySelector(a.getAttribute('href')) }));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        const id = '#' + en.target.id;
+        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === id));
+      });
+    }, { rootMargin: '-30% 0px -55% 0px', threshold: 0.01 });
+    map.forEach(({ el }) => el && io.observe(el));
+  </script>
+</body>
+</html>

@@ -1,0 +1,458 @@
+{
+  "name": "SU Webstyle Top 12",
+  "version": "0.2.0",
+  "coreCount": 12,
+  "styles": [
+    {
+      "index": 1,
+      "id": "modern-saas-clean",
+      "name": "Modern SaaS Clean",
+      "zh": "现代 SaaS 简洁风",
+      "role": "marketing",
+      "density": "medium",
+      "surface": "light",
+      "intent": [
+        "saas",
+        "ai tools",
+        "b2b",
+        "clean professional"
+      ],
+      "useWhen": [
+        "SaaS landing",
+        "AI product marketing",
+        "B2B tools"
+      ],
+      "avoidWhen": [
+        "loud campaigns",
+        "luxury fashion editorial",
+        "raw brutal attitude"
+      ],
+      "palette": {
+        "bg": "#FAFBFC",
+        "surface": "#FFFFFF",
+        "border": "#E8EAED",
+        "text": "#111827",
+        "muted": "#6B7280",
+        "accent": "#0F766E",
+        "accentSoft": "#F0FDFA"
+      },
+      "recipe": "recipes/modern-saas-clean.md",
+      "display": {
+        "bestFor": "SaaS、AI 工具、B2B",
+        "feel": "clean, soft, professional",
+        "description": "Neutral paper base; single teal accent on CTAs only."
+      }
+    },
+    {
+      "index": 2,
+      "id": "editorial-tech",
+      "name": "Editorial Tech",
+      "zh": "编辑型科技风",
+      "role": "marketing",
+      "density": "medium",
+      "surface": "light",
+      "intent": [
+        "magazine",
+        "research",
+        "thought leadership"
+      ],
+      "useWhen": [
+        "AI labs",
+        "research orgs",
+        "premium essays"
+      ],
+      "avoidWhen": [
+        "weak copy",
+        "dense admin tables as hero"
+      ],
+      "palette": {
+        "bg": "#F3EFE7",
+        "surface": "#FFFFFF",
+        "border": "#E5DFD4",
+        "text": "#171717",
+        "muted": "#8A8A8A",
+        "accent": "#A76446"
+      },
+      "recipe": "recipes/editorial-tech.md",
+      "display": {
+        "bestFor": "实验室、研究、高端服务",
+        "feel": "intelligent, magazine-like",
+        "description": "Large type contrast, strict grid, editorial imagery."
+      }
+    },
+    {
+      "index": 3,
+      "id": "linear-vercel-dark",
+      "name": "Linear / Vercel Dark",
+      "zh": "开发者暗黑风",
+      "role": "marketing",
+      "density": "medium",
+      "surface": "dark",
+      "intent": [
+        "developer",
+        "infra",
+        "technical calm"
+      ],
+      "useWhen": [
+        "API platforms",
+        "devtools",
+        "security products"
+      ],
+      "avoidWhen": [
+        "playful consumer brands",
+        "warm lifestyle"
+      ],
+      "palette": {
+        "bg": "#0E1117",
+        "surface": "#141925",
+        "border": "#1F2937",
+        "text": "#E7EEF8",
+        "muted": "#8B97AB",
+        "accent": "#7AA2FF"
+      },
+      "recipe": "recipes/linear-vercel-dark.md",
+      "display": {
+        "bestFor": "API、基础设施、开发者工具",
+        "feel": "technical, sharp, calm",
+        "description": "Dark surfaces, thin lines, subtle glow, code panels."
+      }
+    },
+    {
+      "index": 4,
+      "id": "stripe-ish-business",
+      "name": "Stripe-ish Business",
+      "zh": "Stripe 式商业风",
+      "role": "marketing",
+      "density": "medium",
+      "surface": "light",
+      "intent": [
+        "fintech",
+        "platform",
+        "commercial color"
+      ],
+      "useWhen": [
+        "payments",
+        "marketplaces",
+        "enterprise platforms"
+      ],
+      "avoidWhen": [
+        "neo-brutal youth only",
+        "quiet mono hardware"
+      ],
+      "palette": {
+        "bg": "#F7F9FF",
+        "surface": "#FFFFFF",
+        "border": "#D9E2F2",
+        "text": "#172033",
+        "muted": "#5B6B86",
+        "accent": "#6957FF",
+        "accent2": "#20C997"
+      },
+      "recipe": "recipes/stripe-ish-business.md",
+      "display": {
+        "bestFor": "金融科技、平台、商业工具",
+        "feel": "colorful, commercial, international",
+        "description": "White base with disciplined geometric color planes."
+      }
+    },
+    {
+      "index": 5,
+      "id": "notion-figma-friendly",
+      "name": "Notion / Figma Friendly",
+      "zh": "友好生产力风",
+      "role": "marketing",
+      "density": "medium",
+      "surface": "light",
+      "intent": [
+        "collaboration",
+        "friendly productivity"
+      ],
+      "useWhen": [
+        "notes",
+        "creators",
+        "education tools"
+      ],
+      "avoidWhen": [
+        "regulated finance seriousness only"
+      ],
+      "palette": {
+        "bg": "#FBFAF7",
+        "surface": "#FFFFFF",
+        "border": "#F1EEE7",
+        "text": "#22201D",
+        "muted": "#7A756C",
+        "accent": "#FFE066",
+        "accent2": "#91D5FF"
+      },
+      "recipe": "recipes/notion-figma-friendly.md",
+      "display": {
+        "bestFor": "协作、创作者、教育",
+        "feel": "approachable, smart",
+        "description": "Soft off-white, playful modules, light product blocks."
+      }
+    },
+    {
+      "index": 6,
+      "id": "apple-premium-minimal",
+      "name": "Apple Premium Minimal",
+      "zh": "Apple 式极简高级风",
+      "role": "marketing",
+      "density": "low",
+      "surface": "light",
+      "intent": [
+        "flagship",
+        "premium product",
+        "restraint"
+      ],
+      "useWhen": [
+        "hardware",
+        "flagship apps",
+        "one hero object"
+      ],
+      "avoidWhen": [
+        "dense feature lists",
+        "admin dashboards as marketing"
+      ],
+      "palette": {
+        "bg": "#F6F7F8",
+        "surface": "#FFFFFF",
+        "border": "#E2E5E8",
+        "text": "#111315",
+        "muted": "#7B8087",
+        "accent": "#111315"
+      },
+      "recipe": "recipes/apple-premium-minimal.md",
+      "display": {
+        "bestFor": "硬件、旗舰产品",
+        "feel": "premium, quiet, precise",
+        "description": "Huge whitespace, one hero object, few colors."
+      }
+    },
+    {
+      "index": 7,
+      "id": "swiss-international",
+      "name": "Swiss International",
+      "zh": "瑞士国际主义风",
+      "role": "marketing",
+      "density": "medium",
+      "surface": "light",
+      "intent": [
+        "grid",
+        "rational",
+        "design-literate"
+      ],
+      "useWhen": [
+        "studios",
+        "architecture",
+        "culture portfolios"
+      ],
+      "avoidWhen": [
+        "cute consumer playfulness only"
+      ],
+      "palette": {
+        "bg": "#F8F8F1",
+        "surface": "#FFFFFF",
+        "border": "#E6E3D8",
+        "text": "#101010",
+        "muted": "#6B6B6B",
+        "accent": "#0047FF",
+        "accent2": "#FFF200"
+      },
+      "recipe": "recipes/swiss-international.md",
+      "display": {
+        "bestFor": "设计机构、文化、作品集",
+        "feel": "rational, structured",
+        "description": "Hard grid, large sans, tiny high-sat accents."
+      }
+    },
+    {
+      "index": 8,
+      "id": "bento-grid",
+      "name": "Bento Grid",
+      "zh": "Bento 模块风",
+      "role": "marketing",
+      "density": "medium",
+      "surface": "light",
+      "intent": [
+        "modular showcase",
+        "feature mosaic"
+      ],
+      "useWhen": [
+        "multi-feature SaaS",
+        "product launches"
+      ],
+      "avoidWhen": [
+        "single-object flagship silence"
+      ],
+      "palette": {
+        "bg": "#EEF4F7",
+        "surface": "#FFFFFF",
+        "border": "#D5E4EE",
+        "text": "#162736",
+        "muted": "#5A7386",
+        "accent": "#8BB8D8",
+        "accentSoft": "#C8E6FF"
+      },
+      "recipe": "recipes/bento-grid.md",
+      "display": {
+        "bestFor": "多功能 SaaS、产品发布",
+        "feel": "modular, scannable",
+        "description": "Varied bento blocks with clear hierarchy."
+      }
+    },
+    {
+      "index": 9,
+      "id": "neo-brutalism",
+      "name": "Neo Brutalism",
+      "zh": "新粗野主义风",
+      "role": "marketing",
+      "density": "medium-high",
+      "surface": "light",
+      "intent": [
+        "loud",
+        "campaign",
+        "attitude"
+      ],
+      "useWhen": [
+        "events",
+        "youth brands",
+        "experimental products"
+      ],
+      "avoidWhen": [
+        "serious regulated B2B",
+        "quiet luxury"
+      ],
+      "palette": {
+        "bg": "#FFF5C2",
+        "surface": "#FFFFFF",
+        "border": "#111111",
+        "text": "#111111",
+        "muted": "#444444",
+        "accent": "#FF4F1F",
+        "accent2": "#00D084"
+      },
+      "recipe": "recipes/neo-brutalism.md",
+      "display": {
+        "bestFor": "活动、年轻品牌、实验",
+        "feel": "bold, loud",
+        "description": "Thick borders, hard shadows, high chroma, heavy type."
+      }
+    },
+    {
+      "index": 10,
+      "id": "wabi-beige",
+      "name": "Wabi Beige",
+      "zh": "侘寂米色",
+      "role": "marketing",
+      "density": "low",
+      "surface": "light",
+      "intent": [
+        "calm",
+        "natural",
+        "quiet premium lifestyle"
+      ],
+      "useWhen": [
+        "hospitality",
+        "lifestyle",
+        "calm personal brand"
+      ],
+      "avoidWhen": [
+        "neon tech",
+        "dense trading UI as hero"
+      ],
+      "palette": {
+        "bg": "#EFEAE0",
+        "surface": "#D8CFC0",
+        "border": "#D0C6B4",
+        "text": "#3A352F",
+        "muted": "#6B6253",
+        "accent": "#A8997E",
+        "deep": "#6B6253"
+      },
+      "recipe": "recipes/wabi-beige.md",
+      "display": {
+        "bestFor": "生活方式、民宿、安静品牌",
+        "feel": "calm, warm, restrained",
+        "description": "Low-sat earth tones, airy type, natural materials."
+      }
+    },
+    {
+      "index": 11,
+      "id": "corporate-blue",
+      "name": "Corporate Blue",
+      "zh": "蓝色商务",
+      "role": "marketing",
+      "density": "medium",
+      "surface": "light",
+      "intent": [
+        "trust",
+        "enterprise",
+        "proposal"
+      ],
+      "useWhen": [
+        "B2B proposals",
+        "enterprise marketing",
+        "consulting decks on web"
+      ],
+      "avoidWhen": [
+        "playful youth only",
+        "neo-brutal campaigns"
+      ],
+      "palette": {
+        "bg": "#F8FAFC",
+        "surface": "#FFFFFF",
+        "border": "#E2E8F0",
+        "text": "#1A1A1A",
+        "muted": "#64748B",
+        "accent": "#1E40AF",
+        "accent2": "#3066BE",
+        "soft": "#B4C5E4",
+        "navy": "#14213D"
+      },
+      "recipe": "recipes/corporate-blue.md",
+      "display": {
+        "bestFor": "B2B 提案、企业可信营销",
+        "feel": "rational, trustworthy",
+        "description": "Steady blue system, geometric sans, data-friendly marketing."
+      }
+    },
+    {
+      "index": 12,
+      "id": "playful-startup",
+      "name": "Playful Startup",
+      "zh": "活泼创业风",
+      "role": "marketing",
+      "density": "medium",
+      "surface": "light",
+      "intent": [
+        "bright",
+        "expressive",
+        "consumer"
+      ],
+      "useWhen": [
+        "education",
+        "community",
+        "consumer products"
+      ],
+      "avoidWhen": [
+        "heavy enterprise trust-only"
+      ],
+      "palette": {
+        "bg": "#FFF7EE",
+        "surface": "#FFFFFF",
+        "border": "#F0E0CC",
+        "text": "#2B2B2B",
+        "muted": "#6B6560",
+        "accent": "#FF6B6B",
+        "accent2": "#71D8C9",
+        "accent3": "#FFBD59"
+      },
+      "recipe": "recipes/playful-startup.md",
+      "display": {
+        "bestFor": "教育、社区、消费产品",
+        "feel": "bright, warm, expressive",
+        "description": "Lively colors, simple shapes, approachable headlines."
+      }
+    }
+  ]
+}

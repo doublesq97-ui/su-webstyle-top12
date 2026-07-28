@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artifact · 密度与套皮演示</title>
+<style>
+  :root {
+    --bg: #FAFBFC; --surface: #fff; --text: #111827; --muted: #6B7280;
+    --accent: #0F766E; --line: #E8EAED; --soft: #F0FDFA;
+    --sans: ui-sans-serif, -apple-system, "Segoe UI", "PingFang SC", "Noto Sans SC", sans-serif;
+    --mono: ui-monospace, Menlo, monospace;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: var(--sans); background: #eef0f3; color: var(--text);
+    padding: 28px 16px 60px;
+  }
+  .wrap { width: min(980px, 100%); margin: 0 auto; }
+  h1 { font-size: 22px; letter-spacing: -.02em; margin: 0 0 6px; }
+  .sub { color: var(--muted); font-size: 13px; margin: 0 0 22px; line-height: 1.55; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 820px) { .grid { grid-template-columns: 1fr; } }
+  .panel {
+    background: var(--bg); border: 1px solid var(--line); border-radius: 14px;
+    overflow: hidden; box-shadow: 0 12px 32px rgba(24,37,31,.06);
+  }
+  .ph {
+    padding: 12px 14px; border-bottom: 1px solid var(--line);
+    font: 600 11px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase;
+    color: var(--accent); background: var(--surface);
+  }
+  .body { padding: 14px; }
+  .note {
+    margin-bottom: 16px; padding: 12px 14px; background: #fffef8;
+    border: 1px solid #e6dfc8; border-radius: 10px; font-size: 12.5px; color: #5a5346; line-height: 1.55;
+  }
+  /* list density */
+  .list { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--surface); }
+  .row {
+    display: grid; grid-template-columns: 36px 1fr auto; gap: 10px; align-items: center;
+    padding: 11px 12px; border-bottom: 1px solid var(--line); font-size: 13px;
+  }
+  .row:last-child { border-bottom: 0; }
+  .row:hover { background: var(--soft); }
+  .idx { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+  .row b { font-weight: 600; display: block; }
+  .row small { color: var(--muted); font-size: 11.5px; }
+  .tag {
+    font: 600 10px/1 var(--mono); padding: 4px 7px; border-radius: 999px;
+    background: var(--soft); color: var(--accent); border: 1px solid var(--line);
+  }
+  /* dashboard lite */
+  .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
+  .kpi {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 10px;
+  }
+  .kpi .l { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+  .kpi .v { font-size: 20px; font-weight: 700; letter-spacing: -.03em; margin-top: 4px; }
+  .chart {
+    height: 88px; border-radius: 10px; border: 1px solid var(--line);
+    background: linear-gradient(180deg, var(--soft), var(--surface));
+    display: flex; align-items: end; gap: 6px; padding: 12px;
+  }
+  .chart i {
+    display: block; flex: 1; background: var(--accent); border-radius: 3px 3px 0 0; opacity: .85;
+  }
+  /* note reader inspired by naval map - not 1:1 */
+  .reader {
+    background: #f7f4ee; border: 1px solid #e2d9c8; border-radius: 14px; overflow: hidden;
+  }
+  .reader .ph { background: #f0ebe2; color: #6b6253; border-color: #e2d9c8; }
+  .reader .body { padding: 0; }
+  .concept {
+    padding: 18px 16px 20px; border-bottom: 1px solid #e2d9c8;
+  }
+  .concept:last-child { border-bottom: 0; }
+  .concept .meta { font: 600 10px/1 var(--mono); color: #a8997e; letter-spacing: .08em; margin-bottom: 8px; }
+  .concept h3 { margin: 0 0 8px; font-size: 17px; letter-spacing: -.02em; }
+  .concept p { margin: 0; font-size: 13px; color: #4a433a; line-height: 1.65; }
+  .concept .ask {
+    margin-top: 12px; padding: 10px 12px; background: #fff; border: 1px dashed #cfc4b0;
+    border-radius: 8px; font-size: 12px; color: #6b6253;
+  }
+  footer { margin-top: 18px; font-size: 12px; color: #7a857e; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Artifact：格式固定 → 只换皮肤</h1>
+    <p class="sub">
+      不需要「几号风格匹配哪种 artifact」。先定形态（列表 / 仪表盘壳 / 笔记阅读器），再从 Web Style 12 抽 <strong>颜色 + 字体</strong> 套上去。
+      下面左列：01 色皮的高密度列表 + 仪表盘壳；右列：侘寂米色笔记块（参考 naval 学习地图的「概念条」结构，非 1:1）。
+    </p>
+    <div class="note">
+      决策降维：① deliverable=artifact ② template（list-rows / dashboard-lite / note-reader）③ density 由条数自动推 ④ style 只供 skin。
+      条数多 → 强制 list-rows，不要硬塞 bento 卡片墙。
+    </div>
+    <div class="grid">
+      <div>
+        <div class="panel" style="margin-bottom:16px">
+          <div class="ph">template · list-rows · skin 01 · density dense</div>
+          <div class="body">
+            <div class="list">
+              <div class="row"><span class="idx">01</span><div><b>先定形态，再套色</b><small>格式合同与风格合同解耦</small></div><span class="tag">RULE</span></div>
+              <div class="row"><span class="idx">02</span><div><b>条数 ≥ 6 用列表</b><small>不要拆成 6 张均等卡片</small></div><span class="tag">DENSE</span></div>
+              <div class="row"><span class="idx">03</span><div><b>仪表盘壳可做 artifact</b><small>KPI + 一条主图 + 表，非完整后台产品</small></div><span class="tag">SHELL</span></div>
+              <div class="row"><span class="idx">04</span><div><b>皮肤 = 色 + 字 + 圆角边框</b><small>不搬运 Hero / 100svh</small></div><span class="tag">SKIN</span></div>
+              <div class="row"><span class="idx">05</span><div><b>08 ≠ 11</b><small>营销模块 vs 操作密读，见主回复</small></div><span class="tag">SPLIT</span></div>
+              <div class="row"><span class="idx">06</span><div><b>10 拟换侘寂米色</b><small>更大众的安静高级，非假奢华</small></div><span class="tag">ROADMAP</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="ph">template · dashboard-lite · skin 01</div>
+          <div class="body">
+            <div class="kpis">
+              <div class="kpi"><div class="l">Concepts</div><div class="v">40</div></div>
+              <div class="kpi"><div class="l">Done</div><div class="v">12</div></div>
+              <div class="kpi"><div class="l">Streak</div><div class="v">5d</div></div>
+            </div>
+            <div class="chart" aria-hidden="true">
+              <i style="height:40%"></i><i style="height:62%"></i><i style="height:48%"></i>
+              <i style="height:78%"></i><i style="height:55%"></i><i style="height:88%"></i>
+              <i style="height:66%"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reader">
+        <div class="ph">template · note-reader · skin 侘寂米色（拟 10）</div>
+        <div class="body">
+          <article class="concept">
+            <div class="meta">CONCEPT · 01 / 40 · PATH 判断力</div>
+            <h3>先有具体问题，再找抽象框架</h3>
+            <p>读笔记时一次只推进一个概念：标题说清命题，正文短讲机制，底部留「与你有关的问题」。结构稳，风格只换纸色与字体气质。</p>
+            <div class="ask">写下：这件事里，我真正要解决的具体问题是什么？</div>
+          </article>
+          <article class="concept">
+            <div class="meta">CONCEPT · 02 / 40</div>
+            <h3>特殊知识复利，通用知识折旧</h3>
+            <p>条目多时继续用「条」向下堆，而不是改成营销 bento。密度高 = 列表/章节条，不是更多装饰卡片。</p>
+            <div class="ask">我这周在积累的特殊知识是什么？</div>
+          </article>
+        </div>
+      </div>
+    </div>
+    <footer>参考结构灵感：naval-learning-map 的概念推进节奏 · 非视觉 1:1 复制</footer>
+  </div>
+</body>
+</html>

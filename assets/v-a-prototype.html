@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>su-webstyle-top12 · 升级进度（vA.2）</title>
+<style>
+  :root {
+    --bg: #0c0e12;
+    --panel: #141820;
+    --panel2: #1a2030;
+    --line: #2a3344;
+    --ink: #e8eef8;
+    --muted: #8b97ab;
+    --dim: #5c6a80;
+    --accent: #7aa2ff;
+    --accent2: #5eead4;
+    --warn: #fbbf24;
+    --good: #34d399;
+    --bad: #f87171;
+    --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", sans-serif;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .topbar {
+    position: sticky; top: 0; z-index: 20;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; flex-wrap: wrap;
+    padding: 12px 20px;
+    background: rgba(12,14,18,.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .brand { font: 600 13px/1 var(--mono); letter-spacing: .04em; color: var(--accent2); }
+  .nav { display: flex; gap: 6px; flex-wrap: wrap; }
+  .nav a {
+    font-size: 12px; color: var(--muted);
+    padding: 6px 10px; border-radius: 999px;
+    border: 1px solid transparent;
+  }
+  .nav a:hover { color: var(--ink); border-color: var(--line); text-decoration: none; background: var(--panel); }
+  .wrap { width: min(980px, calc(100% - 32px)); margin: 0 auto; padding: 36px 0 80px; }
+  .hero { padding-bottom: 28px; border-bottom: 1px solid var(--line); margin-bottom: 32px; }
+  .kicker {
+    font: 600 11px/1 var(--mono);
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin: 0 0 12px;
+  }
+  h1 {
+    margin: 0 0 12px;
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 650;
+    letter-spacing: -.03em;
+    line-height: 1.15;
+  }
+  .lede { margin: 0; max-width: 640px; color: var(--muted); font-size: 14.5px; }
+  .badge-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+  .badge {
+    font: 500 11px/1 var(--mono);
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    background: var(--panel);
+  }
+  .badge.ok { color: var(--good); border-color: rgba(52,211,153,.35); }
+  .badge.warn { color: var(--warn); border-color: rgba(251,191,36,.35); }
+  section { margin-bottom: 40px; }
+  h2 {
+    margin: 0 0 8px;
+    font-size: 18px;
+    font-weight: 650;
+    letter-spacing: -.02em;
+  }
+  .sec-desc { margin: 0 0 14px; color: var(--muted); font-size: 13.5px; max-width: 720px; }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 16px;
+  }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  @media (max-width: 800px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  }
+  .card h3 { margin: 0 0 6px; font-size: 14px; }
+  .card p { margin: 0; font-size: 13px; color: var(--muted); }
+  .tag {
+    display: inline-block;
+    margin-bottom: 8px;
+    font: 600 10px/1 var(--mono);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  th {
+    font: 600 11px/1 var(--mono);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--dim);
+    background: var(--panel2);
+  }
+  tr:last-child td { border-bottom: 0; }
+  .ok { color: var(--good); }
+  .warn { color: var(--warn); }
+  .id { font-family: var(--mono); color: var(--accent); font-size: 12px; }
+  .note {
+    margin-top: 12px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(122,162,255,.25);
+    background: rgba(122,162,255,.08);
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .note strong { color: var(--ink); }
+  ul.clean { margin: 0; padding-left: 18px; color: var(--muted); font-size: 13.5px; }
+  ul.clean li { margin: 6px 0; }
+  footer {
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    color: var(--dim);
+    font-size: 12px;
+  }
+  .links a {
+    display: inline-block;
+    margin: 4px 8px 4px 0;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    font-size: 12px;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .links a:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">su-webstyle-top12 · Progress Brief · vA.2</div>
+    <nav class="nav">
+      <a href="#done">本轮完成</a>
+      <a href="#decisions">已拍板</a>
+      <a href="#catalog">目录变更</a>
+      <a href="#templates">Artifact</a>
+      <a href="#open">待落地</a>
+      <a href="#samples">样页</a>
+    </nav>
+  </div>
+
+  <div class="wrap">
+    <header class="hero">
+      <p class="kicker">设计会话进度 · 不是 skill 正文交付</p>
+      <h1>Web Style Top12 升级：我们做到哪了</h1>
+      <p class="lede">
+        方向锁定 Version A（Motion 镜像）。本页汇总本轮讨论与样页，方便你一次看完：
+        交付物分流、皮肤范围、全局排版优先、目录替换、01 洗色、粘轨模板修订。
+      </p>
+      <div class="badge-row">
+        <span class="badge ok">方向 A 已选</span>
+        <span class="badge ok">决策已收口</span>
+        <span class="badge ok">样页可截图</span>
+        <span class="badge">2026-07-28</span>
+      </div>
+    </header>
+
+    <section id="done">
+      <h2>1. 本轮完成了什么</h2>
+      <p class="sec-desc">设计与打样层，不是生产 skill 全量 rewrite。</p>
+      <table>
+        <thead>
+          <tr><th>项</th><th>状态</th><th>说明</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>问题诊断</td>
+            <td class="ok">完成</td>
+            <td>缺可执行 Style Spec / Contract / Evidence，弱模型只会换皮卡片</td>
+          </tr>
+          <tr>
+            <td>方案 A/B/C</td>
+            <td class="ok">完成</td>
+            <td>你选定 <strong>A · Motion 镜像</strong>（与 su-motion-top12 同构的独立 skill）</td>
+          </tr>
+          <tr>
+            <td>交付物分流</td>
+            <td class="ok">完成</td>
+            <td>website 深合同 vs artifact 模板+皮肤；先判形态再选风格</td>
+          </tr>
+          <tr>
+            <td>皮肤定义</td>
+            <td class="ok">完成</td>
+            <td>色 + 字 + 圆角/直角 + 边框 + 阴影（不止换色）</td>
+          </tr>
+          <tr>
+            <td>全局排版优先</td>
+            <td class="ok">完成</td>
+            <td>用户全局习惯优先；套皮肤并文字披露；地板非天花板</td>
+          </tr>
+          <tr>
+            <td>01 配色清洗</td>
+            <td class="ok">样页</td>
+            <td>中性纸白 + 单一青绿 accent，去掉绿洗</td>
+          </tr>
+          <tr>
+            <td>09 样页</td>
+            <td class="ok">样页</td>
+            <td>Neo Brutalism website path 可对照 evidence</td>
+          </tr>
+          <tr>
+            <td>粘轨模板</td>
+            <td class="ok">修订</td>
+            <td>粘轨模板定为 <span class="id">sticky-rail</span>；仪表盘对齐 01-web-demonstrate 标杆</td>
+          </tr>
+          <tr>
+            <td>Skill 正文 / 12 recipes</td>
+            <td class="ok">规格已定</td>
+            <td>catalog · recipes · SKILL.md 按 vA.2 写入</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="decisions">
+      <h2>2. 已拍板规则（落地时写入 skill）</h2>
+      <div class="grid-2">
+        <div class="card">
+          <div class="tag">Floor / Ceiling</div>
+          <h3>抬高最低标准，不锁死上限</h3>
+          <p>规范是地板。AI 可叠加、可更强、可自选；默认走地板，冲突时优先用户意图并说明。</p>
+        </div>
+        <div class="card">
+          <div class="tag">User layout</div>
+          <h3>全局排版优先 + 披露</h3>
+          <p>memory / CLAUDE.md / 习惯架 → 结构跟用户，只套皮肤。回复需写明：「已按你的全局排版套 [style] 皮肤」。</p>
+        </div>
+        <div class="card">
+          <div class="tag">Skin</div>
+          <h3>皮肤范围</h3>
+          <p>Color · Type · Radius · Border · Shadow ·（可选）icon stroke。不含强制 Hero / 100svh。</p>
+        </div>
+        <div class="card">
+          <div class="tag">Motion</div>
+          <h3>有 su-motion 就配对</h3>
+          <p>做 website 时若环境有 su-motion-top12，默认两 skill 一起用；没有也不失败。</p>
+        </div>
+      </div>
+      <div class="note">
+        <strong>模式：</strong>Browse / Choose / Recommend / Auto / Apply。
+        探索才上课；建页/优化默认 Auto。Apply 出 Contract（深|浅）再实现、再 Evidence。
+      </div>
+    </section>
+
+    <section id="catalog">
+      <h2>3. Top 12 目录变更（已同意）</h2>
+      <table>
+        <thead>
+          <tr><th>#</th><th>原</th><th>新</th><th>备注</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="id">01</td>
+            <td>Modern SaaS Clean（绿洗）</td>
+            <td>同名 · tokens 洗净</td>
+            <td>bg #FAFBFC · accent #0F766E · accent 面积 &lt;8%</td>
+          </tr>
+          <tr>
+            <td class="id">10</td>
+            <td>Luxury Editorial</td>
+            <td><strong>侘寂米色</strong></td>
+            <td>手册风格 A：#EFEAE0 / #3A352F / #A8997E</td>
+          </tr>
+          <tr>
+            <td class="id">11</td>
+            <td>Data Dashboard</td>
+            <td><strong>蓝色商务</strong></td>
+            <td>手册风格 E；工作台改由模板承担</td>
+          </tr>
+          <tr>
+            <td class="id">08</td>
+            <td>Bento Grid</td>
+            <td>保留</td>
+            <td>橱窗/营销模块；≠ 11 可信蓝</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="note">
+        工作台 / 密读 UI 不再占风格号：用 <span class="id">sticky-rail</span> / <span class="id">dashboard-ops</span> / <span class="id">list-rows</span> + 任意皮肤。
+      </div>
+    </section>
+
+    <section id="templates">
+      <h2>4. Artifact 模板（形态与风格解耦）</h2>
+      <p class="sec-desc">不需要「几号风格配哪种模板」。先定形态与密度，再套皮肤。</p>
+      <div class="grid-3">
+        <div class="card"><div class="tag">single-panel</div><h3>单板</h3><p>一句结论 / 单卡片</p></div>
+        <div class="card"><div class="tag">split-compare</div><h3>对比</h3><p>左右或上下</p></div>
+        <div class="card"><div class="tag">stack-sections</div><h3>叠块</h3><p>2–4 竖块，非 100svh</p></div>
+        <div class="card"><div class="tag">bento-lite</div><h3>轻模块</h3><p>小模块墙</p></div>
+        <div class="card"><div class="tag">list-rows</div><h3>列表条</h3><p>条数多默认它</p></div>
+        <div class="card"><div class="tag">dashboard-ops</div><h3>运营仪表盘</h3><p>参考 Fernand / Fingerprint：筛选条 + KPI + 主图 + 表/排行</p></div>
+        <div class="card"><div class="tag">note-reader</div><h3>笔记阅读</h3><p>概念条推进，灵感 naval 非 1:1</p></div>
+        <div class="card"><div class="tag">sticky-rail</div><h3>粘轨阅读架</h3><p>侧栏+顶栏 sticky，主文滚动</p></div>
+      </div>
+      <div class="note">
+        <strong>仪表盘标杆：</strong>来自本机 <code>Documents/01-web-demonstrate</code> —
+        <span class="id">fernand-reporting-migrated</span>（深色客服运营：筛选 + 折线 + Pipeline + 团队表）与
+        <span class="id">fingerprint-overview-migrated</span>（浅色 API 分析：状态条 + KPI + 时间序列 Tab + 图/表切换）。
+        模板要的是<strong>信息层级与控件语法</strong>，不是抄品牌皮。
+      </div>
+    </section>
+
+    <section id="open">
+      <h2>5. 落地时会写入 skill 的内容</h2>
+      <ul class="clean">
+        <li><code>SKILL.md</code>：五模式 + 交付物分流 + 全局排版优先 + motion 配对 + 地板天花板</li>
+        <li><code>style-catalog.json</code> + <code>selection-guide.md</code></li>
+        <li><code>recipes/</code> ×12（含 01 新色、10 侘寂、11 蓝商务）</li>
+        <li><code>artifact-templates.md</code>（含 dashboard-ops / sticky-rail）+ <code>implementation-contract.md</code></li>
+        <li>README / usage-modes / examples 同步</li>
+      </ul>
+    </section>
+
+    <section id="samples">
+      <h2>6. 可打开的样页</h2>
+      <div class="links">
+        <a href="./samples/01-palette-clean.html">01 配色清洗</a>
+        <a href="./samples/09-neo-brutalism.html">09 Neo Brutalism</a>
+        <a href="./samples/sticky-rail.html">sticky-rail 粘轨</a>
+        <a href="./samples/dashboard-ops.html">dashboard-ops 仪表盘</a>
+        <a href="./samples/artifact-density-demo.html">Artifact 密度示意</a>
+        <a href="./samples/01-palette-clean.html">01 配色清洗</a>
+        <a href="./samples/09-neo-brutalism.html">09 Neo Brutalism</a>
+        <a href="./design-decisions-va.md">design-decisions-va.md</a>
+      </div>
+      <div class="note">
+        本页用于对齐设计进度；确认后写入 skill 正文与 12 份 recipe。
+      </div>
+    </section>
+
+    <footer>
+      assets/v-a-prototype.html · 进度 brief · 不替代 SKILL.md
+    </footer>
+  </div>
+</body>
+</html>
