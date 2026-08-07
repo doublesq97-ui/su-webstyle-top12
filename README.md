@@ -79,9 +79,9 @@ su-webstyle-top12/
 │   ├── output-patterns.md
 │   └── recipes/          # 12 份可执行规格
 ├── assets/
-│   ├── style-board-template.html
 │   ├── samples/
 │   └── promo-*.png
+├── docs/               # 当前 12 风格交互体验台（index.html + 相邻资源）
 ├── examples/prompts.md
 └── adapters/cursor-rule.md
 ```

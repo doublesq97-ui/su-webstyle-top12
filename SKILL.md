@@ -4,7 +4,7 @@ description: "Curated Top 12 overseas web styles with executable recipes: browse
 license: MIT
 metadata:
   author: "@Sukiea1008"
-  version: "0.2.5"
+  version: "0.2.6"
   compatibility: Agent Skills compatible; works in Codex, Claude Code, and agents that can read SKILL.md/AGENTS.md style instructions.
 ---
 
@@ -69,7 +69,7 @@ Exploration → Browse/Choose. Production → Auto/Apply. Named style → Apply.
 - After selecting a style in Apply, read **only** `references/recipes/{id}.md`. Do not load all 12.
 - Read [references/style-atlas.md](references/style-atlas.md) only for lightweight Browse copy if needed.
 - Read [references/output-patterns.md](references/output-patterns.md) for boards, viewport rules, promo rules.
-- Use [assets/style-board-template.html](assets/style-board-template.html) for visual comparison boards.
+- Use [docs/index.html](docs/index.html) for the current interactive 12-style comparison board. It depends on the adjacent `app.js`, `style-catalog.js`, `styles.css`, and `themes.css`; keep the `docs/` directory intact when opening or copying it.
 
 ## Core Workflow
 
