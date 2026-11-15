@@ -13,6 +13,13 @@
 
 保留 12 款风格与原有 ID，更新 **02 编辑杂志、06 液态玻璃、07 深色工作台**；完善 01、09、11、12 的页面构图。已有风格链接仍可使用。
 
+<details>
+<summary>查看全部 12 款真实页面截图</summary>
+
+[![v0.4.0 的 12 款风格真实截图](assets/screenshots/style-overview-v0.4.0.png)](https://doublesq97-ui.github.io/su-webstyle-top12/)
+
+</details>
+
 Looma AI 是用于比较风格的虚构产品。演示在浏览器本地运行，使用预设结果，不调用 AI 服务，也不上传输入内容。
 
 ## 它能做什么
@@ -87,6 +94,7 @@ su-webstyle-top12/
 │   └── recipes/          # 12 份可执行规格
 ├── assets/
 │   ├── samples/
+│   ├── screenshots/     # 当前演示截图
 │   └── promo-*.png       # 历史宣传素材
 ├── docs/               # 当前 12 风格交互体验台（index.html + 相邻资源）
 ├── examples/prompts.md
@@ -128,7 +136,7 @@ Browse · Choose · Recommend · **Auto** · Apply
 - 07 **Dark Workspace** — neutral charcoal surfaces and restrained functional color.
 - 01, 09, 11 and 12 receive more distinct section layouts. All 12 IDs remain stable.
 
-Looma AI is a fictional product with local, preset interaction results; it does not call an AI service or upload input.
+The screenshots above show the current demo. Looma AI is a fictional product with local, preset interaction results; it does not call an AI service or upload input.
 
 ## Install
 
