@@ -7,6 +7,10 @@
 
 **[在线体验 12 种风格 →](https://doublesq97-ui.github.io/su-webstyle-top12/)**
 
+[![三款精选风格：编辑杂志、液态玻璃、深色工作台](assets/style-guide-v0.4.0.png)](https://doublesq97-ui.github.io/su-webstyle-top12/)
+
+三款精选风格的视觉示意。完整页面效果见在线演示与下方 12 款真实截图。
+
 它抬高**最低标准**（色/字/圆角/边框/阴影、构图、Evidence），但不锁死上限——强模型可以叠加发挥。
 
 ## v0.4.0 更新
