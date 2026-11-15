@@ -67,3 +67,7 @@ When deliverable is `website` and su-motion-top12 is installed:
 3. Evidence list marked pass/fail with fixes if fail.
 4. Desktop + mobile sanity (overflow, hit targets, contrast).
 5. Disclosure present when user-layout path used.
+
+## Renewed styles 02 / 06 / 07
+
+Use the current recipe and live `docs/` composition together. 02 includes editorial photography and Chinese serif hierarchy; 06 includes a colored product stage with a distinct operable glass control layer; 07 is Dark Workspace: a near-black shell, layered charcoal workspace and restrained functional color. Its Looma AI website keeps the product introduction, operable workspace, capabilities, workflow and closing CTA; dashboard references inform its skin without replacing the site with their information architecture. Saved style IDs remain stable. Material effects must fall back for reduced transparency, increased contrast and unsupported blur.

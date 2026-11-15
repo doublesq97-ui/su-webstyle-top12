@@ -97,3 +97,11 @@ Do not force signatures or 100svh section recipes.
   --radius-md: 10px;
 }
 ```
+
+## Demo signature (2026-09 revision)
+Follows the user's style card E (蓝色商务系).
+- Hero: navy band, left-aligned two-line H1 with the Chinese promise, subdued grid; right column holds three trust facts (product behaviour, not invented performance claims).
+- The product surface straddles the navy/light boundary and shows the KPI + trend panel — the data-friendly evidence this style is for.
+- Capabilities: sober 3-column grid, square blue number badges, hairline cards.
+- Workflow: horizontal numbered timeline on one line with cards beneath.
+- Closing: navy proposal band — statement left, single action right.

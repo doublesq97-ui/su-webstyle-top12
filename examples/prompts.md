@@ -27,7 +27,7 @@ AI 数据分析产品，帮我 shortlist 3 个网页风格。
 ## Apply website
 
 ```text
-用 06 Apple Premium Minimal 做旗舰产品首页。
+用 06 Liquid Glass / 液态玻璃 做旗舰产品首页。
 ```
 
 ```text

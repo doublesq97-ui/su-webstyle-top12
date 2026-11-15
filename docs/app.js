@@ -94,54 +94,10 @@ function writeStyleUrl(styleId, replace = false) {
   window.history[method]({ styleId }, '', url);
 }
 
-const swissSignalKeywords = {
-  blue: ['ai', 'tech', 'product', 'digital', 'saas', 'console', 'tool', '科技', '产品', '数字', '控制台', '工具', '人工智能'],
-  red: ['red', 'poster', 'culture', 'gallery', 'architecture', 'manifesto', 'precision', 'strength', '红', '海报', '文化', '画廊', '建筑', '宣言', '精确', '力量']
-};
-
-function resolveSwissSignal() {
-  const requested = new URL(window.location.href).searchParams.get('signal')?.toLowerCase();
-  if (requested === 'blue' || requested === 'red') {
-    return { value: requested, source: 'override' };
-  }
-
-  const context = [
-    '.brand',
-    '#hero-title',
-    '[data-hero-claim]',
-    '[data-hero-support]',
-    '[data-product-title]',
-    '#capabilities-title',
-    '#workflow-title',
-    '#cta-title'
-  ]
-    .map((selector) => document.querySelector(selector)?.textContent || '')
-    .join(' ')
-    .toLowerCase();
-
-  const score = (keywords) => keywords.reduce((total, keyword) => total + Number(context.includes(keyword)), 0);
-  const blueScore = score(swissSignalKeywords.blue);
-  const redScore = score(swissSignalKeywords.red);
-
-  return { value: redScore > blueScore ? 'red' : 'blue', source: 'auto' };
-}
-
-function updateSwissSignal(style) {
-  if (style.id !== 'swiss-international') {
-    delete document.body.dataset.swissSignal;
-    delete document.body.dataset.swissSignalSource;
-    return;
-  }
-
-  const route = resolveSwissSignal();
-  document.body.dataset.swissSignal = route.value;
-  document.body.dataset.swissSignalSource = route.source;
-}
-
 function updateStyleContent(style) {
   document.body.dataset.style = style.id;
   document.body.dataset.layout = style.layout;
-  document.documentElement.style.colorScheme = style.id === 'linear-vercel-dark' ? 'dark' : 'light';
+  document.documentElement.style.colorScheme = ['linear-vercel-dark', 'swiss-international'].includes(style.id) ? 'dark' : 'light';
   document.title = `${style.name} · Looma AI`;
   themeColor.setAttribute('content', style.themeColor);
 
@@ -157,7 +113,7 @@ function updateStyleContent(style) {
   document.querySelector('[data-active-style-fit]').textContent = style.bestFor;
   document.querySelector('[data-style-count]').textContent = `${style.index} / 12`;
   document.querySelector('[data-style-index-description]').textContent = style.description;
-  updateSwissSignal(style);
+  document.querySelector('#hero-title').textContent = style.heroTitle || 'Looma AI';
 
   styleList.querySelectorAll('[data-style-option]').forEach((option) => {
     option.setAttribute('aria-selected', String(option.dataset.styleOption === style.id));
@@ -273,7 +229,7 @@ window.addEventListener('popstate', () => {
   if (!stylesById.has(styleId)) return;
 
   if (styleId === activeStyleId) {
-    updateSwissSignal(stylesById.get(styleId));
+    updateStyleContent(stylesById.get(styleId));
   } else {
     applyStyle(styleId, { updateUrl: false });
   }
@@ -405,4 +361,18 @@ document.querySelectorAll('[data-signal-range]').forEach((button) => {
     document.querySelector('[data-signal-area]').setAttribute('d', range.area);
     document.querySelector('[data-signal-point]').setAttribute('cy', button.dataset.signalRange === '7d' ? '34' : '44');
   });
+});
+
+// Material controls only change the functional glass layer. Content remains opaque.
+const glassStage = document.querySelector('.demo-stage');
+document.querySelectorAll('[data-glass-scene]').forEach((button) => {
+  button.addEventListener('click', () => {
+    glassStage.dataset.scene = button.dataset.glassScene;
+    document.querySelectorAll('[data-glass-scene]').forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+  });
+});
+document.querySelector('[data-glass-tint]').addEventListener('input', (event) => {
+  const value = Number(event.target.value);
+  glassStage.style.setProperty('--glass-opacity', String(0.40 + value * 0.0055));
+  glassStage.style.setProperty('--glass-blur', `${16 + value * 0.24}px`);
 });

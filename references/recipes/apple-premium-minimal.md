@@ -1,96 +1,59 @@
-# 06 · apple-premium-minimal · Apple Premium Minimal
+# 06 · apple-premium-minimal · Liquid Glass / 液态玻璃
 
-## Identity
-- ID: `apple-premium-minimal`
-- Index: 06
-- One-liner: Quiet premium product pages: one object, extreme restraint.
-- Density: low | Surface: light
+## Identity and scope
+The stable ID remains `apple-premium-minimal`. Use for a flagship product, consumer app or creation tool where a clear focal experience and responsive controls matter. **Content supplies the color; Liquid Glass identifies the floating control layer.** Gray minimalism by itself is insufficient evidence.
 
-## Intent
-- Best for: Hardware, flagship consumer software
-- Avoid for: Dense feature dumps, admin marketing
-- Pair with (max 1 secondary): wabi-beige or modern-saas-clean
-- Never mix with: neo-brutalism, playful-startup
+This is a web interpretation of Apple's design, not an implementation of Apple's native material renderer. Do not claim native optical refraction from CSS blur alone.
 
-## Color Tokens
-| Token | Value | Usage |
-|---|---|---|
-| bg | `#F6F7F8` | page |
-| surface | `#FFFFFF` | rare panels |
-| border | `#E2E5E8` | hairline |
-| text | `#111315` | ink + CTA |
-| muted | `#7B8087` | secondary |
-- Rule: ≤3 color roles; grayscale carries hierarchy.
+## Verified primary references
+Checked 2026-09-25:
+- [Principles of great design — WWDC26](https://developer.apple.com/videos/play/wwdc2026/250/): purposeful choices, understandable navigation, control, craft and appropriate feedback.
+- [What's new in SwiftUI — WWDC26](https://developer.apple.com/videos/play/wwdc2026/269/), refreshed-look section: adjustable material tint, interactive response and toolbar priority across window sizes.
+- [Design guide — WWDC26](https://developer.apple.com/wwdc26/guides/design/).
+- [Meet Liquid Glass — WWDC25](https://developer.apple.com/videos/play/wwdc2025/219/): origin of the material. Keep its year distinct from the 2026 refinements.
 
-## Type & Scale
-- Stack: system-ui, -apple-system, "SF Pro Text", "Helvetica Neue", "PingFang SC", sans-serif
-- H1: clamp(2.5rem, 5.5vw, 4.5rem) / 600 / -0.03em / 1.05
-- H2: clamp(1.5rem, 3vw, 2.25rem) / 600 / -0.02em
-- Body: 1.0625rem / 400 / 1.55
-- Caption: 0.8125rem / 400 / 0.02em
-- CN note: 中文行高 +0.05~0.1；避免过窄字距
+Use the installed `apple-design` skill when available for physical interaction and accessibility. Its absence does not block the explicit floor below.
 
-## Spacing & Density
-- Base unit: 8px
-- Section Y: min(12vh, 120px)
-- Content max: 980px
-- Card padding: 24–32px if any
-- Density target: low
+## Frozen roles
+| Role | Default |
+|---|---|
+| Clean page | `#FAFBFD` |
+| Opaque content | `#FFFFFF` |
+| Ink / secondary ink | `#1D1D1F` / `#515154` |
+| Fine structure | `#DBDFE8` |
+| Action blue | `#0071E3` |
+| Content light | cool `#DBEAFE`, warm `#FFC59E` |
+| Functional glass | white alpha .40–.95; blur 16–40 px; subtle bright inner edge |
 
-## Grid
-- Often 1-col centered; huge air
-- Breakpoints: 760 / 1040
+Palette is not limited to grayscale. Controlled color belongs to artwork, media or a product demonstration stage. Never put an arbitrary full-page purple mesh behind every component.
 
-## Surface / Border / Radius / Shadow
-- Radius: 12–20px soft; never chunky brutal
-- Border: Prefer none; hairline separators only
-- Shadow: None or single soft ambient ≤0.08 opacity
-- Materials: Solid fills; no glass default
+## Composition
+1. Clear short headline and one supporting statement; ample breathing room.
+2. One coherent product experience over a colored content stage. The stage remains still until a relevant control changes it.
+3. A floating tool strip with separated controls, perceptible highlights, subdued shadow and backdrop blur. Use material for controls, not for paragraphs/tables/cards.
+4. Main reading surface is opaque. One glass layer maximum at each point; do not nest glass.
+5. Following sections use generous readable rows and one focal message, not equal bento tiles.
 
-## Image & Icon Language
-- Images: Single product/object, studio light, vertical air
-- Icons: Monochrome, sparse, rounded caps
-- Forbidden: Sticker packs, neon nets, equal bento walls
+Type: Chinese-capable platform system sans, desktop headline 46–76 px / 600–650 / 1.25–1.35; deck 22–26 px; body 16–18 px. Chinese tracking is 0. Latin display tracking may be size-specific. Controls stay at least 40–44 px in effective hit area.
 
-## Signature Composition (website — hit ≥1)
-1. Centered monobject hero + short claim + one CTA  
-2. Full-bleed quiet material shot + minimal caption  
-3. Large type with vast negative space
+## Operable material demo
+The shipped board provides three background choices and an actual **材质** range control. Background buttons change the stage and maintain `aria-pressed`; the range immediately adjusts only glass opacity/blur. Native range keyboard behavior must work. The product's input, action generation and copy controls remain functional.
 
-## Section Recipes (website)
-| Section | Composition | Must | Must not |
-|---|---|---|---|
-| Hero | signature monobject | nav, claim, 1 visual, 1 CTA | feature card grid |
-| Material | full-viewport product moment | breathing room | metrics clutter |
-| Proof | sparse logos/quote | restraint | 6 KPI cards |
-| CTA | single band | one action | multi-color buttons |
-
-## Mobile Deltas
-- Type: step down one level; keep hierarchy
-- Sections: min-height 100svh; stack; padding-block 72px
-- Keep H1 dominant; full-width CTA OK
+- Show press feedback immediately, commit on click/release, never disable input solely while animating.
+- Use current presentation values on interruption. For a draggable or swipable component, use velocity-aware springs with no arbitrary transition lock; a static tool strip need not invent a gesture.
+- Reduced motion: static changes or short fades, no movement or elastic bounce.
+- Reduced transparency: near-solid tool strip without blur.
+- Increased contrast: opaque background and clear dark boundary.
+- Unsupported backdrop-filter: opaque fallback.
 
 ## Anti-patterns
-- Equal bento walls  
-- Purple AI gradients  
-- Hard neo-brutal borders  
-- Fake luxury gold foil
+All-gray hero; glass every card; text directly on busy colored art; huge glow; decorative perpetual motion; glass slab stacked on glass; an inert selector that only changes labels; unsupported claims of real refraction; copy that exposes implementation details to product users.
 
-## Style Evidence (website — must be observable)
-1. ≤3 color roles + large negative space on first screen  
-2. One focal object/type hero, not card gallery  
-3. H1 ≫ body scale jump obvious  
-4. Each major section is ad-like full viewport  
-5. No mesh gradient / glass default
+## Acceptance
+1. Colored content makes the material's depth observable, while content text stays legible.
+2. Floating controls alter something meaningful, with mouse/touch/keyboard feedback.
+3. No overlapping translucent content sheets.
+4. Mobile retains the same main action and material controls without clipping.
+5. Reduced-motion, reduced-transparency, increased-contrast and blur-unavailable states remain usable.
 
-## Skin subset (artifact / user-layout)
-Use only: color tokens, type stack, radius, border, shadow, optional icon stroke.  
-Do not force signatures or 100svh section recipes.
-
-## CSS Token Sketch
-```css
-:root {
-  --bg: #F6F7F8; --surface: #FFFFFF; --text: #111315;
-  --muted: #7B8087; --border: #E2E5E8; --radius-md: 16px;
-}
-```
+Artifact / user-layout: preserve information structure. Add material only to actual floating navigation or controls that benefit from it; color and typography still convey the Apple-inspired character without compulsory glass.

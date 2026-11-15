@@ -4,13 +4,13 @@ description: "Curated Top 12 overseas web styles with executable recipes: browse
 license: MIT
 metadata:
   author: "@Sukiea1008"
-  version: "0.2.6"
+  version: "0.4.0"
   compatibility: Agent Skills compatible; works in Codex, Claude Code, and agents that can read SKILL.md/AGENTS.md style instructions.
 ---
 
 # SU Webstyle Top 12
 
-Stable catalog of 12 web styles for selection and implementation. This skill is a **decision + craft layer**: it freezes tokens, composition rules, and acceptance evidence so weak models do not invent “generic cards with a new palette.”
+Stable catalog of 12 web styles for selection and implementation. In v0.4.0, 02 is Editorial Magazine, 06 is Liquid Glass, and 07 is Dark Workspace; historical IDs remain valid. A named style must match both the live demo and its recipe. This skill is a **decision + craft layer**: it freezes tokens, composition rules, and acceptance evidence so weak models do not invent “generic cards with a new palette.”
 
 ## Floor, Not Ceiling
 
@@ -69,7 +69,8 @@ Exploration → Browse/Choose. Production → Auto/Apply. Named style → Apply.
 - After selecting a style in Apply, read **only** `references/recipes/{id}.md`. Do not load all 12.
 - Read [references/style-atlas.md](references/style-atlas.md) only for lightweight Browse copy if needed.
 - Read [references/output-patterns.md](references/output-patterns.md) for boards, viewport rules, promo rules.
-- Use [docs/index.html](docs/index.html) for the current interactive 12-style comparison board. It depends on the adjacent `app.js`, `style-catalog.js`, `styles.css`, and `themes.css`; keep the `docs/` directory intact when opening or copying it.
+- Use [docs/index.html](docs/index.html) for the current interactive 12-style comparison board. It depends on the adjacent `app.js`, `style-catalog.js`, `styles.css`, `themes.css`, `style-features.css`, `style-signatures.css` (per-style section layouts for 01 · 07 · 09 · 11 · 12) and `assets/` (including the self-hosted OFL display fonts in `assets/fonts/`); keep the `docs/` directory intact when opening or copying it.
+- For a useful product-device scene, read the installed sibling `su-design/references/devices.md` when available. Reuse its phone, iPad or MacBook frame with a real local screenshot or clearly illustrative HTML, then apply the selected recipe's visual identity. Copy the shared CSS and required assets into the deliverable. Keep screenshots undistorted and readable; do not add a device when it crowds the evidence. The shared library is optional and does not replace this catalog.
 
 ## Core Workflow
 
@@ -111,12 +112,12 @@ User-facing: keep contract folded unless debugging. Implementation must still ho
 | # | ID | Name |
 |---|---|---|
 | 01 | `modern-saas-clean` | Modern SaaS Clean |
-| 02 | `editorial-tech` | Editorial Tech |
+| 02 | `editorial-tech` | Editorial Magazine / 编辑杂志感 |
 | 03 | `linear-vercel-dark` | Linear / Vercel Dark |
 | 04 | `stripe-ish-business` | Stripe-ish Business |
 | 05 | `notion-figma-friendly` | Notion / Figma Friendly |
-| 06 | `apple-premium-minimal` | Apple Premium Minimal |
-| 07 | `swiss-international` | Restrained Swiss / 克制瑞士风 |
+| 06 | `apple-premium-minimal` | Liquid Glass / 液态玻璃 |
+| 07 | `swiss-international` | Dark Workspace / 深色工作台 |
 | 08 | `fingerprint-signal` | Fingerprint Signal / 橙信号控制台 |
 | 09 | `neo-brutalism` | Neo Brutalism |
 | 10 | `wabi-beige` | Wabi Beige / 侘寂米色 |
@@ -170,5 +171,5 @@ Pick a number/name, or ask me to decide.
 ## Chinese Audience Notes
 
 - Chinese-facing docs/explanations first; English UI copy OK for overseas tone mockups.
-- No font files bundled; use system stacks from recipes.
+- Recipes use Chinese-capable system stacks by default. The demo bundles OFL-licensed Noto Sans CJK SC Black and Archivo display fonts; see [font sources and licenses](docs/assets/fonts/README.md). The editorial serif uses the system fallback stack.
 - Chinese type: slightly higher line-height; avoid overly tight tracking on CJK.

@@ -5,12 +5,12 @@
 | # | ID | Name | Best for | Density | Surface |
 |---|---|---|---|---|---|
 | 01 | modern-saas-clean | Modern SaaS Clean | SaaS, AI tools, B2B | medium | light |
-| 02 | editorial-tech | Editorial Tech | Labs, research, premium services | medium | light |
+| 02 | editorial-tech | Editorial Magazine / 编辑杂志感 | Content brands, research, cultural features | medium | light |
 | 03 | linear-vercel-dark | Linear / Vercel Dark | API, infra, devtools | medium | dark |
 | 04 | stripe-ish-business | Stripe-ish Business | Fintech, platforms, commerce | medium | light |
 | 05 | notion-figma-friendly | Notion / Figma Friendly | Collab, creators, education | medium | light |
-| 06 | apple-premium-minimal | Apple Premium Minimal | Hardware, flagship product | low | light |
-| 07 | swiss-international | Restrained Swiss / 克制瑞士风 | Studio, culture, structured product | medium | light |
+| 06 | apple-premium-minimal | Liquid Glass / 液态玻璃 | Flagship products, creation tools, consumer apps | low | light |
+| 07 | swiss-international | Dark Workspace / 深色工作台 | AI tools, productivity, mature SaaS | medium | dark |
 | 08 | fingerprint-signal | Fingerprint Signal / 橙信号控制台 | AI/API analytics product pages | medium | light |
 | 09 | neo-brutalism | Neo Brutalism | Campaigns, youth, experimental | medium-high | light |
 | 10 | wabi-beige | Wabi Beige / 侘寂米色 | Lifestyle, hospitality, calm brand | low | light |
@@ -25,16 +25,17 @@
 | Developer / API / infra | 03 | 01, 11 | 10, 12 |
 | Fintech / marketplace / platform | 04 | 01, 08 | 09 |
 | Flagship product / hardware / quiet premium tech | 06 | 01, 10 | 09, 12 |
-| Premium consulting / fashion / art editorial | 02 | 10, 07 | 09, 11 |
+| Premium consulting / fashion / art editorial | 02 | 10, 06 | 09, 11 |
 | Calm lifestyle / hospitality / natural brand | 10 | 06, 02 | 09, 03 |
 | AI/API / analytics / security product | 08 | 01, 03, 11 | 09, 10 |
-| Multi-metric product showcase (console feel) | 08 | 01, 11 | 09, 12 |
+| Multi-metric product showcase (console feel) | 08 | 07, 01, 11 | 09, 12 |
 | Health / education / natural calm brand | 10 | 08, 01 | 09, 03 |
 | Enterprise trust / proposal / sober B2B | 11 | 01, 04 | 09, 12 |
 | Youth campaign / attitude brand | 09 | 12, 05 | 06, 10 |
 | Education / community / consumer fun | 12 | 05, 09 | 03, 11 |
-| Design studio / portfolio / culture | 07 | 02, 10 | 11 |
-| Research / thought leadership | 02 | 07, 10 | 09 |
+| Mature AI / productivity / dark product workspace | 07 | 01, 08 | 09, 12 |
+| Campaign / bold culture / creative manifesto | 09 | 02, 12 | 11 |
+| Research / thought leadership | 02 | 10, 01 | 09 |
 | Collab / notes / soft productivity | 05 | 01, 12 | 10 |
 
 ## Decision rules
@@ -45,8 +46,8 @@
 4. Information density beats atmosphere when they conflict.
 5. 08 = Fingerprint warm console + **one orange `#F4511E` signal** (not blue-gray bento, not green-yellow). 11 = corporate blue marketing. Admin shells → template `dashboard-ops` + often skin 08.
 6. 10 wabi = warm paper tokens only — not a locked reading-app IA.
-7. 07 克制瑞士风: modular **placement** grid + type mass; **never** graph-paper wallpaper. Signal auto: **blue** `#0B3DFF` for tech/AI product; **red** `#E30613` for culture/poster/precision tone (see recipe).
-7. Output only: style id, one-line fit, optional alternates. No scoring dump.
+7. 07 深色工作台：统一中性炭灰，外框退后，同级面板同色，以细线和轻微明度差区分层次；柔和橙色用于行动与选中，进度保持灰白，绿色只用于小型状态点。03 偏技术气氛与克制微光，07 偏成熟产品工作区，08 则是暖底橙信号。官网保留介绍、可操作产品演示、能力、工作方式与 CTA；侧栏和高密度只随 artifact / user-layout 的实际任务采用。
+8. Output only: style id, one-line fit, optional alternates. No scoring dump.
 
 ## Automatic mode steps
 

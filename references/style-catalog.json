@@ -1,6 +1,6 @@
 {
   "name": "SU Webstyle Top 12",
-  "version": "0.2.5",
+  "version": "0.4.0",
   "coreCount": 12,
   "styles": [
     {
@@ -30,54 +30,54 @@
       "palette": {
         "bg": "#FAFBFC",
         "surface": "#FFFFFF",
-        "border": "#E8EAED",
+        "border": "#E5E7EB",
         "text": "#111827",
-        "muted": "#6B7280",
+        "muted": "#5B6472",
         "accent": "#0F766E",
-        "accentSoft": "#F0FDFA"
+        "accentSoft": "#EEF8F6"
       },
       "recipe": "recipes/modern-saas-clean.md",
       "display": {
         "bestFor": "SaaS、AI 工具、B2B",
         "feel": "clean, soft, professional",
-        "description": "Neutral paper base; single teal accent on CTAs only."
+        "description": "中性纸白底，青绿只用于行动；带框的产品视图、便当式能力网格与深色结尾卡片。"
       }
     },
     {
       "index": 2,
       "id": "editorial-tech",
-      "name": "Editorial Tech",
-      "zh": "编辑型科技风",
+      "name": "Editorial Magazine",
+      "zh": "编辑杂志感",
       "role": "marketing",
       "density": "medium",
       "surface": "light",
       "intent": [
-        "magazine",
-        "research",
-        "thought leadership"
+        "editorial photography",
+        "Chinese serif typography",
+        "considered reading"
       ],
       "useWhen": [
-        "AI labs",
-        "research orgs",
-        "premium essays"
+        "内容品牌",
+        "研究观察",
+        "文化专题"
       ],
       "avoidWhen": [
         "weak copy",
         "dense admin tables as hero"
       ],
       "palette": {
-        "bg": "#F3EFE7",
+        "bg": "#FAF9F6",
         "surface": "#FFFFFF",
-        "border": "#E5DFD4",
-        "text": "#171717",
-        "muted": "#8A8A8A",
-        "accent": "#A76446"
+        "text": "#181818",
+        "muted": "#555555",
+        "border": "#CFCBC4",
+        "accent": "#A44230"
       },
       "recipe": "recipes/editorial-tech.md",
       "display": {
-        "bestFor": "实验室、研究、高端服务",
-        "feel": "intelligent, magazine-like",
-        "description": "Large type contrast, strict grid, editorial imagery."
+        "bestFor": "内容品牌 · 研究观察 · 文化专题",
+        "feel": "编辑杂志感",
+        "description": "黑白摄影与宋体大字，清晰的刊头、图注和阅读网格。"
       }
     },
     {
@@ -194,75 +194,84 @@
     {
       "index": 6,
       "id": "apple-premium-minimal",
-      "name": "Apple Premium Minimal",
-      "zh": "Apple 式极简高级风",
+      "name": "Liquid Glass",
+      "zh": "液态玻璃",
       "role": "marketing",
       "density": "low",
       "surface": "light",
       "intent": [
-        "flagship",
-        "premium product",
-        "restraint"
+        "content first",
+        "physical feedback",
+        "liquid glass controls"
       ],
       "useWhen": [
-        "hardware",
-        "flagship apps",
-        "one hero object"
+        "旗舰产品",
+        "创作工具",
+        "消费软件"
       ],
       "avoidWhen": [
-        "dense feature lists",
-        "admin dashboards as marketing"
+        "glass on all content",
+        "grayscale-only product framing",
+        "dense table hero"
       ],
       "palette": {
-        "bg": "#F6F7F8",
+        "bg": "#FAFBFD",
         "surface": "#FFFFFF",
-        "border": "#E2E5E8",
-        "text": "#111315",
-        "muted": "#7B8087",
-        "accent": "#111315"
+        "text": "#1D1D1F",
+        "muted": "#515154",
+        "border": "#DBDFE8",
+        "accent": "#0071E3",
+        "cool": "#DBEAFE",
+        "warm": "#FFC59E"
       },
       "recipe": "recipes/apple-premium-minimal.md",
       "display": {
-        "bestFor": "硬件、旗舰产品",
-        "feel": "premium, quiet, precise",
-        "description": "Huge whitespace, one hero object, few colors."
+        "bestFor": "旗舰产品 · 创作工具 · 消费软件",
+        "feel": "液态玻璃",
+        "description": "彩色内容舞台、清晰实底信息、浮动玻璃控件与即时反馈。"
       }
     },
     {
       "index": 7,
       "id": "swiss-international",
-      "name": "Restrained Swiss",
-      "zh": "克制瑞士风",
+      "name": "Dark Workspace",
+      "zh": "深色工作台",
       "role": "marketing",
       "density": "medium",
-      "surface": "light",
+      "surface": "dark",
       "intent": [
-        "grid",
-        "rational",
-        "design-literate"
+        "mature product workspace",
+        "monochrome dark hierarchy",
+        "functional color"
       ],
       "useWhen": [
-        "studios",
-        "architecture",
-        "culture portfolios"
+        "AI 工具与效率产品",
+        "客服与协作软件",
+        "成熟 SaaS 产品展示"
       ],
       "avoidWhen": [
-        "cute consumer playfulness only"
+        "loud campaigns",
+        "neon cyberpunk",
+        "decorative glass and gradients"
       ],
       "palette": {
-        "bg": "#F3F1E9",
-        "surface": "#FFFFFF",
-        "text": "#0A0A0A",
-        "muted": "#5C5C5C",
-        "signalBlue": "#0B3DFF",
-        "signalRed": "#E30613",
-        "flash": "#FFE600"
+        "bg": "#0E0E0E",
+        "surface": "#1C1C1C",
+        "panel": "#232323",
+        "input": "#1C1C1C",
+        "border": "#333333",
+        "text": "#E7E7E7",
+        "muted": "#A3A3A3",
+        "accent": "#ED8A4C",
+        "accentInk": "#111111",
+        "progress": "#B8B8B8",
+        "statusGreen": "#78A88B"
       },
       "recipe": "recipes/swiss-international.md",
       "display": {
-        "bestFor": "工作室、建筑、文化、结构型产品页",
-        "feel": "restrained swiss, modular, type mass",
-        "description": "Paper field, type mass, modular placement; signal blue or red auto-route. No graph-paper cage."
+        "bestFor": "AI 工具 · 效率产品 · 成熟 SaaS",
+        "feel": "深色工作台",
+        "description": "统一中性炭灰，以细线和轻微明度差组织工作区；柔和橙色聚焦主要操作，灰白呈现进度，绿色仅用于小型状态点。"
       }
     },
     {
@@ -340,7 +349,7 @@
       "display": {
         "bestFor": "活动、年轻品牌、实验",
         "feel": "bold, loud",
-        "description": "Thick borders, hard shadows, high chroma, heavy type."
+        "description": "黄底、3px 黑框、硬投影、超粗字与高饱和色块；色块上的文字一律用黑色。"
       }
     },
     {
@@ -410,17 +419,17 @@
         "surface": "#FFFFFF",
         "border": "#E2E8F0",
         "text": "#1A1A1A",
-        "muted": "#64748B",
+        "muted": "#475569",
+        "navy": "#14213D",
         "accent": "#1E40AF",
         "accent2": "#3066BE",
-        "soft": "#B4C5E4",
-        "navy": "#14213D"
+        "soft": "#B4C5E4"
       },
       "recipe": "recipes/corporate-blue.md",
       "display": {
         "bestFor": "B2B 提案、企业可信营销",
         "feel": "rational, trustworthy",
-        "description": "Steady blue system, geometric sans, data-friendly marketing."
+        "description": "藏青首屏、沉稳蓝与浅蓝卡片，严格网格对齐；用指标、图表和提案式结尾建立信任。"
       }
     },
     {
@@ -458,7 +467,7 @@
       "display": {
         "bestFor": "教育、社区、消费产品",
         "feel": "bright, warm, expressive",
-        "description": "Lively colors, simple shapes, approachable headlines."
+        "description": "暖奶油底，珊瑚、薄荷、琥珀三色；大圆角、胶囊按钮和少量有秩序的形状衬底。"
       }
     }
   ]

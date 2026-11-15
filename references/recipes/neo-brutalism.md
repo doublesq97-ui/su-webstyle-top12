@@ -94,3 +94,11 @@ Do not force signatures or 100svh section recipes.
   --accent2: #00D084; --border-w: 3px; --shadow: 6px 6px 0 #111;
 }
 ```
+
+## Demo signature (2026-09 revision)
+- Header, sections and product use 3 px black outlines; every action has a 6 px hard shadow that collapses on press.
+- Hero: black eyebrow tag, giant uppercase Archivo Black title, the Chinese promise on a tilted orange slab, dotted yellow field.
+- A black ticker band lists what Looma extracts (决定 · 负责人 · 截止日期 · 风险 · 原文依据); it stops under reduced motion.
+- Capabilities: white / green / orange slabs with square numeral stamps, slight rotation (≤1°) on desktop only.
+- Workflow: three outlined slabs with coloured number headers joined by heavy arrows.
+- Closing: full orange field with black display type. All text on colour stays black; never orange on green or similar.

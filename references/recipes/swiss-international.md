@@ -1,134 +1,68 @@
-# 07 · swiss-international · Restrained Swiss / 克制瑞士风
+# 07 · swiss-international · Dark Workspace / 深色工作台
 
 ## Identity
-- ID: `swiss-international`
-- Index: 07
-- One-liner: 克制瑞士风 — type mass, modular placement, ink rules, one signal color (restrained ITS).
-- Density: medium | Surface: light
-- Canonical demo (human-calibrated):  
-  `Documents/skill-design/swiss-ab-compare/free-swiss.html` (blue) · `free-swiss-red.html` (red)
 
-## Intent
-- Best for: Studios, architecture, culture, design-literate product pages, structured AI tools
-- Avoid for: Soft SaaS candy, playful blobs, graph-paper wallpaper “grids”
-- Pair with: editorial-tech
-- Never mix with: playful-startup primary
+- Public identity: **Dark Workspace / 深色工作台**. Keep the stable ID `swiss-international` so saved links still work; this replaces the previous 07 direction within the existing 12 styles.
+- A mature product interface: a near-black outer shell holds a large, rounded charcoal workspace. Repeated alignment, subtle borders and distinguishable dark surfaces carry the information hierarchy.
+- Best for AI tools, productivity products, customer-support software and established SaaS. The references inform material, hierarchy and interaction clarity; their product names, copy and navigation structure are not templates to reproduce.
+- 03 is developer-oriented dark design with restrained technical light; 07 uses opaque monochrome work surfaces and functional color; 08 uses a warm light field and one orange signal.
 
-## Signal color: blue vs red (auto-route)
+## Frozen roles
 
-Same structure. Only **signal** changes.
+| Role | Value | Use |
+|---|---|---|
+| Canvas | `#0E0E0E` | Quiet near-black surroundings |
+| Workspace | `#1C1C1C` | Recessive frame, darker than the panels |
+| Panel | `#232323` | One shared neutral charcoal for all peer panels |
+| Input / rail | `#1C1C1C` | Slightly recessed controls, same neutral hue |
+| Border | `#333333` | Fine panel edges and separators |
+| Text | `#E7E7E7` | Titles and body text |
+| Muted | `#A3A3A3` | Secondary readable text |
+| Action orange | `#ED8A4C` | Primary action and selected controls |
+| Action ink | `#111111` | Text on solid orange actions |
+| Progress | `#B8B8B8` | Neutral progress and data indicators |
+| Status green | `#78A88B` | Small explicit success dots only |
 
-| Variant | Signal hex | Secondary flash | Auto when |
-|---|---|---|---|
-| **blue** (default) | `#0B3DFF` | `#FFE600` yellow square | tech / product / AI / digital / cool rational / default 07 |
-| **red** | `#E30613` | `#FFE600` or black hairline | culture / poster / campaign-in-restraint / architecture / “precision / strength” tone / user says 红 / Swiss red |
+No neon outlines, translucent glass, glow-filled cards or large decorative gradients. Keep all large surfaces on the same neutral gray axis. Peer panels share one fill; the frame recedes instead of becoming a bright gray surround. Use narrow lightness steps and fine separators, not differently tinted slabs. Reference palettes are alternatives to compose from, not a checklist to combine. Border color establishes grouping; it does not replace sufficient contrast on controls, focus states or text. Use text/icons as well as color to identify selection and status.
 
-Routing:
-1. User names 红/red/poster red → **red**
-2. Culture, gallery, architecture manifesto, bold thesis pages → prefer **red**
-3. Product, SaaS, AI tool, console-adjacent marketing → **blue**
-4. Unclear → **blue**
-5. Never use both blue and red as large fills on one page; one signal only
+## Type and surface scale
 
-CSS: `--signal` is the only high-chroma brand mark (logo accent, Fig label, module dots, final Begin button). Primary “Start” in hero may stay **black**.
+- Chinese-first system stack: `"PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif`.
+- Marketing title: 44–52 px on desktop, with semantic line breaks rather than oversized editorial cropping. Body: 16 px / 1.85 for Chinese.
+- Workspace title: 24 px. Interface body: 14–16 px; compact labels: 12–13 px. Keep small labels secondary and short; avoid dense paragraphs in microtype.
+- Use restrained 500–600 weights to establish hierarchy. Preserve normal CJK tracking rather than applying uppercase-label letter spacing to Chinese text.
+- Main workspace radius: 20 px; nested panels: 10–12 px. Fine 1 px edges, consistent gaps and local separators replace hard black rules or conspicuous shadows.
 
-## Color Tokens
-| Token | Blue | Red | Usage |
-|---|---|---|---|
-| paper / bg | `#F3F1E9` | same | warm print paper (not cool gray) |
-| ink / text | `#0A0A0A` | same | structure |
-| quiet / muted | `#5C5C5C` | same | body secondary |
-| surface | `#FFFFFF` | same | figure boards |
-| signal | `#0B3DFF` | `#E30613` | logo accent, Fig em, module dots, **one** text CTA |
-| flash | `#FFE600` | `#FFE600` | tiny square only |
-| line | `#0A0A0A` | same | 1px structural rules |
+## Composition by deliverable
 
-## Type
-- Stack: Helvetica Neue, Helvetica, Arial, PingFang SC, Noto Sans SC  
-- **Mass display**: clamp(4rem, 11vw, 7.5rem) / 800 / -0.06em / 0.86 / uppercase for brand wordmark  
-- Claim: clamp(1.6rem, 3.2vw, 2.35rem) / 700  
-- Meta: 11px / 700 / tracking 0.14em / uppercase  
-- Body quiet: 13–14px / muted  
+### Website: Looma AI demonstration
 
-## Layout grammar (from calibrated B — reverse-written)
+Keep the existing Looma AI product and interactive demonstration. Apply the new direction throughout its full website rather than replacing it with an unrelated reporting dashboard.
 
-### Modular placement (not decorative mesh)
-- Use a **12-column CSS grid for placing content** (columns are for coordinates).  
-- **Forbidden:** full-page `linear-gradient` column wallpaper / graph paper through hero or product.  
-- Structural ink: section bottom borders, board frames, strip dividers — few and decisive.
+1. **Introduction:** a complete opening viewport with navigation, product statement, supporting copy and a clear route to try the product. Dark surfaces frame the introduction; the primary in-product operation uses orange.
+2. **Operable workspace:** a coherent charcoal workspace inside the near-black shell. Inputs, controls, selection and results remain legible and functional. Keep progress neutral. Orange is the one primary accent; a muted green may appear only as a small explicit success dot.
+3. **Capabilities:** explain the existing product abilities with aligned content, fine boundaries and consistent type hierarchy.
+4. **Working method:** preserve the product's steps and their order; use quiet monochrome numbering and clear group spacing.
+5. **Closing CTA:** one decisive next action, then the existing footer.
 
-### Hero composition
-1. Kicker with two tiny squares (signal + yellow flash) + short uppercase label  
-2. **Type mass left** (brand wordmark huge, multi-line OK) spanning ~8/12  
-3. **Side rail right** (~4/12): index label + short body + **black** Start button  
-4. Claim row under a full horizontal rule: large claim left / quiet body right  
-5. **Figure plate:** `Fig. 01` label in first columns + white board (source | tasks | black signal panel)
+Do not copy the reference products' navigation, chart inventory or multi-rail information architecture into this website. The page still demonstrates Looma AI.
 
-### Modules strip
-- Head: `02 — System` + large section title  
-- Three equal cells, vertical ink dividers, big numbers `01/02/03` + signal color square on numbers  
-- No soft card shadows, no rounded corners  
+### Artifact / user-layout
 
-### Closing
-- Huge uppercase line left  
-- Right box with hairline left border + quiet text + **one signal-colored Begin** (only large chroma CTA)
+Keep the task's information architecture. If the task is a dashboard, a compact rail, filters, primary metric, charts and table can use this skin. Use one coherent workspace and choose density from actual content. A sidebar is appropriate when navigation needs it, not a mandatory style ornament. Do not add a marketing hero to a working tool.
 
-### No-hero variant
-- Skip type-mass hero; open with figure board + modules  
-- Same tokens, black primary actions, signal for accents only  
+## Responsive and interaction
 
-## Surface rules
-- Radius: **0**  
-- Shadow: **none**  
-- Product board: 1px ink border, white ground, internal 1px splits  
-- Highlight column: ink fill + paper text (for KPI/signal count)
+- At 1440×900 and 1280×800, the opening viewport contains its full primary message and action without clipping. Shrink spacing before reducing readable text.
+- Below 760 px, stack major content in reading order; let the workspace grow vertically. Convert an existing sidebar to compact navigation only when the deliverable uses one.
+- Inputs, tabs, action buttons and filters keep their real behavior. A selected control must remain identifiable without color alone.
+- Use a clear, contrast-checked focus indicator on dark surfaces. Respect reduced motion and keep content visible when motion is disabled.
 
-## Anti-patterns (Codex failure modes)
-1. Graph-paper 12-column mesh over the whole page  
-2. Soft SaaS centered hero with rounded product chrome  
-3. Blue or red **large soft button** as every CTA (hero Start stays black)  
-4. Yellow/red/blue washes as section backgrounds  
-5. Equal soft shadow cards without ink frames  
-6. Both blue and red as primary signals  
+## Acceptance
 
-## Style Evidence
-1. Paper field clean — no mesh cage  
-2. Extreme type scale on brand or section titles  
-3. Asymmetric 12-col placement (type mass + side rail or claim split)  
-4. Product as **Fig. plate**, not floating glass card  
-5. One signal color (blue **or** red) + black structure  
-6. Module strip with ink dividers and large numbers  
-
-## Implementation hard rules
-1. No full-viewport grid wallpaper.  
-2. `--signal` = blue or red per auto-route; document which.  
-3. Hero primary button = black; signal color for logo accent, Fig label, module dots, final Begin.  
-4. H1 brand mass must dominate the first screen.  
-5. Figure board: three columns with ink rules; third column may invert to ink.  
-6. Radius 0, shadow none everywhere primary.  
-
-## Skin subset
-```
-bg #F3F1E9 · surface #FFF · ink #0A0A0A · quiet #5C5C5C
-signal blue #0B3DFF | red #E30613
-flash #FFE600 · radius 0 · shadow none
-```
-
-## CSS Token Sketch
-```css
-:root {
-  --bg: #F3F1E9;
-  --surface: #FFFFFF;
-  --text: #0A0A0A;
-  --muted: #5C5C5C;
-  --signal: #0B3DFF; /* or #E30613 */
-  --flash: #FFE600;
-  --radius-md: 0;
-  --shadow: none;
-}
-```
-
-## Reference demos (keep)
-- Blue: `skill-design/swiss-ab-compare/free-swiss.html`  
-- Red: `skill-design/swiss-ab-compare/free-swiss-red.html`  
-Do not regress toward graph-paper wallpaper implementations.
+1. `?style=swiss-international` selects **Dark Workspace / 深色工作台**, with the catalog still containing exactly 12 styles.
+2. The frame is recessive and peer panels share one neutral charcoal. Input and summary surfaces differ only slightly in lightness; no patchwork of warm and cool grays.
+3. Soft orange is limited to actions and selected states. Progress stays neutral, with muted green reserved for small status dots. There is no obligatory blue accent, neon, glass or large decorative gradient.
+4. The Looma AI website retains its introduction, operable demo, capabilities, method and closing CTA. All existing demo actions still produce their intended feedback.
+5. Desktop and mobile have no clipped Chinese text, unreadable small copy, horizontal overflow or overlapping controls. Verify both text contrast and visible keyboard focus.
+6. Recipe, catalog and live demo share the same public name, palette roles and visual hierarchy.

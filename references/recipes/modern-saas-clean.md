@@ -97,3 +97,10 @@ Do not force signatures or 100svh section recipes.
   --radius-md: 12px; --shadow: 0 12px 32px rgba(17,24,39,.06);
 }
 ```
+
+## Demo signature (2026-09 revision)
+- Hero: centred two-line value statement (the Chinese promise is the H1, product name moves to the deck), announcement-style pill, faint grid masked to the top and a very light teal glow behind the product.
+- Product: shown inside a 10 px translucent frame with its own border (the "framed screenshot" look), inner radius 14 px.
+- Capabilities: bento grid — one tall card with a real evidence quote (sentence → task), two stacked cards on the right. Hairline borders, no drop shadows on cards.
+- Workflow: three bordered cards in a row with monospaced step chips and small chevrons between them.
+- Closing: a contained near-black card with a brighter teal action. Teal stays reserved for actions and small status.

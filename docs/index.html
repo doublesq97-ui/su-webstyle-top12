@@ -4,10 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Looma AI 把会议、访谈和散乱笔记整理成清晰的决策与下一步。">
+  <meta name="su-webstyle-version" content="0.4.0">
   <meta name="theme-color" content="#FAFBFC" data-theme-color>
   <title>Looma AI｜12 风格企业体验台</title>
-  <link rel="stylesheet" href="styles.css?v=20260729-07b">
-  <link rel="stylesheet" href="themes.css?v=20260729-07b">
+  <link rel="stylesheet" href="styles.css?v=0.4.0">
+  <link rel="stylesheet" href="themes.css?v=0.4.0">
+  <link rel="stylesheet" href="style-features.css?v=0.4.0">
+  <link rel="stylesheet" href="style-signatures.css?v=0.4.0">
 </head>
 <body data-style="modern-saas-clean" data-layout="calm-centered-product">
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -62,6 +65,25 @@
           </div>
         </div>
 
+        <dl class="trust-metrics" aria-label="Looma 的三项工作方式">
+          <div><dt>100%</dt><dd>结论都附原文依据，可以回查</dd></div>
+          <div><dt>3 类</dt><dd>决定、待办与风险自动分开</dd></div>
+          <div><dt>1 页</dt><dd>整理成可直接分发的行动页</dd></div>
+        </dl>
+
+        <figure class="editorial-visual" aria-label="纸张雕塑编辑摄影">
+          <div class="editorial-photo"><img src="assets/editorial-paper.png" alt="纸张在光影中形成清晰的雕塑结构" width="1536" height="1024"></div>
+          <figcaption><span>FIG. 01 — IDEAS INTO FORM</span><span>从散落的想法，到清楚的结构</span></figcaption>
+        </figure>
+        <div class="demo-stage">
+          <div class="glass-toolbar" aria-label="外观设置">
+            <div class="glass-scenes" role="group" aria-label="内容背景">
+              <button type="button" data-glass-scene="dawn" aria-pressed="true">晨光</button>
+              <button type="button" data-glass-scene="ocean" aria-pressed="false">海蓝</button>
+              <button type="button" data-glass-scene="dusk" aria-pressed="false">暮色</button>
+            </div>
+            <label class="glass-material">材质 <input aria-label="玻璃材质厚度" type="range" min="0" max="100" value="45" data-glass-tint></label>
+          </div>
         <div class="product-shell" id="demo" data-product-shell aria-label="Looma AI 交互演示">
           <div class="product-topbar">
             <div class="window-dots" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -174,6 +196,8 @@
           </div>
         </div>
 
+        </div>
+
         <div class="active-style-caption" aria-label="当前页面风格">
           <span data-active-style-number>01</span>
           <strong data-active-style-name>Modern SaaS Clean</strong>
@@ -182,6 +206,8 @@
         <div class="scroll-cue" aria-hidden="true"><span></span></div>
       </div>
     </section>
+
+    <div class="style-ticker" aria-hidden="true"><div class="style-ticker-track"><span>决定</span><span>负责人</span><span>截止日期</span><span>风险</span><span>原文依据</span><span>决定</span><span>负责人</span><span>截止日期</span><span>风险</span><span>原文依据</span></div></div>
 
     <section class="page-section capabilities" id="capabilities" aria-labelledby="capabilities-title">
       <div class="section-inner">
@@ -196,6 +222,10 @@
             <span class="feature-number">01</span>
             <h3>保留依据</h3>
             <p>每个结论都能回到原始句子，减少“AI 是怎么得出这个结论的”猜测。</p>
+            <figure class="evidence-quote" aria-label="原文依据示例">
+              <blockquote>“本周五前确认新版定价页。小林负责最终文案。”</blockquote>
+              <figcaption><span>原文 · 第 2 句</span><strong>→ 完成最终文案 · 小林 · 周五</strong></figcaption>
+            </figure>
             <div class="mini-evidence"><span></span><span></span><span></span></div>
           </article>
           <article class="feature-card feature-card-live">
@@ -274,7 +304,7 @@
 
   <div class="toast" role="status" aria-live="polite" data-toast></div>
   <div class="visually-hidden" aria-live="polite" data-style-announcer></div>
-  <script src="style-catalog.js?v=20260729-07b"></script>
-  <script src="app.js?v=20260729-07b"></script>
+  <script src="style-catalog.js?v=0.4.0"></script>
+  <script src="app.js?v=0.4.0"></script>
 </body>
 </html>

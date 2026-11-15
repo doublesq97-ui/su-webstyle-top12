@@ -241,60 +241,6 @@ body[data-style="wabi-beige"] .button-primary {
   box-shadow: 0 10px 24px rgba(74, 62, 48, 0.12);
 }
 
-/* 07 瑞士：直角、无软阴影、黑按钮、标题放大；蓝仅小方点缀 */
-body[data-style="swiss-international"] h1 {
-  font-size: clamp(3.2rem, 8vw, 5.5rem);
-  font-weight: 800;
-  letter-spacing: 0;
-  line-height: 0.92;
-}
-body[data-style="swiss-international"] .hero-claim {
-  font-size: clamp(1.35rem, 2.8vw, 1.85rem);
-  font-weight: 700;
-  letter-spacing: 0;
-}
-body[data-style="swiss-international"] .section-index,
-body[data-style="swiss-international"] .panel-label,
-body[data-style="swiss-international"] .eyebrow span {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0;
-  text-transform: uppercase;
-}
-body[data-style="swiss-international"] .product-shell,
-body[data-style="swiss-international"] .feature-card,
-body[data-style="swiss-international"] .workflow-step,
-body[data-style="swiss-international"] .button {
-  border-radius: 0;
-  box-shadow: none;
-}
-body[data-style="swiss-international"] .product-shell,
-body[data-style="swiss-international"] .feature-card {
-  border: 1.5px solid var(--text);
-}
-body[data-style="swiss-international"] .button-primary {
-  background: var(--text);
-  border-color: var(--text);
-  color: var(--bg);
-  box-shadow: none;
-}
-body[data-style="swiss-international"] .button-primary:hover {
-  background: var(--text);
-  box-shadow: none;
-}
-body[data-style="swiss-international"] .hero-inner {
-  border-bottom: 1.5px solid var(--text);
-}
-body[data-style="swiss-international"] .section-heading h2::before {
-  content: "";
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  background: var(--signal);
-  margin-right: 10px;
-  vertical-align: middle;
-}
-
 /* 08 橙信号：暖画布 + 白壳 + 橙 CTA */
 body[data-style="fingerprint-signal"] .product-shell {
   background: #ffffff;
@@ -1306,6 +1252,7 @@ h1 {
 body.style-index-open .style-index {
   transform: translateX(0);
   visibility: visible;
+  transition-property: transform;
   transition-delay: 0s;
 }
 
@@ -1734,16 +1681,12 @@ body.style-index-open .style-scrim {
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
   }
 
   [data-reveal] {
     opacity: 1;
-  }
-
-  .style-index,
-  .style-scrim {
-    transition-duration: 0.01ms;
   }
 
   ::view-transition-old(root),

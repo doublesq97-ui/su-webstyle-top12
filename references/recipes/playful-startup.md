@@ -94,3 +94,10 @@ Do not force signatures or 100svh section recipes.
   --radius-md: 18px;
 }
 ```
+
+## Demo signature (2026-09 revision)
+- Hero: two columns. Left: friendly two-line H1 with an amber highlighter stroke, pill actions (coral primary with a pressed shadow). Right: the product card sits on one mint organic shape with one amber circle — a deliberate backdrop, not scattered confetti. The black-framed yellow rectangle of the earlier version is removed.
+- Capabilities: tinted amber / mint / coral cards with solid round number badges.
+- Workflow: numbered circles on a dashed line, rounded cards beneath.
+- Closing: large coral rounded panel with ink text and two background circles.
+- Small accent text uses `#C8413F` (coral text) for contrast; bright coral is for shapes and buttons with ink text.
